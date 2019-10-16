@@ -1,0 +1,35 @@
+T1888 003:483 SEGGER J-Link V5.10q Log File (0002ms, 0714ms total)
+T1888 003:483 DLL Compiled: Mar  4 2016 16:03:41 (0002ms, 0714ms total)
+T1888 003:483 Logging started @ 2019-10-15 22:35 (0002ms, 0714ms total)
+T1888 003:485 JLINK_SetWarnOutHandler(...) (0000ms, 0714ms total)
+T1888 003:485 JLINK_OpenEx(...)
+Firmware: J-Link V9 compiled Mar 29 2018 17:46:13
+Hardware: V9.40
+S/N: 59409561
+Feature(s): RDI, GDB, FlashDL, FlashBP, JFlash  returns O.K. (0307ms, 1021ms total)
+T1888 003:792 JLINK_SetErrorOutHandler(...) (0000ms, 1021ms total)
+T1888 003:792 JLINK_ExecCommand("ProjectFile = "C:\Users\WHUTWZH\Desktop\三轴云台 源代码 原理图 软件\SimpleBGC32- 源码\source\USER\JLinkSettings.ini"", ...)  returns 0x00 (0001ms, 1022ms total)
+T1888 003:794 JLINK_ExecCommand("Device = STM32F103VE", ...)Device "STM32F103VE" selected.  returns 0x00 (0000ms, 1022ms total)
+T1888 003:794 JLINK_ExecCommand("DisableConnectionTimeout", ...)  returns 0x01 (0000ms, 1022ms total)
+T1888 003:794 JLINK_GetHardwareVersion()  returns 0x16F30 (0000ms, 1022ms total)
+T1888 003:794 JLINK_GetDLLVersion()  returns 51017 (0000ms, 1022ms total)
+T1888 003:794 JLINK_GetFirmwareString(...) (0000ms, 1022ms total)
+T1888 003:794 JLINK_GetDLLVersion()  returns 51017 (0000ms, 1022ms total)
+T1888 003:794 JLINK_GetCompileDateTime() (0001ms, 1023ms total)
+T1888 003:795 JLINK_GetFirmwareString(...) (0000ms, 1023ms total)
+T1888 003:795 JLINK_GetHardwareVersion()  returns 0x16F30 (0000ms, 1023ms total)
+T1888 003:795 JLINK_TIF_Select(JLINKARM_TIF_SWD)  returns 0x00 (0002ms, 1025ms total)
+T1888 003:797 JLINK_SetSpeed(10000) (0000ms, 1025ms total)
+T1888 003:798 JLINK_SetResetType(JLINKARM_RESET_TYPE_NORMAL)  returns JLINKARM_RESET_TYPE_NORMAL (0000ms, 1025ms total)
+T1888 003:798 JLINK_Reset() >0x108 TIF>Found SWD-DP with ID 0x1BA01477 >0x0D TIF> >0x28 TIF> >0x0D TIF> >0x28 TIF> >0x0D TIF> >0x28 TIF> >0x0D TIF> >0x28 TIF> >0x0D TIF> >0x21 TIF> >0x0D TIF> >0x28 TIF> >0x0D TIF> >0x28 TIF> >0x0D TIF> >0x28 TIF> >0x0D TIF> >0x21 TIF> >0x0D TIF> >0x21 TIF> >0x0D TIF> >0x28 TIF> >0x0D TIF> >0x21 TIF> >0x0D TIF> >0x21 TIF> >0x0D TIF> >0x28 TIF> >0x0D TIF> >0x21 TIF> >0x0D TIF> >0x21 TIF> >0x0D TIF> >0x28 TIF> >0x0D TIF> >0x21 TIF> >0x0D TIF> >0x21 TIF> >0x0D TIF>
+ >0x28 TIF> >0x0D TIF> >0x21 TIF> >0x0D TIF> >0x21 TIF> >0x0D TIF> >0x28 TIF> >0x0D TIF> >0x21 TIF> >0x0D TIF> >0x21 TIF> >0x108 TIF>Found SWD-DP with ID 0x1BA01477 >0x0D TIF> >0x28 TIF> >0x0D TIF> >0x28 TIF> >0x0D TIF> >0x28 TIF> >0x0D TIF> >0x28 TIF> >0x0D TIF> >0x21 TIF> >0x0D TIF> >0x28 TIF> >0x0D TIF> >0x28 TIF> >0x0D TIF> >0x21 TIF> >0x0D TIF> >0x21 TIF> >0x0D TIF> >0x21 TIF> >0x0D TIF> >0x28 TIF> >0x0D TIF> >0x28 TIF> >0x0D TIF> >0x28 TIF> >0x0D TIF> >0x21 TIF> >0x0D TIF> >0x21 TIF> >0x0D TIF>
+ >0x28 TIF> >0x0D TIF> >0x21 TIF> >0x0D TIF> >0x21 TIF>Found Cortex-M3 r1p1, Little endian. -- CPU_ReadMem(4 bytes @ 0xE000EDF0) -- CPU_ReadMem(4 bytes @ 0xE0002000)FPUnit: 6 code (BP) slots and 2 literal slots -- CPU_ReadMem(4 bytes @ 0xE000EDFC) -- CPU_ReadMem(4 bytes @ 0xE0001000) -- CPU_WriteMem(4 bytes @ 0xE0001000) -- CPU_ReadMem(4 bytes @ 0xE000ED88) -- CPU_WriteMem(4 bytes @ 0xE000ED88) -- CPU_ReadMem(4 bytes @ 0xE000ED88) -- CPU_WriteMem(4 bytes @ 0xE000ED88)CoreSight components:
+ROMTbl 0 @ E00FF000 -- CPU_ReadMem(16 bytes @ 0xE00FF000) -- CPU_ReadMem(16 bytes @ 0xE000EFF0) -- CPU_ReadMem(16 bytes @ 0xE000EFE0)ROMTbl 0 [0]: FFF0F000, CID: B105E00D, PID: 001BB000 SCS -- CPU_ReadMem(16 bytes @ 0xE0001FF0) -- CPU_ReadMem(16 bytes @ 0xE0001FE0)ROMTbl 0 [1]: FFF02000, CID: B105E00D, PID: 001BB002 DWT -- CPU_ReadMem(16 bytes @ 0xE0002FF0) -- CPU_ReadMem(16 bytes @ 0xE0002FE0)ROMTbl 0 [2]: FFF03000, CID: B105E00D, PID: 000BB003 FPB -- CPU_ReadMem(16 bytes @ 0xE0000FF0)
+ -- CPU_ReadMem(16 bytes @ 0xE0000FE0)ROMTbl 0 [3]: FFF01000, CID: B105E00D, PID: 001BB001 ITM -- CPU_ReadMem(16 bytes @ 0xE00FF010) -- CPU_ReadMem(16 bytes @ 0xE0040FF0) -- CPU_ReadMem(16 bytes @ 0xE0040FE0)ROMTbl 0 [4]: FFF41000, CID: B105900D, PID: 001BB923 TPIU-Lite -- CPU_ReadMem(16 bytes @ 0xE0041FF0) -- CPU_ReadMem(16 bytes @ 0xE0041FE0)ROMTbl 0 [5]: FFF42000, CID: B105900D, PID: 101BB924 ETM-M3 -- CPU is running -- CPU_WriteMem(4 bytes @ 0xE000EDF0) -- CPU is running
+ -- CPU_WriteMem(4 bytes @ 0xE000EDFC) >0x35 TIF> -- CPU is running -- CPU_WriteMem(4 bytes @ 0xE000ED0C) -- CPU is running -- CPU_ReadMem(4 bytes @ 0xE000EDF0) -- CPU is running -- CPU_ReadMem(4 bytes @ 0xE000EDF0) -- CPU is running -- CPU_WriteMem(4 bytes @ 0xE000EDF0) -- CPU is running -- CPU_WriteMem(4 bytes @ 0xE000EDFC) -- CPU is running -- CPU_ReadMem(4 bytes @ 0xE000EDF0) -- CPU_WriteMem(4 bytes @ 0xE0002000) -- CPU_ReadMem(4 bytes @ 0xE000EDFC) -- CPU_ReadMem(4 bytes @ 0xE0001000)
+ (0089ms, 1114ms total)
+T1888 003:887 JLINK_GetId() >0x0D TIF> >0x21 TIF>  returns 0x1BA01477 (0001ms, 1115ms total)
+T1888 003:897 JLINK_GetFirmwareString(...) (0000ms, 1115ms total)
+T1888 005:372 JLINK_Close() -- CPU_ReadMem(4 bytes @ 0xE0001000) -- CPU_WriteMem(4 bytes @ 0xE0001004) >0x42 TIF> >0x28 TIF> >0x0D TIF> >0x21 TIF> (0014ms, 1129ms total)
+T1888 005:372  (0014ms, 1129ms total)
+T1888 005:372 Closed (0014ms, 1129ms total)

@@ -1,0 +1,74 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+F:\work file\stm32\¹¤³ÌÄ£°å3.5\USER\STM32-DEMO.uvproj
+Project File Date:  03/29/2012
+
+<h2>Output:</h2>
+Build target 'Target 1'
+Target has no object modules
+Target not created
+Build target 'Target 1'
+assembling startup_stm32f10x_hd.s...
+compiling main.c...
+compiling stm32f10x_it.c...
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x.h(80): error:  #35: #error directive: "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+compiling core_cm3.c...
+compiling system_stm32f10x.c...
+..\CMSIS\stm32f10x.h(96): error:  #35: #error directive: "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+Target not created
+Build target 'Target 1'
+compiling main.c...
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x.h(80): error:  #35: #error directive: "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+compiling stm32f10x_it.c...
+C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x.h(80): error:  #35: #error directive: "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+compiling system_stm32f10x.c...
+..\CMSIS\stm32f10x.h(96): error:  #35: #error directive: "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+Target not created
+Clean started: Project: 'STM32-DEMO'
+   deleting intermediate output files for target 'Target 1'
+Build target 'Target 1'
+assembling startup_stm32f10x_hd.s...
+compiling main.c...
+main.c(24): error:  #5: cannot open source input file "stm32_eval.h": No such file or directory
+compiling stm32f10x_it.c...
+compiling core_cm3.c...
+..\CMSIS\core_cm3.c(58): error:  #667: "asm" function is nonstandard
+..\CMSIS\core_cm3.c(72): error:  #667: "asm" function is nonstandard
+..\CMSIS\core_cm3.c(86): error:  #667: "asm" function is nonstandard
+..\CMSIS\core_cm3.c(100): error:  #667: "asm" function is nonstandard
+..\CMSIS\core_cm3.c(114): error:  #667: "asm" function is nonstandard
+..\CMSIS\core_cm3.c(128): error:  #667: "asm" function is nonstandard
+compiling system_stm32f10x.c...
+Target not created
+Build target 'Target 1'
+compiling main.c...
+main.c: Error: At end of source:  #96: a translation unit must contain at least one declaration
+Target not created
+Build target 'Target 1'
+compiling main.c...
+compiling core_cm3.c...
+..\CMSIS\core_cm3.c(58): error:  #667: "asm" function is nonstandard
+..\CMSIS\core_cm3.c(72): error:  #667: "asm" function is nonstandard
+..\CMSIS\core_cm3.c(86): error:  #667: "asm" function is nonstandard
+..\CMSIS\core_cm3.c(100): error:  #667: "asm" function is nonstandard
+..\CMSIS\core_cm3.c(114): error:  #667: "asm" function is nonstandard
+..\CMSIS\core_cm3.c(128): error:  #667: "asm" function is nonstandard
+Target not created
+Clean started: Project: 'STM32-DEMO'
+   deleting intermediate output files for target 'Target 1'
+Build target 'Target 1'
+assembling startup_stm32f10x_hd.s...
+compiling main.c...
+compiling stm32f10x_it.c...
+compiling core_cm3.c...
+..\CMSIS\core_cm3.c(58): error:  #667: "asm" function is nonstandard
+..\CMSIS\core_cm3.c(72): error:  #667: "asm" function is nonstandard
+..\CMSIS\core_cm3.c(86): error:  #667: "asm" function is nonstandard
+..\CMSIS\core_cm3.c(100): error:  #667: "asm" function is nonstandard
+..\CMSIS\core_cm3.c(114): error:  #667: "asm" function is nonstandard
+..\CMSIS\core_cm3.c(128): error:  #667: "asm" function is nonstandard
+compiling system_stm32f10x.c...
+Target not created
