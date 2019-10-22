@@ -179,6 +179,7 @@ void cliCom(void)
         cliQuery = getChar();
     }
 
+    // cliPrintF("\n Enter clicom %c\n", cliQuery);
     validCliCommand = false;
 
     switch (cliQuery)

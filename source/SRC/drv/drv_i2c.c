@@ -40,7 +40,7 @@
 static I2C_TypeDef *I2Cx;
 static void i2c_er_handler(void);
 static void i2c_ev_handler(void);
-static void i2cUnstick(void);
+static void i2cUnstick(I2C_TypeDef *I2C);
 
 void I2C1_ER_IRQHandler(void)
 {
@@ -377,64 +377,112 @@ void i2c_ev_handler(void)
 
 ///////////////////////////////////////////////////////////////////////////////
 
-static void i2cUnstick(void)
+static void i2cUnstick(I2C_TypeDef *I2C)
 {
     GPIO_InitTypeDef GPIO_InitStructure;
     uint8_t i;
 
     // SCL  PB10
     // SDA  PB11
+    if(I2C == I2C2){
+        GPIO_InitStructure.GPIO_Pin   = GPIO_Pin_10 | GPIO_Pin_11;
+        GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+        GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_Out_OD;
 
-    GPIO_InitStructure.GPIO_Pin   = GPIO_Pin_10 | GPIO_Pin_11;
-    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-    GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_Out_OD;
+        GPIO_Init(GPIOB, &GPIO_InitStructure);
 
-    GPIO_Init(GPIOB, &GPIO_InitStructure);
+        GPIO_SetBits(GPIOB, GPIO_Pin_10 | GPIO_Pin_11);
 
-    GPIO_SetBits(GPIOB, GPIO_Pin_10 | GPIO_Pin_11);
+        for (i = 0; i < 8; i++)
+        {
+            while (!GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_10))               // Wait for any clock stretching to finish
+                delayMicroseconds(3);
 
-    for (i = 0; i < 8; i++)
-    {
-        while (!GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_10))               // Wait for any clock stretching to finish
+            GPIO_ResetBits(GPIOB, GPIO_Pin_10);                              //Set bus low
             delayMicroseconds(3);
 
-        GPIO_ResetBits(GPIOB, GPIO_Pin_10);                              //Set bus low
+            GPIO_SetBits(GPIOB, GPIO_Pin_10);                                //Set bus high
+            delayMicroseconds(3);
+        }
+
+        // Generate a start then stop condition
+
+        GPIO_ResetBits(GPIOB, GPIO_Pin_11);                                  //Set bus data low
+        delayMicroseconds(3);
+        GPIO_ResetBits(GPIOB, GPIO_Pin_10);                                  //Set bus scl low
+        delayMicroseconds(3);
+        GPIO_SetBits(GPIOB, GPIO_Pin_10);                                    //Set bus scl high
+        delayMicroseconds(3);
+        GPIO_SetBits(GPIOB, GPIO_Pin_11);                                    //Set bus sda high
         delayMicroseconds(3);
 
-        GPIO_SetBits(GPIOB, GPIO_Pin_10);                                //Set bus high
-        delayMicroseconds(3);
     }
 
-    // Generate a start then stop condition
+    // SCL  PB6
+    // SDA  PB7
+    if(I2C == I2C1){
+        GPIO_InitStructure.GPIO_Pin   = GPIO_Pin_6 | GPIO_Pin_7;
+        GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+        GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_AF_OD;
 
-    GPIO_ResetBits(GPIOB, GPIO_Pin_11);                                  //Set bus data low
-    delayMicroseconds(3);
-    GPIO_ResetBits(GPIOB, GPIO_Pin_10);                                  //Set bus scl low
-    delayMicroseconds(3);
-    GPIO_SetBits(GPIOB, GPIO_Pin_10);                                    //Set bus scl high
-    delayMicroseconds(3);
-    GPIO_SetBits(GPIOB, GPIO_Pin_11);                                    //Set bus sda high
-    delayMicroseconds(3);
+        GPIO_Init(GPIOB, &GPIO_InitStructure);
+
+        GPIO_SetBits(GPIOB, GPIO_Pin_6 | GPIO_Pin_7);
+
+        for (i = 0; i < 8; i++)
+        {
+            while (!GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_6))               // Wait for any clock stretching to finish
+                delayMicroseconds(3);
+
+            GPIO_ResetBits(GPIOB, GPIO_Pin_6);                              //Set bus low
+            delayMicroseconds(3);
+
+            GPIO_SetBits(GPIOB, GPIO_Pin_6);                                //Set bus high
+            delayMicroseconds(3);
+        }
+
+        // Generate a start then stop condition
+
+        GPIO_ResetBits(GPIOB, GPIO_Pin_7);                                  //Set bus data low
+        delayMicroseconds(3);
+        GPIO_ResetBits(GPIOB, GPIO_Pin_6);                                  //Set bus scl low
+        delayMicroseconds(3);
+        GPIO_SetBits(GPIOB, GPIO_Pin_6);                                    //Set bus scl high
+        delayMicroseconds(3);
+        GPIO_SetBits(GPIOB, GPIO_Pin_7);                                    //Set bus sda high
+        delayMicroseconds(3);
+    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 
 void i2cInit(I2C_TypeDef *I2C)
 {
+
     NVIC_InitTypeDef NVIC_InitStructure;
     GPIO_InitTypeDef GPIO_InitStructure;
     I2C_InitTypeDef I2C_InitStructure;
 
-    i2cUnstick();                                                        // clock out stuff to make sure slaves arent stuck
+    i2cUnstick(I2C);                                                        // clock out stuff to make sure slaves arent stuck
 
     // SCL  PB10
     // SDA  PB11
 
-    GPIO_InitStructure.GPIO_Pin   = GPIO_Pin_10 | GPIO_Pin_11;
-    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-    GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_AF_OD;
+    if(I2C == I2C2){
+        GPIO_InitStructure.GPIO_Pin   = GPIO_Pin_10 | GPIO_Pin_11;
+        GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+        GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_AF_OD;
 
-    GPIO_Init(GPIOB, &GPIO_InitStructure);
+        GPIO_Init(GPIOB, &GPIO_InitStructure);
+    }
+    
+    if(I2C == I2C1){
+        GPIO_InitStructure.GPIO_Pin   = GPIO_Pin_6 | GPIO_Pin_7;
+        GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+        GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_AF_OD;
+
+        GPIO_Init(GPIOB, &GPIO_InitStructure);
+    }
 
     I2Cx = I2C;
 
@@ -453,20 +501,39 @@ void i2cInit(I2C_TypeDef *I2C)
 
     I2C_Cmd(I2Cx, ENABLE);
 
-    // I2C ER Interrupt
-    NVIC_InitStructure.NVIC_IRQChannel                   = I2C2_ER_IRQn;
-    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
-    NVIC_InitStructure.NVIC_IRQChannelSubPriority        = 0;
-    NVIC_InitStructure.NVIC_IRQChannelCmd                = ENABLE;
+    if(I2C == I2C2){
+        // I2C ER Interrupt
+        NVIC_InitStructure.NVIC_IRQChannel                   = I2C2_ER_IRQn;
+        NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
+        NVIC_InitStructure.NVIC_IRQChannelSubPriority        = 0;
+        NVIC_InitStructure.NVIC_IRQChannelCmd                = ENABLE;
 
-    NVIC_Init(&NVIC_InitStructure);
+        NVIC_Init(&NVIC_InitStructure);
 
-    // I2C EV Interrupt
-    NVIC_InitStructure.NVIC_IRQChannel                   = I2C2_EV_IRQn;
-    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
+        // I2C EV Interrupt
+        NVIC_InitStructure.NVIC_IRQChannel                   = I2C2_EV_IRQn;
+        NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
 
-    NVIC_Init(&NVIC_InitStructure);
+        NVIC_Init(&NVIC_InitStructure);
 
+    }
+    
+    if(I2C == I2C1){
+        // I2C ER Interrupt
+        NVIC_InitStructure.NVIC_IRQChannel                   = I2C1_ER_IRQn;
+        NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
+        NVIC_InitStructure.NVIC_IRQChannelSubPriority        = 0;
+        NVIC_InitStructure.NVIC_IRQChannelCmd                = ENABLE;
+
+        NVIC_Init(&NVIC_InitStructure);
+
+        // I2C EV Interrupt
+        NVIC_InitStructure.NVIC_IRQChannel                   = I2C1_EV_IRQn;
+        NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
+
+        NVIC_Init(&NVIC_InitStructure);
+
+    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////

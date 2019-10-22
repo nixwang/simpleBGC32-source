@@ -158,54 +158,54 @@ void checkFirstTime(bool eepromReset)
         ///////////////////////////////
 
         eepromConfig.PID[ROLL_PID].B               =    1.0f;
-        eepromConfig.PID[ROLL_PID].P               =   10.0f;
-        eepromConfig.PID[ROLL_PID].I               =    5.0f;
-        eepromConfig.PID[ROLL_PID].D               =    0.1f;
+        eepromConfig.PID[ROLL_PID].P               =    0.0f;
+        eepromConfig.PID[ROLL_PID].I               =    0.0f;
+        eepromConfig.PID[ROLL_PID].D               =    0.0f;
         eepromConfig.PID[ROLL_PID].iTerm           =    0.0f;
-        eepromConfig.PID[ROLL_PID].windupGuard     = 1000.0f;  // PWMs
+        eepromConfig.PID[ROLL_PID].windupGuard     = 100.0f;  // PWMs
         eepromConfig.PID[ROLL_PID].lastDcalcValue  =    0.0f;
         eepromConfig.PID[ROLL_PID].lastDterm       =    0.0f;
         eepromConfig.PID[ROLL_PID].lastLastDterm   =    0.0f;
         eepromConfig.PID[ROLL_PID].dErrorCalc      =    D_ERROR;
-        eepromConfig.PID[ROLL_PID].type            =    OTHER;
+        eepromConfig.PID[ROLL_PID].type            =    ANGULAR;
 
         eepromConfig.PID[PITCH_PID].B              =    1.0f;
-        eepromConfig.PID[PITCH_PID].P              =    2.5f;
-        eepromConfig.PID[PITCH_PID].I              =    5.0f;
-        eepromConfig.PID[PITCH_PID].D              =    0.05f;
+        eepromConfig.PID[PITCH_PID].P              =    0.0f;
+        eepromConfig.PID[PITCH_PID].I              =    0.0f;
+        eepromConfig.PID[PITCH_PID].D              =    0.0f;
         eepromConfig.PID[PITCH_PID].iTerm          =    0.0f;
-        eepromConfig.PID[PITCH_PID].windupGuard    = 1000.0f;  // PWMs
+        eepromConfig.PID[PITCH_PID].windupGuard    = 100.0f;  // PWMs
         eepromConfig.PID[PITCH_PID].lastDcalcValue =    0.0f;
         eepromConfig.PID[PITCH_PID].lastDterm      =    0.0f;
         eepromConfig.PID[PITCH_PID].lastLastDterm  =    0.0f;
         eepromConfig.PID[PITCH_PID].dErrorCalc     =    D_ERROR;
-        eepromConfig.PID[PITCH_PID].type           =    OTHER;
+        eepromConfig.PID[PITCH_PID].type           =    ANGULAR;
 
         eepromConfig.PID[YAW_PID].B                =    1.0f;
-        eepromConfig.PID[YAW_PID].P                =   10.0f;
-        eepromConfig.PID[YAW_PID].I                =    5.0f;
-        eepromConfig.PID[YAW_PID].D                =    0.1f;
+        eepromConfig.PID[YAW_PID].P                =    1.3f;
+        eepromConfig.PID[YAW_PID].I                =    1.2f;
+        eepromConfig.PID[YAW_PID].D                =    2.0f;
         eepromConfig.PID[YAW_PID].iTerm            =    0.0f;
-        eepromConfig.PID[YAW_PID].windupGuard      = 1000.0f;  // PWMs
+        eepromConfig.PID[YAW_PID].windupGuard      = 100.0f;  // PWMs
         eepromConfig.PID[YAW_PID].lastDcalcValue   =    0.0f;
         eepromConfig.PID[YAW_PID].lastDterm        =    0.0f;
         eepromConfig.PID[YAW_PID].lastLastDterm    =    0.0f;
         eepromConfig.PID[YAW_PID].dErrorCalc       =    D_ERROR;
-        eepromConfig.PID[YAW_PID].type             =    OTHER;
+        eepromConfig.PID[YAW_PID].type             =    ANGULAR;
 
-        eepromConfig.rollPower    = 55.0f;
-        eepromConfig.pitchPower   = 55.0f;
-        eepromConfig.yawPower     = 55.0f;
+        eepromConfig.rollPower    = 45.0f;
+        eepromConfig.pitchPower   = 45.0f;
+        eepromConfig.yawPower     = 45.0f;
 
-        eepromConfig.rollEnabled  = false;
-        eepromConfig.pitchEnabled = false;
-        eepromConfig.yawEnabled   = false;
+        eepromConfig.rollEnabled  = true;
+        eepromConfig.pitchEnabled = true;
+        eepromConfig.yawEnabled   = true;
 
         eepromConfig.rollAutoPanEnabled  = false;
         eepromConfig.pitchAutoPanEnabled = false;
         eepromConfig.yawAutoPanEnabled   = false;
 
-        eepromConfig.imuOrientation = 4;
+        eepromConfig.imuOrientation = 8;
 
         eepromConfig.rollMotorPoles  = 14.0f;
         eepromConfig.pitchMotorPoles = 14.0f;
@@ -219,14 +219,14 @@ void checkFirstTime(bool eepromReset)
 
         eepromConfig.gimbalRollRate  = 40.0f * D2R;
         eepromConfig.gimbalPitchRate = 40.0f * D2R;
-        eepromConfig.gimbalYawRate   = 40.0f * D2R;
+        eepromConfig.gimbalYawRate   = 100.0f * D2R;
 
-        eepromConfig.gimbalRollLeftLimit  = 75.0f * D2R;
-        eepromConfig.gimbalRollRightLimit = 75.0f * D2R;
+        eepromConfig.gimbalRollLeftLimit  = 25.0f * D2R;
+        eepromConfig.gimbalRollRightLimit = 25.0f * D2R;
         eepromConfig.gimbalPitchDownLimit = 75.0f * D2R;
-        eepromConfig.gimbalPitchUpLimit   = 30.0f * D2R;
-        eepromConfig.gimbalYawLeftLimit   = 75.0f * D2R;
-        eepromConfig.gimbalYawRightLimit  = 75.0f * D2R;
+        eepromConfig.gimbalPitchUpLimit   = 75.0f * D2R;
+        eepromConfig.gimbalYawLeftLimit   = 90.0f * D2R;
+        eepromConfig.gimbalYawRightLimit  = 90.0f * D2R;
 
         eepromConfig.accelX500HzLowPassTau = 0.1f;
         eepromConfig.accelY500HzLowPassTau = 0.1f;

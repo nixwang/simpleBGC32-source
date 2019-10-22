@@ -75,10 +75,12 @@ float updatePID(float command/*遥控器控制的机械角度转换成电子角度*/,
     float dAverage;
 
     ///////////////////////////////////
+    // deltaT = 20*e-4
 	  //PID公式
 		/* Kp*e + Ki*∫edt + Kd*（de/dt） */
-	
+
     error = command - state;//遥控器控制的期望角度-四元数计算的机体角度 得到当前偏差 ，公式 e
+    // cliPrintF(" yaw_error %d ", (int)(error*100));
 
     if (PIDparameters->type == ANGULAR)//如果类型为角度
         error = standardRadianFormat(error);//转换成标准弧度
@@ -91,41 +93,43 @@ float updatePID(float command/*遥控器控制的机械角度转换成电子角度*/,
     	PIDparameters->iTerm = constrain(PIDparameters->iTerm, -PIDparameters->windupGuard, PIDparameters->windupGuard);//积分限幅
     }
 
+    // cliPrintF(" yaw_iTerm %d ", (int)(PIDparameters->iTerm*100));
     ///////////////////////////////////
 	
     if (PIDparameters->dErrorCalc == D_ERROR)  // Calculate D term from error
     {
 			//通过error计算微分项，公式（de/dt），其中de就是(error - PIDparameters->lastDcalcValue) 
-		dTerm = (error - PIDparameters->lastDcalcValue) / deltaT;
-        PIDparameters->lastDcalcValue = error;//保存当前偏差
-	}
-	else                                       // Calculate D term from state
-	{
-		//否则，使用四元数计算的机械角度转换成电子角度的值进行微分运算
-		dTerm = (PIDparameters->lastDcalcValue - state) / deltaT;
+      dTerm = (error - PIDparameters->lastDcalcValue) / deltaT;
+      PIDparameters->lastDcalcValue = error;//保存当前偏差
+    }
+    else                                       // Calculate D term from state
+    {
+      //否则，使用四元数计算的机械角度转换成电子角度的值进行微分运算
+      dTerm = (PIDparameters->lastDcalcValue - state) / deltaT;
 
-		if (PIDparameters->type == ANGULAR)//如果类型为角度
-		    dTerm = standardRadianFormat(dTerm);//转换成标准弧度
+      if (PIDparameters->type == ANGULAR)//如果类型为角度
+          dTerm = standardRadianFormat(dTerm);//转换成标准弧度
 
-		PIDparameters->lastDcalcValue = state;//保存当前状态
-	}
+      PIDparameters->lastDcalcValue = state;//保存当前状态
+    }
+    // cliPrintF(" yaw_dTerm %d \n", (int)(dTerm*100));
 
     ///////////////////////////////////
-		//对微分项进行一阶低通滤波 deltaT / (rc + deltaT) 结果就是滤波系数a ， rc=1.0f/(2.0f*PI*F)
-    dTermFiltered = PIDparameters->lastDterm + deltaT / (rc + deltaT) * (dTerm - PIDparameters->lastDterm);
+	// 	//对微分项进行一阶低通滤波 deltaT / (rc + deltaT) 结果就是滤波系数a ， rc=1.0f/(2.0f*PI*F)
+    // dTermFiltered = PIDparameters->lastDterm + deltaT / (rc + deltaT) * (dTerm - PIDparameters->lastDterm);
 
-	//对历史三次微分项进行求平均
-    dAverage = (dTermFiltered + PIDparameters->lastDterm + PIDparameters->lastLastDterm) * 0.333333f;
+	// //对历史三次微分项进行求平均
+    // dAverage = (dTermFiltered + PIDparameters->lastDterm + PIDparameters->lastLastDterm) * 0.333333f;
 
-    PIDparameters->lastLastDterm = PIDparameters->lastDterm;//上次微分项保存到上上次微分项存储变量
-    PIDparameters->lastDterm = dTermFiltered;//当前微分项保存到上次微分项存储变量
+    // PIDparameters->lastLastDterm = PIDparameters->lastDterm;//上次微分项保存到上上次微分项存储变量
+    // PIDparameters->lastDterm = dTermFiltered;//当前微分项保存到上次微分项存储变量
 
     ///////////////////////////////////
 //返回PID运算结果
     if (PIDparameters->type == ANGULAR)//如果类型为角度
         return(PIDparameters->P * error     /*  Kp*e  */           +
 	           PIDparameters->I * PIDparameters->iTerm + /*   Ki*∫edt   */
-	           PIDparameters->D * dAverage);/*   Kd*（de/dt）  */
+	           PIDparameters->D * dTerm);/*   Kd*（de/dt）  */
     else
         return(PIDparameters->P * PIDparameters->B * command /* Kp *(B * point) */  +
                PIDparameters->I * PIDparameters->iTerm /*   Ki*∫edt   */      +

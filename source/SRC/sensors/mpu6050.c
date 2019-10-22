@@ -136,7 +136,11 @@ int16_t orientationMatrix[9];
 
 void initMPU6050(void)
 {
+  
+    cliPrintF("\n initMPU6050.... \n");
+  
     i2cWrite(MPU6050_ADDRESS, MPU6050_PWR_MGMT_1,   BIT_H_RESET);               // Device Reset
+    cliPrintF("\n initMPU6050 i2cWrite.... \n");
 
     delay(150);
 

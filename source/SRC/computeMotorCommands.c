@@ -93,16 +93,17 @@ void computeMotorCommands(float dt)
     holdIntegrators = false;//启用积分作用
 
     ///////////////////////////////////
-
+    // printUSART(" computeMotorCommands \n");
+    
     if (eepromConfig.rollEnabled == true)//如果使能了 滚转轴（ROLL）
     {
 			//更新PID，结果放到pidCmd[ROLL]
         pidCmd[ROLL] = updatePID(pointingCmd[ROLL] * mechanical2electricalDegrees[ROLL],
-                                 -sensors.margAttitude500Hz[ROLL] * mechanical2electricalDegrees[ROLL],
+                                 sensors.margAttitude500Hz[ROLL] * mechanical2electricalDegrees[ROLL],
                                  dt, holdIntegrators, &eepromConfig.PID[ROLL_PID]);
 			
 			//当前PID输出减去上次PID输出得到变化量
-        outputRate[ROLL] = pidCmd[ROLL] - pidCmdPrev[ROLL];
+        // outputRate[ROLL] = pidCmd[ROLL] - pidCmdPrev[ROLL];
 
         if (outputRate[ROLL] > eepromConfig.rateLimit)//如果变化量大于旋转速度限制的最大值
             pidCmd[ROLL] = pidCmdPrev[ROLL] + eepromConfig.rateLimit;//那么使用上次PID输出结果+旋转速度限制的最大值 作为本次PID结果
@@ -112,7 +113,7 @@ void computeMotorCommands(float dt)
 					//	相当于加上这个数的正值），作为本次PID结果
 
         pidCmdPrev[ROLL] = pidCmd[ROLL];//保存本次PID输出结果到 pidCmdPrev[ROLL] 作为旧的值（相对于下次）。
-
+//        pidCmd[ROLL] = 5;
         setRollMotor(pidCmd[ROLL], (int)eepromConfig.rollPower);
     }
 
@@ -125,7 +126,7 @@ void computeMotorCommands(float dt)
                                   sensors.margAttitude500Hz[PITCH] * mechanical2electricalDegrees[PITCH],
                                   dt, holdIntegrators, &eepromConfig.PID[PITCH_PID]);
 
-        outputRate[PITCH] = pidCmd[PITCH] - pidCmdPrev[PITCH];//当前PID输出减去上次PID输出得到变化量
+        // outputRate[PITCH] = pidCmd[PITCH] - pidCmdPrev[PITCH];//当前PID输出减去上次PID输出得到变化量
 
         if (outputRate[PITCH] > eepromConfig.rateLimit)//如果变化量大于旋转速度限制的最大值
             pidCmd[PITCH] = pidCmdPrev[PITCH] + eepromConfig.rateLimit;//那么使用上次PID输出结果+旋转速度限制的最大值 作为本次PID结果
@@ -135,7 +136,7 @@ void computeMotorCommands(float dt)
 					//	相当于加上这个数的正值），作为本次PID结果
 
         pidCmdPrev[PITCH] = pidCmd[PITCH];//保存本次PID输出结果到 pidCmdPrev[PITCH] 作为旧的值（相对于下次）。
-
+//        pidCmd[PITCH] = 30;
         setPitchMotor(pidCmd[PITCH], (int)eepromConfig.pitchPower);
     }
 
@@ -153,20 +154,22 @@ void computeMotorCommands(float dt)
                                 sensors.margAttitude500Hz[YAW] * mechanical2electricalDegrees[YAW],
                                 dt, holdIntegrators, &eepromConfig.PID[YAW_PID]);
 
-        outputRate[YAW] = pidCmd[YAW] - pidCmdPrev[YAW];//当前PID输出减去上次PID输出得到变化量
+        // outputRate[YAW] = pidCmd[YAW] - pidCmdPrev[YAW];//当前PID输出减去上次PID输出得到变化量
 
-        if (outputRate[YAW] > eepromConfig.rateLimit)//如果变化量大于旋转速度限制的最大值
-            pidCmd[YAW] = pidCmdPrev[YAW] + eepromConfig.rateLimit;//那么使用上次PID输出结果+旋转速度限制的最大值 作为本次PID结果
+        // if (outputRate[YAW] > eepromConfig.rateLimit)//如果变化量大于旋转速度限制的最大值
+        //     pidCmd[YAW] = pidCmdPrev[YAW] + eepromConfig.rateLimit;//那么使用上次PID输出结果+旋转速度限制的最大值 作为本次PID结果
 
-        if (outputRate[YAW] < -eepromConfig.rateLimit)//如果变化量小于旋转速度限制的最小值
-            pidCmd[YAW] = pidCmdPrev[YAW] - eepromConfig.rateLimit;//那么使用上次PID输出结果-旋转速度限制的最小值（减去一个负数
+        // if (outputRate[YAW] < -eepromConfig.rateLimit)//如果变化量小于旋转速度限制的最小值
+        //     pidCmd[YAW] = pidCmdPrev[YAW] - eepromConfig.rateLimit;//那么使用上次PID输出结果-旋转速度限制的最小值（减去一个负数
 					//	相当于加上这个数的正值），作为本次PID结果
 
         pidCmdPrev[YAW] = pidCmd[YAW];//保存本次PID输出结果到 pidCmdPrev[PITCH] 作为旧的值（相对于下次）。
-
+//        pidCmd[YAW] = 15;
         setYawMotor(pidCmd[YAW], (int)eepromConfig.yawPower);
     }
-
+    // cliPrintF(" pidCmd[ROLL] %d ", (int)(pidCmd[0]*100));
+    // cliPrintF(" pidCmd[PITCH] %d ", (int)(pidCmd[1]*100));
+    // cliPrintF(" pidCmd[YAW] %d \n", (int)(pidCmd[2]*100));
     ///////////////////////////////////
 
 }

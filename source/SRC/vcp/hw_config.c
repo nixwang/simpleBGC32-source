@@ -104,13 +104,13 @@ void Set_System(void)
     GPIO_PinRemapConfig(GPIO_Remap_SWJ_NoJTRST,     ENABLE); // HJI
     GPIO_PinRemapConfig(GPIO_Remap_SWJ_JTAGDisable, ENABLE); // HJI
 
-    GPIO_InitStructure.GPIO_Pin   = GPIO_Pin_12 | GPIO_Pin_15;  // HJI
+    GPIO_InitStructure.GPIO_Pin   = GPIO_Pin_12 | GPIO_Pin_11;  // HJI
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;        // HJI
     GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_Out_OD;        // HJI
 
     GPIO_Init(GPIOA, &GPIO_InitStructure);                   // HJI
 
-    GPIO_SetBits(GPIOA, GPIO_Pin_15);                        // HJI
+    GPIO_SetBits(GPIOA, GPIO_Pin_11);                        // HJI
 
     GPIO_ResetBits(GPIOA, GPIO_Pin_12);                      // HJI
 

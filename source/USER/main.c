@@ -67,6 +67,7 @@ int main(void)
     systemInit();
 
     initOrientation();
+//    mpu6050Calibration();
 
     systemReady = true;
 
@@ -97,15 +98,18 @@ int main(void)
             deltaTime10Hz    = currentTime - previous10HzTime;
             previous10HzTime = currentTime;
 
-            // HJI if (newMagData == true)
-            // HJI {
-            // HJI     sensors.mag10Hz[XAXIS] =   (float)rawMag[XAXIS].value * magScaleFactor[XAXIS] - eepromConfig.magBias[XAXIS];
-            // HJI     sensors.mag10Hz[YAXIS] =   (float)rawMag[YAXIS].value * magScaleFactor[YAXIS] - eepromConfig.magBias[YAXIS];
-            // HJI     sensors.mag10Hz[ZAXIS] = -((float)rawMag[ZAXIS].value * magScaleFactor[ZAXIS] - eepromConfig.magBias[ZAXIS]);
+            /////////////////////////// HJI
+            if (newMagData == true)
+            {
 
-            // HJI     newMagData = false;
-            // HJI     magDataUpdate = true;
-            // HJI }
+                sensors.mag10Hz[XAXIS] =   (float)rawMag[XAXIS].value * magScaleFactor[XAXIS] - eepromConfig.magBias[XAXIS];
+                sensors.mag10Hz[YAXIS] =   (float)rawMag[YAXIS].value * magScaleFactor[YAXIS] - eepromConfig.magBias[YAXIS];
+                sensors.mag10Hz[ZAXIS] = -((float)rawMag[ZAXIS].value * magScaleFactor[ZAXIS] - eepromConfig.magBias[ZAXIS]);
+                
+                newMagData = false;
+                magDataUpdate = true;
+            }
+            /////////////////////////// HJI
 
             cliCom();//接收来自串口的命令并处理
 
@@ -159,7 +163,6 @@ int main(void)
 						//和陀螺仪数据，dt500Hz是时间增量，也就是执行if (frame_500Hz){} 里面的代码间隔
             getOrientation(accAngleSmooth, sensors.evvgcCFAttitude500Hz, sensors.accel500Hz, sensors.gyro500Hz, dt500Hz);
 
-
 						//对加速度数据进行 一阶低通滤波 ，其中sensors.accel500Hz是待进行滤波的值，firstOrderFilters是滤波器参数
 						// Low Pass:
 						// GX1 = 1 / (1 + A)
@@ -172,6 +175,7 @@ int main(void)
 						//航姿参考系统更新，入口参数是三轴陀螺仪数据，三轴加速度数据，三轴磁力计数据,以及指示是否更新磁力计数据的magDataUpdate参数，
 						//magDataUpdate=false表示不更新磁力计数据，magDataUpdate=true表示更新磁力计数据，最后一个参数是时间增量Dt，也就是此函数本
 						//次执行与上次执行的时间间隔。
+
             MargAHRSupdate(sensors.gyro500Hz[ROLL],   sensors.gyro500Hz[PITCH],  sensors.gyro500Hz[YAW],
                            sensors.accel500Hz[XAXIS], sensors.accel500Hz[YAXIS], sensors.accel500Hz[ZAXIS],
                            sensors.mag10Hz[XAXIS],    sensors.mag10Hz[YAXIS],    sensors.mag10Hz[ZAXIS],
@@ -183,6 +187,7 @@ int main(void)
 
             executionTime500Hz = micros() - currentTime;//本次运算执行时间长度保存到executionTime500Hz
 
+            LED1_OFF;
 #ifdef _DTIMING
             LA2_DISABLE;
 #endif

@@ -124,13 +124,13 @@ void sensorCLI()
                 break;
 
                 ///////////////////////////
+            /////////////////////////// HJI
+            case 'c': // Magnetometer Calibration
+                magCalibration();
 
-                // HJI case 'c': // Magnetometer Calibration
-                // HJI     magCalibration();
-
-                // HJI     sensorQuery = 'a';
-                // HJI     validQuery = true;
-                // HJI     break;
+                sensorQuery = 'a';
+                validQuery = true;
+                break;
 
                 ///////////////////////////
 
@@ -213,7 +213,8 @@ void sensorCLI()
                 cliPrintF("'a' Display Sensor Data                    'A' Set MPU6000 DLPF                     A0 thru 3\n");
                 cliPrintF("'b' MPU6050 Temp Calibration               'B' Set Accel Cutoff                     BAccelCutoff\n");
                 cliPrintF("                                           'C' Set kpAcc/kiAcc                      CkpAcc;kiAcc\n");
-                // HJI cliPrint("'c' Magnetometer Calibration               'C' Set kpAcc/kiAcc                      CkpAcc;kiAcc\n");
+                // HJI 
+                cliPrintF("'c' Magnetometer Calibration                'C' Set kpAcc/kiAcc                      CkpAcc;kiAcc\n");
                 cliPrintF("                                           'D' Set kpMag/kiMag                      DkpMag;kiMag\n");
                 cliPrintF("                                           'W' Write EEPROM Parameters\n");
                 cliPrintF("'x' Exit Sensor CLI                        '?' Command Summary\n\n");

@@ -131,7 +131,7 @@ void SysTick_Handler(void)
         if ((frameCounter % COUNT_500HZ) == 0)
         {
             frame_500Hz = true;
-
+//            I2Cx = I2C1;
             readMPU6050();
 
             accelData500Hz[XAXIS] = rawAccel[XAXIS].value;
@@ -159,8 +159,9 @@ void SysTick_Handler(void)
 
         ///////////////////////////////
 
-        // HJI if (((frameCounter + 1) % COUNT_10HZ) == 0)
-        // HJI     newMagData = readMag();
+        // HJI
+        // if (((frameCounter + 1) % COUNT_10HZ) == 0)
+        //     newMagData = readMag();
 
         if ((frameCounter % COUNT_10HZ) == 0)
             frame_10Hz = true;
@@ -262,7 +263,7 @@ void systemInit(void)
                            RCC_APB2Periph_GPIOC | RCC_APB2Periph_AFIO  |
                            RCC_APB2Periph_TIM1  | RCC_APB2Periph_TIM8, ENABLE);
 
-    RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3  | RCC_APB1Periph_TIM4  |
+    RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2  | RCC_APB1Periph_TIM3  | RCC_APB1Periph_TIM4  |
                            RCC_APB1Periph_TIM5  | RCC_APB1Periph_TIM6  | RCC_APB1Periph_I2C2, ENABLE);
 
 #ifdef _DTIMING
@@ -320,7 +321,8 @@ void systemInit(void)
     LED1_ON;
 
     i2cInit(I2C2);
-    rcInit();
+    // i2cInit(I2C2);
+    // rcInit();
     timingFunctionsInit();
 
     BKPInit();
@@ -331,7 +333,12 @@ void systemInit(void)
 
     orientIMU();
 
+//    I2Cx = I2C1;
     initMPU6050();
+
+    // I2Cx = I2C1;
+    // initMPU6050();
+
     // initMag();
 }
 

@@ -148,11 +148,16 @@ void MargAHRSupdate(float gx, float gy, float gz,
     float q0i, q1i, q2i, q3i;
 
     //-------------------------------------------
-
-    if ((MargAHRSinitialized == false)) // HJI && (magDataUpdate == true))
+    
+    // HJI&& (magDataUpdate == true)
+    if ((MargAHRSinitialized == false) )
     {
 			//如果航姿参考系统参数还没有初始化过，那么执行AHRS初始化
         MargAHRSinit(ax, ay, az, mx, my, mz);
+
+        // cliPrintF(" mag10HzPitch %d ", (int)(sensors.mag10Hz[0]*100));
+        // cliPrintF(" mag10HzROLL %d ", (int)(sensors.mag10Hz[1]*100));
+        // cliPrintF(" mag10HzYAW %d \n", (int)(sensors.mag10Hz[2]*100));
 
         MargAHRSinitialized = true;//标记航姿参考系统参数已经初始化过
     }
@@ -300,6 +305,11 @@ void MargAHRSupdate(float gx, float gy, float gz,
         sensors.margAttitude500Hz[ROLL ] = atan2f(2.0f * (q0q1 + q2q3), q0q0 - q1q1 - q2q2 + q3q3);
         sensors.margAttitude500Hz[PITCH] = -asinf(2.0f * (q1q3 - q0q2));
         sensors.margAttitude500Hz[YAW  ] = atan2f(2.0f * (q1q2 + q0q3), q0q0 + q1q1 - q2q2 - q3q3);
+
+       cliPrintF("\n ROLL %d ", (int)(sensors.margAttitude500Hz[ROLL]*100));
+       cliPrintF(" PITCH %d ", (int)(sensors.margAttitude500Hz[PITCH]*100));
+       cliPrintF(" YAW %d \n", (int)(sensors.margAttitude500Hz[YAW]*100));
+
     }
 }
 

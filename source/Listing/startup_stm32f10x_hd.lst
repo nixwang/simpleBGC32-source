@@ -553,10 +553,12 @@ ARM Macro Assembler    Page 9
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
 ork --depend=..\output\startup_stm32f10x_hd.d -o..\output\startup_stm32f10x_hd.
-o -IC:\Keil_v5\ARM\RV31\INC -IC:\Keil_v5\ARM\CMSIS\Include -IC:\Keil_v5\ARM\Inc
-\ST\STM32F10x --predefine="__MICROLIB SETA 1" --predefine="__UVISION_VERSION SE
-TA 522" --list=..\listing\startup_stm32f10x_hd.lst ..\CMSIS\startup\startup_stm
-32f10x_hd.s
+o -IC:\Users\WHUTWZH\Desktop\simpleBGC32-source\source\USER\RTE\_USART1-DEMO -I
+C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include -IC:\Keil_v5\ARM\PACK\Keil\ST
+M32F1xx_DFP\2.3.0\Device\Include --predefine="__MICROLIB SETA 1" --predefine="_
+_UVISION_VERSION SETA 522" --predefine="_RTE_ SETA 1" --predefine="STM32F10X_HD
+ SETA 1" --list=..\listing\startup_stm32f10x_hd.lst ..\CMSIS\startup\startup_st
+m32f10x_hd.s
 
 
 
@@ -1428,4 +1430,4 @@ Symbol: __main
       At line 153 in file ..\CMSIS\startup\startup_stm32f10x_hd.s
 Comment: __main used once
 2 symbols
-421 symbols in table
+423 symbols in table
