@@ -117,7 +117,7 @@ void sensorCLI()
                 ///////////////////////////
 
             case 'b': // MPU6050Calibration
-                mpu6050Calibration();
+                mpu6050Calibration1();
 
                 sensorQuery = 'a';
                 validQuery = true;
@@ -164,7 +164,7 @@ void sensorCLI()
                         break;
                 }
 
-                i2cWrite(MPU6050_ADDRESS, MPU6050_CONFIG, eepromConfig.dlpfSetting);  // Accel and Gyro DLPF Setting
+                // i2cWrite(MPU6050_ADDRESS, MPU6050_CONFIG, eepromConfig.dlpfSetting);  // Accel and Gyro DLPF Setting
 
                 sensorQuery = 'a';
                 validQuery = true;

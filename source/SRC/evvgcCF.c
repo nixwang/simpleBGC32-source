@@ -4,11 +4,11 @@
 
 ///////////////////////////////////////////////////////////////////////////////
 
-float accAngleSmooth[3];
+float accAngleSmooth[2][3];
 
 ///////////////////////////////////////////////////////////////////////////////
 
-void initOrientation()
+void initOrientation1()
 {
     int initLoops = 150;
     float accAngle[NUMAXIS] = { 0.0f, 0.0f, 0.0f };
@@ -16,35 +16,71 @@ void initOrientation()
 
     for (i = 0; i < initLoops; i++)
     {
-        readMPU6050();//从MPU6050得到加速度和陀螺仪数据，并进行 与初始化方位估计矩阵（根据IMU单元的方位确定的矩阵A ） 相乘后的数据 
+        readMPU60501();//从MPU6050得到加速度和陀螺仪数据，并进行 与初始化方位估计矩阵（根据IMU单元的方位确定的矩阵A ） 相乘后的数据 
 
-        computeMPU6050TCBias();//	计算温度补偿偏差值
+        computeMPU6050TCBias1();//	计算温度补偿偏差值
 
 			//（矩阵相乘后的加速度数据-温度补偿偏差）* （(1/8192) * 9.8065） 
 			//(1/8192) * 9.8065  (8192 LSB = 1 G)
 		 //1G量程的8192个数字量分之1，对应重力加速度9.8065m/1G的8192分之1
-        sensors.accel500Hz[XAXIS] = ((float)rawAccel[XAXIS].value - accelTCBias[XAXIS]) * ACCEL_SCALE_FACTOR;
-        sensors.accel500Hz[YAXIS] = ((float)rawAccel[YAXIS].value - accelTCBias[YAXIS]) * ACCEL_SCALE_FACTOR;
-        sensors.accel500Hz[ZAXIS] = -((float)rawAccel[ZAXIS].value - accelTCBias[ZAXIS]) * ACCEL_SCALE_FACTOR;
+        sensors[0].accel500Hz[XAXIS] = ((float)rawAccel[0][XAXIS].value - accelTCBias[XAXIS]) * ACCEL_SCALE_FACTOR;
+        sensors[0].accel500Hz[YAXIS] = ((float)rawAccel[0][YAXIS].value - accelTCBias[YAXIS]) * ACCEL_SCALE_FACTOR;
+        sensors[0].accel500Hz[ZAXIS] = -((float)rawAccel[0][ZAXIS].value - accelTCBias[ZAXIS]) * ACCEL_SCALE_FACTOR;
 
 			//进行欧拉角积分运算
-        accAngle[ROLL]  += atan2f(-sensors.accel500Hz[YAXIS], -sensors.accel500Hz[ZAXIS]);
-        accAngle[PITCH] += atan2f(sensors.accel500Hz[XAXIS], -sensors.accel500Hz[ZAXIS]);
+        accAngle[ROLL]  += atan2f(-sensors[0].accel500Hz[YAXIS], -sensors[0].accel500Hz[ZAXIS]);
+        accAngle[PITCH] += atan2f(sensors[0].accel500Hz[XAXIS], -sensors[0].accel500Hz[ZAXIS]);
 
 			//求取欧拉角算数平均值
-        accAngleSmooth[ROLL ] = accAngle[ROLL ] / (float)initLoops;
-        accAngleSmooth[PITCH] = accAngle[PITCH] / (float)initLoops;
+        accAngleSmooth[0][ROLL ] = accAngle[ROLL ] / (float)initLoops;
+        accAngleSmooth[0][PITCH] = accAngle[PITCH] / (float)initLoops;
 
         delay(2);
     }
 		
 		//得到当前方位 ,初始化一次，不要振动云台，因为这里只用了加速度数据计算欧拉角（加速度数据是长期可信的），但是加速度计对
 		//振动很敏感，所以为了减小误差，初始化方位的时候不要振动云台。
-    sensors.evvgcCFAttitude500Hz[PITCH] = accAngleSmooth[PITCH];
-    sensors.evvgcCFAttitude500Hz[ROLL ] = accAngleSmooth[ROLL ];
-    sensors.evvgcCFAttitude500Hz[YAW  ] = 0.0f;
+    sensors[0].evvgcCFAttitude500Hz[PITCH] = accAngleSmooth[0][PITCH];
+    sensors[0].evvgcCFAttitude500Hz[ROLL ] = accAngleSmooth[0][ROLL ];
+    sensors[0].evvgcCFAttitude500Hz[YAW  ] = 0.0f;
 }
 
+void initOrientation2()
+{
+    int initLoops = 150;
+    float accAngle[NUMAXIS] = { 0.0f, 0.0f, 0.0f };
+    int i;
+
+    for (i = 0; i < initLoops; i++)
+    {
+        readMPU60502();//从MPU6050得到加速度和陀螺仪数据，并进行 与初始化方位估计矩阵（根据IMU单元的方位确定的矩阵A ） 相乘后的数据 
+
+        computeMPU6050TCBias2();//	计算温度补偿偏差值
+
+			//（矩阵相乘后的加速度数据-温度补偿偏差）* （(1/8192) * 9.8065） 
+			//(1/8192) * 9.8065  (8192 LSB = 1 G)
+		 //1G量程的8192个数字量分之1，对应重力加速度9.8065m/1G的8192分之1
+        sensors[1].accel500Hz[XAXIS] = ((float)rawAccel[1][XAXIS].value - accelTCBias[XAXIS]) * ACCEL_SCALE_FACTOR;
+        sensors[1].accel500Hz[YAXIS] = ((float)rawAccel[1][YAXIS].value - accelTCBias[YAXIS]) * ACCEL_SCALE_FACTOR;
+        sensors[1].accel500Hz[ZAXIS] = -((float)rawAccel[1][ZAXIS].value - accelTCBias[ZAXIS]) * ACCEL_SCALE_FACTOR;
+
+			//进行欧拉角积分运算
+        accAngle[ROLL]  += atan2f(-sensors[1].accel500Hz[YAXIS], -sensors[1].accel500Hz[ZAXIS]);
+        accAngle[PITCH] += atan2f(sensors[1].accel500Hz[XAXIS], -sensors[1].accel500Hz[ZAXIS]);
+
+			//求取欧拉角算数平均值
+        accAngleSmooth[1][ROLL ] = accAngle[ROLL ] / (float)initLoops;
+        accAngleSmooth[1][PITCH] = accAngle[PITCH] / (float)initLoops;
+
+        delay(2);
+    }
+		
+		//得到当前方位 ,初始化一次，不要振动云台，因为这里只用了加速度数据计算欧拉角（加速度数据是长期可信的），但是加速度计对
+		//振动很敏感，所以为了减小误差，初始化方位的时候不要振动云台。
+    sensors[1].evvgcCFAttitude500Hz[PITCH] = accAngleSmooth[1][PITCH];
+    sensors[1].evvgcCFAttitude500Hz[ROLL ] = accAngleSmooth[1][ROLL ];
+    sensors[1].evvgcCFAttitude500Hz[YAW  ] = 0.0f;
+}
 ///////////////////////////////////////////////////////////////////////////////
 //此函数是方位估计的核心函数
 void getOrientation(float *smoothAcc, float *orient, float *accData, float *gyroData, float dt)

@@ -55,7 +55,8 @@ void readEEPROM(void)
 
     memcpy(&eepromConfig, (char *)FLASH_WRITE_EEPROM_CONFIG_ADDR, sizeof(eepromConfig_t));
 
-    accConfidenceDecay = 1.0f / sqrt(eepromConfig.accelCutoff);
+    accConfidenceDecay[0] = 1.0f / sqrt(eepromConfig.accelCutoff);
+    accConfidenceDecay[1] = 1.0f / sqrt(eepromConfig.accelCutoff);
 
     mechanical2electricalDegrees[ROLL ] = eepromConfig.rollMotorPoles  / 2.0f;
     mechanical2electricalDegrees[PITCH] = eepromConfig.pitchMotorPoles / 2.0f;
@@ -108,27 +109,44 @@ void checkFirstTime(bool eepromReset)
 
         ///////////////////////////////
 
-        eepromConfig.accelTCBiasSlope[XAXIS] = 0.0f;
-        eepromConfig.accelTCBiasSlope[YAXIS] = 0.0f;
-        eepromConfig.accelTCBiasSlope[ZAXIS] = 0.0f;
+        eepromConfig.accelTCBiasSlope[1][XAXIS] = 0.0f;
+        eepromConfig.accelTCBiasSlope[1][YAXIS] = 0.0f;
+        eepromConfig.accelTCBiasSlope[1][ZAXIS] = 0.0f;
+
+        eepromConfig.accelTCBiasSlope[0][XAXIS] = 0.0f;
+        eepromConfig.accelTCBiasSlope[0][YAXIS] = 0.0f;
+        eepromConfig.accelTCBiasSlope[0][ZAXIS] = 0.0f;
 
         ///////////////////////////////
 
-        eepromConfig.accelTCBiasIntercept[XAXIS] = 0.0f;
-        eepromConfig.accelTCBiasIntercept[YAXIS] = 0.0f;
-        eepromConfig.accelTCBiasIntercept[ZAXIS] = 0.0f;
+        eepromConfig.accelTCBiasIntercept[1][XAXIS] = 0.0f;
+        eepromConfig.accelTCBiasIntercept[1][YAXIS] = 0.0f;
+        eepromConfig.accelTCBiasIntercept[1][ZAXIS] = 0.0f;
+
+
+        eepromConfig.accelTCBiasIntercept[0][XAXIS] = 0.0f;
+        eepromConfig.accelTCBiasIntercept[0][YAXIS] = 0.0f;
+        eepromConfig.accelTCBiasIntercept[0][ZAXIS] = 0.0f;
 
         ///////////////////////////////
 
-        eepromConfig.gyroTCBiasSlope[ROLL ] = 0.0f;
-        eepromConfig.gyroTCBiasSlope[PITCH] = 0.0f;
-        eepromConfig.gyroTCBiasSlope[YAW  ] = 0.0f;
+        eepromConfig.gyroTCBiasSlope[1][ROLL ] = 0.0f;
+        eepromConfig.gyroTCBiasSlope[1][PITCH] = 0.0f;
+        eepromConfig.gyroTCBiasSlope[1][YAW  ] = 0.0f;
+
+        eepromConfig.gyroTCBiasSlope[0][ROLL ] = 0.0f;
+        eepromConfig.gyroTCBiasSlope[0][PITCH] = 0.0f;
+        eepromConfig.gyroTCBiasSlope[0][YAW  ] = 0.0f;
 
         ///////////////////////////////
 
-        eepromConfig.gyroTCBiasIntercept[ROLL ] = 0.0f;
-        eepromConfig.gyroTCBiasIntercept[PITCH] = 0.0f;
-        eepromConfig.gyroTCBiasIntercept[YAW  ] = 0.0f;
+        eepromConfig.gyroTCBiasIntercept[1][ROLL ] = 0.0f;
+        eepromConfig.gyroTCBiasIntercept[1][PITCH] = 0.0f;
+        eepromConfig.gyroTCBiasIntercept[1][YAW  ] = 0.0f;
+
+        eepromConfig.gyroTCBiasIntercept[0][ROLL ] = 0.0f;
+        eepromConfig.gyroTCBiasIntercept[0][PITCH] = 0.0f;
+        eepromConfig.gyroTCBiasIntercept[0][YAW  ] = 0.0f;
 
         ///////////////////////////////
 

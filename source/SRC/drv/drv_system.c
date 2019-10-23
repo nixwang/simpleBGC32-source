@@ -131,16 +131,28 @@ void SysTick_Handler(void)
         if ((frameCounter % COUNT_500HZ) == 0)
         {
             frame_500Hz = true;
-//            I2Cx = I2C1;
-            readMPU6050();
+            I2Cx = I2C1;
+            readMPU60501();
 
-            accelData500Hz[XAXIS] = rawAccel[XAXIS].value;
-            accelData500Hz[YAXIS] = rawAccel[YAXIS].value;
-            accelData500Hz[ZAXIS] = rawAccel[ZAXIS].value;
+            accelData500Hz[0][XAXIS] = rawAccel[0][XAXIS].value;
+            accelData500Hz[0][YAXIS] = rawAccel[0][YAXIS].value;
+            accelData500Hz[0][ZAXIS] = rawAccel[0][ZAXIS].value;
 
-            gyroData500Hz[ROLL ] = rawGyro[ROLL ].value;
-            gyroData500Hz[PITCH] = rawGyro[PITCH].value;
-            gyroData500Hz[YAW  ] = rawGyro[YAW  ].value;
+            gyroData500Hz[0][ROLL ] = rawGyro[0][ROLL ].value;
+            gyroData500Hz[0][PITCH] = rawGyro[0][PITCH].value;
+            gyroData500Hz[0][YAW  ] = rawGyro[0][YAW  ].value;
+            
+            I2Cx = I2C2;
+            readMPU60502();
+
+            accelData500Hz[1][XAXIS] = rawAccel[1][XAXIS].value;
+            accelData500Hz[1][YAXIS] = rawAccel[1][YAXIS].value;
+            accelData500Hz[1][ZAXIS] = rawAccel[1][ZAXIS].value;
+
+            gyroData500Hz[1][ROLL ] = rawGyro[1][ROLL ].value;
+            gyroData500Hz[1][PITCH] = rawGyro[1][PITCH].value;
+            gyroData500Hz[1][YAW  ] = rawGyro[1][YAW  ].value;
+
         }
 
         ///////////////////////////////
@@ -264,7 +276,8 @@ void systemInit(void)
                            RCC_APB2Periph_TIM1  | RCC_APB2Periph_TIM8, ENABLE);
 
     RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2  | RCC_APB1Periph_TIM3  | RCC_APB1Periph_TIM4  |
-                           RCC_APB1Periph_TIM5  | RCC_APB1Periph_TIM6  | RCC_APB1Periph_I2C2, ENABLE);
+                           RCC_APB1Periph_TIM5  | RCC_APB1Periph_TIM6  | RCC_APB1Periph_I2C1  
+                           | RCC_APB1Periph_I2C2, ENABLE);
 
 #ifdef _DTIMING
     timingSetup();
@@ -319,9 +332,10 @@ void systemInit(void)
     delay(10000);  // Remaining 10 seconds of 20 second delay for sensor stabilization - probably not long enough..
 
     LED1_ON;
-
+    
+    // cliPrintF("\r\n Running i2cInit \r\n");
+    i2cInit(I2C1);
     i2cInit(I2C2);
-    // i2cInit(I2C2);
     // rcInit();
     timingFunctionsInit();
 
@@ -333,11 +347,11 @@ void systemInit(void)
 
     orientIMU();
 
-//    I2Cx = I2C1;
-    initMPU6050();
-
-    // I2Cx = I2C1;
-    // initMPU6050();
+    I2Cx = I2C1;
+    initMPU6050_i2c1();
+    
+    I2Cx = I2C2;
+    initMPU6050_i2c2();
 
     // initMag();
 }

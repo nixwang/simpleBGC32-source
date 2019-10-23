@@ -102,21 +102,21 @@
 
 float accelOneG = 9.8065;
 
-int16_t accelData500Hz[3];
+int16_t accelData500Hz[2][3];
 
 float accelTCBias[3] = { 0.0f, 0.0f, 0.0f };
 
-int16andUint8_t rawAccel[3];
+int16andUint8_t rawAccel[2][3];
 
 ///////////////////////////////////////
 
-float gyroRTBias[3];
+float gyroRTBias[2][3];
 
-int16_t gyroData500Hz[3];
+int16_t gyroData500Hz[2][3];
 
-float gyroTCBias[3];
+float gyroTCBias[2][3];
 
-int16andUint8_t rawGyro[3];
+int16andUint8_t rawGyro[2][3];
 
 ///////////////////////////////////////
 
@@ -124,7 +124,7 @@ uint8_t mpu6050Calibrating = false;
 
 float   mpu6050Temperature;
 
-int16andUint8_t rawMPU6050Temperature;
+int16andUint8_t rawMPU6050Temperature[2];
 
 ///////////////////////////////////////
 
@@ -134,22 +134,22 @@ int16_t orientationMatrix[9];
 // MPU6050 Initialization
 ///////////////////////////////////////////////////////////////////////////////
 
-void initMPU6050(void)
+void initMPU6050_i2c1(void)
 {
   
-    cliPrintF("\n initMPU6050.... \n");
+    // cliPrintF("\n initMPU6050.... \n");
   
-    i2cWrite(MPU6050_ADDRESS, MPU6050_PWR_MGMT_1,   BIT_H_RESET);               // Device Reset
-    cliPrintF("\n initMPU6050 i2cWrite.... \n");
+    i2cWrite(MPU6050_ADDRESS1, MPU6050_PWR_MGMT_1,   BIT_H_RESET);               // Device Reset
+    // cliPrintF("\n initMPU6050 i2cWrite.... \n");
 
     delay(150);
 
-    i2cWrite(MPU6050_ADDRESS, MPU6050_PWR_MGMT_1,   MPU_CLK_SEL_PLLGYROZ);      // Clock Source
-    i2cWrite(MPU6050_ADDRESS, MPU6050_PWR_MGMT_2,   0x00);                      // turn off all standby
-    i2cWrite(MPU6050_ADDRESS, MPU6050_SMPLRT_DIV,   0x00);                      // Accel Sample Rate 1000 Hz, Gyro Sample Rate 8000 Hz
-    i2cWrite(MPU6050_ADDRESS, MPU6050_CONFIG,       eepromConfig.dlpfSetting);  // Accel and Gyro DLPF Setting
-    i2cWrite(MPU6050_ADDRESS, MPU6050_ACCEL_CONFIG, BITS_FS_4G);                // Accel +/- 4 G Full Scale
-    i2cWrite(MPU6050_ADDRESS, MPU6050_GYRO_CONFIG,  BITS_FS_500DPS);            // Gyro +/- 500 DPS Full Scale
+    i2cWrite(MPU6050_ADDRESS1, MPU6050_PWR_MGMT_1,   MPU_CLK_SEL_PLLGYROZ);      // Clock Source
+    i2cWrite(MPU6050_ADDRESS1, MPU6050_PWR_MGMT_2,   0x00);                      // turn off all standby
+    i2cWrite(MPU6050_ADDRESS1, MPU6050_SMPLRT_DIV,   0x00);                      // Accel Sample Rate 1000 Hz, Gyro Sample Rate 8000 Hz
+    i2cWrite(MPU6050_ADDRESS1, MPU6050_CONFIG,       eepromConfig.dlpfSetting);  // Accel and Gyro DLPF Setting
+    i2cWrite(MPU6050_ADDRESS1, MPU6050_ACCEL_CONFIG, BITS_FS_4G);                // Accel +/- 4 G Full Scale
+    i2cWrite(MPU6050_ADDRESS1, MPU6050_GYRO_CONFIG,  BITS_FS_500DPS);            // Gyro +/- 500 DPS Full Scale
     //    i2cWrite(MPU6050_ADDRESS, MPU6050_INT_PIN_CFG,  0x00);                      // int pin config
     //    i2cWrite(MPU6050_ADDRESS, MPU6050_INT_ENABLE,   0x00);                      // int pin disable
 
@@ -157,14 +157,39 @@ void initMPU6050(void)
 
     delay(100);
 
-    computeMPU6050RTData();
+    computeMPU6050RTData1();
 }
 
+void initMPU6050_i2c2(void)
+{
+  
+    // cliPrintF("\n initMPU6050.... \n");
+  
+    i2cWrite(MPU6050_ADDRESS2, MPU6050_PWR_MGMT_1,   BIT_H_RESET);               // Device Reset
+    // cliPrintF("\n initMPU6050 i2cWrite.... \n");
+
+    delay(150);
+
+    i2cWrite(MPU6050_ADDRESS2, MPU6050_PWR_MGMT_1,   MPU_CLK_SEL_PLLGYROZ);      // Clock Source
+    i2cWrite(MPU6050_ADDRESS2, MPU6050_PWR_MGMT_2,   0x00);                      // turn off all standby
+    i2cWrite(MPU6050_ADDRESS2, MPU6050_SMPLRT_DIV,   0x00);                      // Accel Sample Rate 1000 Hz, Gyro Sample Rate 8000 Hz
+    i2cWrite(MPU6050_ADDRESS2, MPU6050_CONFIG,       eepromConfig.dlpfSetting);  // Accel and Gyro DLPF Setting
+    i2cWrite(MPU6050_ADDRESS2, MPU6050_ACCEL_CONFIG, BITS_FS_4G);                // Accel +/- 4 G Full Scale
+    i2cWrite(MPU6050_ADDRESS2, MPU6050_GYRO_CONFIG,  BITS_FS_500DPS);            // Gyro +/- 500 DPS Full Scale
+    //    i2cWrite(MPU6050_ADDRESS, MPU6050_INT_PIN_CFG,  0x00);                      // int pin config
+    //    i2cWrite(MPU6050_ADDRESS, MPU6050_INT_ENABLE,   0x00);                      // int pin disable
+
+    ///////////////////////////////////
+
+    delay(100);
+
+    computeMPU6050RTData2();
+}
 ///////////////////////////////////////////////////////////////////////////////
 // Read MPU6050
 ///////////////////////////////////////////////////////////////////////////////
 
-void readMPU6050(void)
+void readMPU60501(void)
 {
     uint8_t axis;
 
@@ -176,29 +201,29 @@ void readMPU6050(void)
     int16_t straightGyroData[3];
     int16_t rotatedGyroData[3];
 
-    i2cRead(MPU6050_ADDRESS, MPU6050_ACCEL_XOUT_H, 14, I2C2_Buffer_Rx);//从MPU6050读取原始加速度和陀螺仪数据，还有温度数据
+    i2cRead(MPU6050_ADDRESS1, MPU6050_ACCEL_XOUT_H, 14, I2C2_Buffer_Rx);//从MPU6050读取原始加速度和陀螺仪数据，还有温度数据
 
-    rawAccel[YAXIS].bytes[1]       = I2C2_Buffer_Rx[ 0];//传输原始数据
-    rawAccel[YAXIS].bytes[0]       = I2C2_Buffer_Rx[ 1];
-    rawAccel[XAXIS].bytes[1]       = I2C2_Buffer_Rx[ 2];
-    rawAccel[XAXIS].bytes[0]       = I2C2_Buffer_Rx[ 3];
-    rawAccel[ZAXIS].bytes[1]       = I2C2_Buffer_Rx[ 4];
-    rawAccel[ZAXIS].bytes[0]       = I2C2_Buffer_Rx[ 5];
+    rawAccel[0][YAXIS].bytes[1]       = I2C2_Buffer_Rx[ 0];//传输原始数据
+    rawAccel[0][YAXIS].bytes[0]       = I2C2_Buffer_Rx[ 1];
+    rawAccel[0][XAXIS].bytes[1]       = I2C2_Buffer_Rx[ 2];
+    rawAccel[0][XAXIS].bytes[0]       = I2C2_Buffer_Rx[ 3];
+    rawAccel[0][ZAXIS].bytes[1]       = I2C2_Buffer_Rx[ 4];
+    rawAccel[0][ZAXIS].bytes[0]       = I2C2_Buffer_Rx[ 5];
 
-    rawMPU6050Temperature.bytes[1] = I2C2_Buffer_Rx[ 6];
-    rawMPU6050Temperature.bytes[0] = I2C2_Buffer_Rx[ 7];
+    rawMPU6050Temperature[0].bytes[1] = I2C2_Buffer_Rx[ 6];
+    rawMPU6050Temperature[0].bytes[0] = I2C2_Buffer_Rx[ 7];
 
-    rawGyro[PITCH].bytes[1]        = I2C2_Buffer_Rx[ 8];
-    rawGyro[PITCH].bytes[0]        = I2C2_Buffer_Rx[ 9];
-    rawGyro[ROLL ].bytes[1]        = I2C2_Buffer_Rx[10];
-    rawGyro[ROLL ].bytes[0]        = I2C2_Buffer_Rx[11];
-    rawGyro[YAW  ].bytes[1]        = I2C2_Buffer_Rx[12];
-    rawGyro[YAW  ].bytes[0]        = I2C2_Buffer_Rx[13];
+    rawGyro[0][PITCH].bytes[1]        = I2C2_Buffer_Rx[ 8];
+    rawGyro[0][PITCH].bytes[0]        = I2C2_Buffer_Rx[ 9];
+    rawGyro[0][ROLL ].bytes[1]        = I2C2_Buffer_Rx[10];
+    rawGyro[0][ROLL ].bytes[0]        = I2C2_Buffer_Rx[11];
+    rawGyro[0][YAW  ].bytes[1]        = I2C2_Buffer_Rx[12];
+    rawGyro[0][YAW  ].bytes[0]        = I2C2_Buffer_Rx[13];
 
     for (axis = 0; axis < 3; axis++)
     {
-        straightAccelData[axis] = rawAccel[axis].value;//获取加速度矩阵B的值
-        straightGyroData[axis]  = rawGyro[axis].value;//获取陀螺仪矩阵B的值
+        straightAccelData[axis] = rawAccel[0][axis].value;//获取加速度矩阵B的值
+        straightGyroData[axis]  = rawGyro[0][axis].value;//获取陀螺仪矩阵B的值
     }
 
 		//矩阵orientationMatrix * 矩阵straightAccelData ，矩阵orientationMatrix维度是3*3 ，矩阵straightAccelData维度是3*1
@@ -211,8 +236,61 @@ void readMPU6050(void)
 
     for (axis = 0; axis < 3; axis++)
     {
-        rawAccel[axis].value = rotatedAccelData[axis];//传递矩阵相乘后的结果
-        rawGyro[axis].value  = rotatedGyroData[axis];
+        rawAccel[0][axis].value = rotatedAccelData[axis];//传递矩阵相乘后的结果
+        rawGyro[0][axis].value  = rotatedGyroData[axis];
+    }
+}
+
+
+void readMPU60502(void)
+{
+    uint8_t axis;
+
+    uint8_t I2C2_Buffer_Rx[14];
+
+    int16_t straightAccelData[3];
+    int16_t rotatedAccelData[3];
+
+    int16_t straightGyroData[3];
+    int16_t rotatedGyroData[3];
+
+    i2cRead(MPU6050_ADDRESS2, MPU6050_ACCEL_XOUT_H, 14, I2C2_Buffer_Rx);//从MPU6050读取原始加速度和陀螺仪数据，还有温度数据
+
+    rawAccel[1][YAXIS].bytes[1]       = I2C2_Buffer_Rx[ 0];//传输原始数据
+    rawAccel[1][YAXIS].bytes[0]       = I2C2_Buffer_Rx[ 1];
+    rawAccel[1][XAXIS].bytes[1]       = I2C2_Buffer_Rx[ 2];
+    rawAccel[1][XAXIS].bytes[0]       = I2C2_Buffer_Rx[ 3];
+    rawAccel[1][ZAXIS].bytes[1]       = I2C2_Buffer_Rx[ 4];
+    rawAccel[1][ZAXIS].bytes[0]       = I2C2_Buffer_Rx[ 5];
+
+    rawMPU6050Temperature[1].bytes[1] = I2C2_Buffer_Rx[ 6];
+    rawMPU6050Temperature[1].bytes[0] = I2C2_Buffer_Rx[ 7];
+
+    rawGyro[1][PITCH].bytes[1]        = I2C2_Buffer_Rx[ 8];
+    rawGyro[1][PITCH].bytes[0]        = I2C2_Buffer_Rx[ 9];
+    rawGyro[1][ROLL ].bytes[1]        = I2C2_Buffer_Rx[10];
+    rawGyro[1][ROLL ].bytes[0]        = I2C2_Buffer_Rx[11];
+    rawGyro[1][YAW  ].bytes[1]        = I2C2_Buffer_Rx[12];
+    rawGyro[1][YAW  ].bytes[0]        = I2C2_Buffer_Rx[13];
+
+    for (axis = 0; axis < 3; axis++)
+    {
+        straightAccelData[axis] = rawAccel[1][axis].value;//获取加速度矩阵B的值
+        straightGyroData[axis]  = rawGyro[1][axis].value;//获取陀螺仪矩阵B的值
+    }
+
+		//矩阵orientationMatrix * 矩阵straightAccelData ，矩阵orientationMatrix维度是3*3 ，矩阵straightAccelData维度是3*1
+		//结果放到矩阵rotatedAccelData ,矩阵维度是3*1 
+    matrixMultiply(3, 3, 1, rotatedAccelData, orientationMatrix, straightAccelData);
+		
+		//矩阵orientationMatrix * 矩阵straightGyroData ，矩阵orientationMatrix维度是3*3 ，矩阵straightGyroData维度是3*1
+		//结果放到矩阵rotatedGyroData ,矩阵维度是3*1 
+    matrixMultiply(3, 3, 1, rotatedGyroData,  orientationMatrix, straightGyroData);
+
+    for (axis = 0; axis < 3; axis++)
+    {
+        rawAccel[1][axis].value = rotatedAccelData[axis];//传递矩阵相乘后的结果
+        rawGyro[1][axis].value  = rotatedGyroData[axis];
     }
 }
 
@@ -220,7 +298,7 @@ void readMPU6050(void)
 // Compute MPU6050 Runtime Data
 ///////////////////////////////////////////////////////////////////////////////
 
-void computeMPU6050RTData(void)
+void computeMPU6050RTData1(void)
 {
     uint8_t  axis;
     uint16_t samples;
@@ -232,17 +310,17 @@ void computeMPU6050RTData(void)
 
     for (samples = 0; samples < 5000; samples++)
     {
-        readMPU6050();
+        readMPU60501();
 
-        computeMPU6050TCBias();
+        computeMPU6050TCBias1();
 				//矩阵相乘后的结果-温度补偿偏差，每次都对结果进行积分，一共积分5000次
-        accelSum[XAXIS] += (float)rawAccel[XAXIS].value - accelTCBias[XAXIS];
-        accelSum[YAXIS] += (float)rawAccel[YAXIS].value - accelTCBias[YAXIS];
-        accelSum[ZAXIS] += (float)rawAccel[ZAXIS].value - accelTCBias[ZAXIS];
+        accelSum[XAXIS] += (float)rawAccel[0][XAXIS].value - accelTCBias[XAXIS];
+        accelSum[YAXIS] += (float)rawAccel[0][YAXIS].value - accelTCBias[YAXIS];
+        accelSum[ZAXIS] += (float)rawAccel[0][ZAXIS].value - accelTCBias[ZAXIS];
 
-        gyroSum[ROLL ]  += (float)rawGyro[ROLL ].value  - gyroTCBias[ROLL ];
-        gyroSum[PITCH]  += (float)rawGyro[PITCH].value  - gyroTCBias[PITCH];
-        gyroSum[YAW  ]  += (float)rawGyro[YAW  ].value  - gyroTCBias[YAW  ];
+        gyroSum[ROLL ]  += (float)rawGyro[0][ROLL ].value  - gyroTCBias[0][ROLL ];
+        gyroSum[PITCH]  += (float)rawGyro[0][PITCH].value  - gyroTCBias[0][PITCH];
+        gyroSum[YAW  ]  += (float)rawGyro[0][YAW  ].value  - gyroTCBias[0][YAW  ];
 
         delayMicroseconds(1000);//延时1000us
     }
@@ -253,7 +331,7 @@ void computeMPU6050RTData(void)
         accelSum[axis]   = accelSum[axis] / 5000.0f * ACCEL_SCALE_FACTOR;
 			
 			//对之前积分的5000次加速度数据的结果直接求平均
-        gyroRTBias[axis] = gyroSum[axis]  / 5000.0f;
+        gyroRTBias[0][axis] = gyroSum[axis]  / 5000.0f;
     }
 
 		//加速度标准化
@@ -262,24 +340,78 @@ void computeMPU6050RTData(void)
     mpu6050Calibrating = false;
 }
 
+void computeMPU6050RTData2(void)
+{
+    uint8_t  axis;
+    uint16_t samples;
+
+    double accelSum[3]    = { 0.0f, 0.0f, 0.0f };
+    double gyroSum[3]     = { 0.0f, 0.0f, 0.0f };
+
+    mpu6050Calibrating = true;
+
+    for (samples = 0; samples < 5000; samples++)
+    {
+        readMPU60502();
+
+        computeMPU6050TCBias2();
+				//矩阵相乘后的结果-温度补偿偏差，每次都对结果进行积分，一共积分5000次
+        accelSum[XAXIS] += (float)rawAccel[1][XAXIS].value - accelTCBias[XAXIS];
+        accelSum[YAXIS] += (float)rawAccel[1][YAXIS].value - accelTCBias[YAXIS];
+        accelSum[ZAXIS] += (float)rawAccel[1][ZAXIS].value - accelTCBias[ZAXIS];
+
+        gyroSum[ROLL ]  += (float)rawGyro[1][ROLL ].value  - gyroTCBias[1][ROLL ];
+        gyroSum[PITCH]  += (float)rawGyro[1][PITCH].value  - gyroTCBias[1][PITCH];
+        gyroSum[YAW  ]  += (float)rawGyro[1][YAW  ].value  - gyroTCBias[1][YAW  ];
+
+        delayMicroseconds(1000);//延时1000us
+    }
+
+    for (axis = 0; axis < 3; axis++)
+    {
+			//对之前积分的5000次加速度数据的结果求平均后然后乘以最小刻度值(1/8192) * 9.8065 
+        accelSum[axis]   = accelSum[axis] / 5000.0f * ACCEL_SCALE_FACTOR;
+			
+			//对之前积分的5000次加速度数据的结果直接求平均
+        gyroRTBias[1][axis] = gyroSum[axis]  / 5000.0f;
+    }
+
+		//加速度标准化
+    accelOneG = sqrt(SQR(accelSum[XAXIS]) + SQR(accelSum[YAXIS]) + SQR(accelSum[ZAXIS]));
+
+    mpu6050Calibrating = false;
+}
 ///////////////////////////////////////////////////////////////////////////////
 // Compute MPU6050 Temperature Compensation Bias
 ///////////////////////////////////////////////////////////////////////////////
 
-void computeMPU6050TCBias(void)
+void computeMPU6050TCBias1(void)
 {
-    mpu6050Temperature = (float)(rawMPU6050Temperature.value) / 340.0f + 35.0f;//得到温度
+    mpu6050Temperature = (float)(rawMPU6050Temperature[0].value) / 340.0f + 35.0f;//得到温度
 
 	//	计算温度补偿偏差值
-    accelTCBias[XAXIS] = eepromConfig.accelTCBiasSlope[XAXIS] * mpu6050Temperature + eepromConfig.accelTCBiasIntercept[XAXIS];
-    accelTCBias[YAXIS] = eepromConfig.accelTCBiasSlope[YAXIS] * mpu6050Temperature + eepromConfig.accelTCBiasIntercept[YAXIS];
-    accelTCBias[ZAXIS] = eepromConfig.accelTCBiasSlope[ZAXIS] * mpu6050Temperature + eepromConfig.accelTCBiasIntercept[ZAXIS];
+    accelTCBias[XAXIS] = eepromConfig.accelTCBiasSlope[0][XAXIS] * mpu6050Temperature + eepromConfig.accelTCBiasIntercept[0][XAXIS];
+    accelTCBias[YAXIS] = eepromConfig.accelTCBiasSlope[0][YAXIS] * mpu6050Temperature + eepromConfig.accelTCBiasIntercept[0][YAXIS];
+    accelTCBias[ZAXIS] = eepromConfig.accelTCBiasSlope[0][ZAXIS] * mpu6050Temperature + eepromConfig.accelTCBiasIntercept[0][ZAXIS];
 
-    gyroTCBias[ROLL ]  = eepromConfig.gyroTCBiasSlope[ROLL ]  * mpu6050Temperature + eepromConfig.gyroTCBiasIntercept[ROLL ];
-    gyroTCBias[PITCH]  = eepromConfig.gyroTCBiasSlope[PITCH]  * mpu6050Temperature + eepromConfig.gyroTCBiasIntercept[PITCH];
-    gyroTCBias[YAW  ]  = eepromConfig.gyroTCBiasSlope[YAW  ]  * mpu6050Temperature + eepromConfig.gyroTCBiasIntercept[YAW  ];
+    gyroTCBias[0][ROLL ]  = eepromConfig.gyroTCBiasSlope[0][ROLL ]  * mpu6050Temperature + eepromConfig.gyroTCBiasIntercept[0][ROLL ];
+    gyroTCBias[0][PITCH]  = eepromConfig.gyroTCBiasSlope[0][PITCH]  * mpu6050Temperature + eepromConfig.gyroTCBiasIntercept[0][PITCH];
+    gyroTCBias[0][YAW  ]  = eepromConfig.gyroTCBiasSlope[0][YAW  ]  * mpu6050Temperature + eepromConfig.gyroTCBiasIntercept[0][YAW  ];
 }
 
+void computeMPU6050TCBias2(void)
+{
+    mpu6050Temperature = (float)(rawMPU6050Temperature[1].value) / 340.0f + 35.0f;//得到温度
+
+	//	计算温度补偿偏差值
+    accelTCBias[XAXIS] = eepromConfig.accelTCBiasSlope[1][XAXIS] * mpu6050Temperature + eepromConfig.accelTCBiasIntercept[1][XAXIS];
+    accelTCBias[YAXIS] = eepromConfig.accelTCBiasSlope[1][YAXIS] * mpu6050Temperature + eepromConfig.accelTCBiasIntercept[1][YAXIS];
+    accelTCBias[ZAXIS] = eepromConfig.accelTCBiasSlope[1][ZAXIS] * mpu6050Temperature + eepromConfig.accelTCBiasIntercept[1][ZAXIS];
+
+    gyroTCBias[1][ROLL ]  = eepromConfig.gyroTCBiasSlope[1][ROLL ]  * mpu6050Temperature + eepromConfig.gyroTCBiasIntercept[1][ROLL ];
+    gyroTCBias[1][PITCH]  = eepromConfig.gyroTCBiasSlope[1][PITCH]  * mpu6050Temperature + eepromConfig.gyroTCBiasIntercept[1][PITCH];
+    gyroTCBias[1][YAW  ]  = eepromConfig.gyroTCBiasSlope[1][YAW  ]  * mpu6050Temperature + eepromConfig.gyroTCBiasIntercept[1][YAW  ];
+}
 ///////////////////////////////////////////////////////////////////////////////
 // Orient IMU
 ///////////////////////////////////////////////////////////////////////////////

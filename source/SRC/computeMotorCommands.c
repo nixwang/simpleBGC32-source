@@ -99,7 +99,7 @@ void computeMotorCommands(float dt)
     {
 			//更新PID，结果放到pidCmd[ROLL]
         pidCmd[ROLL] = updatePID(pointingCmd[ROLL] * mechanical2electricalDegrees[ROLL],
-                                 sensors.margAttitude500Hz[ROLL] * mechanical2electricalDegrees[ROLL],
+                                 sensors[0].margAttitude500Hz[ROLL] * mechanical2electricalDegrees[ROLL],
                                  dt, holdIntegrators, &eepromConfig.PID[ROLL_PID]);
 			
 			//当前PID输出减去上次PID输出得到变化量
@@ -123,7 +123,7 @@ void computeMotorCommands(float dt)
     {
 			//更新PID，结果放到pidCmd[PITCH]
         pidCmd[PITCH] = updatePID(pointingCmd[PITCH] * mechanical2electricalDegrees[PITCH],
-                                  sensors.margAttitude500Hz[PITCH] * mechanical2electricalDegrees[PITCH],
+                                  sensors[0].margAttitude500Hz[PITCH] * mechanical2electricalDegrees[PITCH],
                                   dt, holdIntegrators, &eepromConfig.PID[PITCH_PID]);
 
         // outputRate[PITCH] = pidCmd[PITCH] - pidCmdPrev[PITCH];//当前PID输出减去上次PID输出得到变化量
@@ -151,7 +151,7 @@ void computeMotorCommands(float dt)
 
 				//更新PID，结果放到pidCmd[YAW]
         pidCmd[YAW] = updatePID(yawCmd * mechanical2electricalDegrees[YAW],
-                                sensors.margAttitude500Hz[YAW] * mechanical2electricalDegrees[YAW],
+                                sensors[0].margAttitude500Hz[YAW] * mechanical2electricalDegrees[YAW],
                                 dt, holdIntegrators, &eepromConfig.PID[YAW_PID]);
 
         // outputRate[YAW] = pidCmd[YAW] - pidCmdPrev[YAW];//当前PID输出减去上次PID输出得到变化量

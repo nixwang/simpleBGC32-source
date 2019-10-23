@@ -110,7 +110,7 @@ typedef struct sensors_t
 
 } sensors_t;
 
-extern sensors_t sensors;
+extern sensors_t sensors[2];
 
 ///////////////////////////////////////////////////////////////////////////////
 // PID Definitions
@@ -136,11 +136,11 @@ typedef struct eepromConfig_t
 {
     uint8_t version;
 
-    float accelTCBiasSlope[3];
-    float accelTCBiasIntercept[3];
+    float accelTCBiasSlope[2][3];
+    float accelTCBiasIntercept[2][3];
 
-    float gyroTCBiasSlope[3];
-    float gyroTCBiasIntercept[3];
+    float gyroTCBiasSlope[2][3];
+    float gyroTCBiasIntercept[2][3];
 
     float magBias[3];
 

@@ -17,20 +17,29 @@
 //----------------------------------------------------------------------------------------------------
 // Variable declaration
 
-extern float accConfidenceDecay;
+extern float accConfidenceDecay[2];
 
-extern float q0, q1, q2, q3;  // quaternion elements representing the estimated orientation
+extern float q0[2], q1[2], q2[2], q3[2];  // quaternion elements representing the estimated orientation
 
 // auxiliary variables to reduce number of repeated operations
-extern float q0q0, q0q1, q0q2, q0q3;
-extern float q1q1, q1q2, q1q3;
-extern float q2q2, q2q3;
-extern float q3q3;
+extern float q0q0[2], q0q1[2], q0q2[2], q0q3[2];
+extern float q1q1[2], q1q2[2], q1q3[2];
+extern float q2q2[2], q2q3[2];
+extern float q3q3[2];
 
 //---------------------------------------------------------------------------------------------------
 // Function declaration
+void calculateAccConfidence1(float accMag);
+void calculateAccConfidence2(float accMag);
 
-void MargAHRSupdate(float gx, float gy, float gz,
+void MargAHRSinit1(float ax, float ay, float az, float mx, float my, float mz);
+void MargAHRSinit2(float ax, float ay, float az, float mx, float my, float mz);
+
+void MargAHRSupdate1(float gx, float gy, float gz,
+                    float ax, float ay, float az,
+                    float mx, float my, float mz,
+                    uint8_t magDataUpdate, float dt);
+void MargAHRSupdate2(float gx, float gy, float gz,
                     float ax, float ay, float az,
                     float mx, float my, float mz,
                     uint8_t magDataUpdate, float dt);

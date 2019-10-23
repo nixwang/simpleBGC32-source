@@ -37,29 +37,37 @@
 // SCL  PB10
 // SDA  PB11
 
-static I2C_TypeDef *I2Cx;
 static void i2c_er_handler(void);
 static void i2c_ev_handler(void);
 static void i2cUnstick(I2C_TypeDef *I2C);
+I2C_TypeDef *I2Cx;
 
 void I2C1_ER_IRQHandler(void)
 {
+    __disable_irq();
     i2c_er_handler();
+    __enable_irq();
 }
 
 void I2C1_EV_IRQHandler(void)
 {
+    __disable_irq();
     i2c_ev_handler();
+    __enable_irq();
 }
 
 void I2C2_ER_IRQHandler(void)
 {
+    __disable_irq();
     i2c_er_handler();
+    __enable_irq();
 }
 
 void I2C2_EV_IRQHandler(void)
 {
+    __disable_irq();
     i2c_ev_handler();
+    __enable_irq();
 }
 
 
@@ -428,18 +436,23 @@ static void i2cUnstick(I2C_TypeDef *I2C)
         GPIO_Init(GPIOB, &GPIO_InitStructure);
 
         GPIO_SetBits(GPIOB, GPIO_Pin_6 | GPIO_Pin_7);
+        // cliPrintF("\r\nEnter i2cUnstick\r\n");
 
         for (i = 0; i < 8; i++)
         {
             while (!GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_6))               // Wait for any clock stretching to finish
+            {
                 delayMicroseconds(3);
-
+                // cliPrintF("\r\nEnter ReadInputDataBit\r\n");
+            }
+            
             GPIO_ResetBits(GPIOB, GPIO_Pin_6);                              //Set bus low
             delayMicroseconds(3);
 
             GPIO_SetBits(GPIOB, GPIO_Pin_6);                                //Set bus high
             delayMicroseconds(3);
         }
+        // cliPrintF("\r\n Enter i2cUnstick \r\n");
 
         // Generate a start then stop condition
 
@@ -463,6 +476,7 @@ void i2cInit(I2C_TypeDef *I2C)
     GPIO_InitTypeDef GPIO_InitStructure;
     I2C_InitTypeDef I2C_InitStructure;
 
+    // cliPrintF("\r\n Enter i2cInit \r\n");
     i2cUnstick(I2C);                                                        // clock out stuff to make sure slaves arent stuck
 
     // SCL  PB10
@@ -494,6 +508,8 @@ void i2cInit(I2C_TypeDef *I2C)
 
     I2C_InitStructure.I2C_Mode                = I2C_Mode_I2C;
     I2C_InitStructure.I2C_DutyCycle           = I2C_DutyCycle_2;
+    I2C_InitStructure.I2C_OwnAddress1         = 0xc0;                   // STM32 的自身地址，不与从器件相同即可
+    I2C_InitStructure.I2C_Ack                 = I2C_Ack_Enable;
     I2C_InitStructure.I2C_AcknowledgedAddress = I2C_AcknowledgedAddress_7bit;
     I2C_InitStructure.I2C_ClockSpeed          = 400000;
 

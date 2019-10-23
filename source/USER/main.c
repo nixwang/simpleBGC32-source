@@ -51,7 +51,7 @@ instructions:
 
 eepromConfig_t eepromConfig;
 
-sensors_t      sensors;
+sensors_t      sensors[2];
 
 float          testPhase      = -1.0f * D2R;
 float          testPhaseDelta = 10.0f * D2R;
@@ -66,7 +66,12 @@ int main(void)
 
     systemInit();
 
-    initOrientation();
+    I2Cx = I2C1;
+    initOrientation1();
+    
+    I2Cx = I2C2;
+    initOrientation2();
+
 //    mpu6050Calibration();
 
     systemReady = true;
@@ -83,7 +88,7 @@ int main(void)
             deltaTime50Hz    = currentTime - previous50HzTime;
             previous50HzTime = currentTime;
 
-            processPointingCommands();//接收遥控器控制指令。
+            // processPointingCommands();//接收遥控器控制指令。
 
             executionTime50Hz = micros() - currentTime;
         }
@@ -102,9 +107,9 @@ int main(void)
             if (newMagData == true)
             {
 
-                sensors.mag10Hz[XAXIS] =   (float)rawMag[XAXIS].value * magScaleFactor[XAXIS] - eepromConfig.magBias[XAXIS];
-                sensors.mag10Hz[YAXIS] =   (float)rawMag[YAXIS].value * magScaleFactor[YAXIS] - eepromConfig.magBias[YAXIS];
-                sensors.mag10Hz[ZAXIS] = -((float)rawMag[ZAXIS].value * magScaleFactor[ZAXIS] - eepromConfig.magBias[ZAXIS]);
+                // sensors.mag10Hz[XAXIS] =   (float)rawMag[XAXIS].value * magScaleFactor[XAXIS] - eepromConfig.magBias[XAXIS];
+                // sensors.mag10Hz[YAXIS] =   (float)rawMag[YAXIS].value * magScaleFactor[YAXIS] - eepromConfig.magBias[YAXIS];
+                // sensors.mag10Hz[ZAXIS] = -((float)rawMag[ZAXIS].value * magScaleFactor[ZAXIS] - eepromConfig.magBias[ZAXIS]);
                 
                 newMagData = false;
                 magDataUpdate = true;
@@ -141,19 +146,51 @@ int main(void)
 					  //（经过矩阵运算后的当前加速度数据-温度补偿偏差）* 最小分辨率 ，最小分辨率就是（(1/8192) * 9.8065） 
 					 //1G量程的8192个数字量分之1，对应重力加速度9.8065m/1G的8192分之1
 					//accelData500Hz数组是在Systick中断里面被更新的，更新的值是经过矩阵运算后的值，更新频率是500hz
-            sensors.accel500Hz[XAXIS] =  ((float)accelData500Hz[XAXIS] - accelTCBias[XAXIS]) * ACCEL_SCALE_FACTOR;
-            sensors.accel500Hz[YAXIS] =  ((float)accelData500Hz[YAXIS] - accelTCBias[YAXIS]) * ACCEL_SCALE_FACTOR;
-            sensors.accel500Hz[ZAXIS] = -((float)accelData500Hz[ZAXIS] - accelTCBias[ZAXIS]) * ACCEL_SCALE_FACTOR;
+            sensors[0].accel500Hz[XAXIS] =  ((float)accelData500Hz[0][XAXIS] - accelTCBias[XAXIS]) * ACCEL_SCALE_FACTOR;
+            sensors[0].accel500Hz[YAXIS] =  ((float)accelData500Hz[0][YAXIS] - accelTCBias[YAXIS]) * ACCEL_SCALE_FACTOR;
+            sensors[0].accel500Hz[ZAXIS] = -((float)accelData500Hz[0][ZAXIS] - accelTCBias[ZAXIS]) * ACCEL_SCALE_FACTOR;
+
+            sensors[1].accel500Hz[XAXIS] =  ((float)accelData500Hz[1][XAXIS] - accelTCBias[XAXIS]) * ACCEL_SCALE_FACTOR;
+            sensors[1].accel500Hz[YAXIS] =  ((float)accelData500Hz[1][YAXIS] - accelTCBias[YAXIS]) * ACCEL_SCALE_FACTOR;
+            sensors[1].accel500Hz[ZAXIS] = -((float)accelData500Hz[1][ZAXIS] - accelTCBias[ZAXIS]) * ACCEL_SCALE_FACTOR;
+
+            // cliPrintF("\r\n accel_ROLL[0] %d ", (int)(sensors[0].accel500Hz[ROLL]*100));
+            // cliPrintF(" accel_PITCH[0] %d ", (int)(sensors[0].accel500Hz[PITCH]*100));
+            // cliPrintF(" accel_YAW[0] %d ", (int)(sensors[0].accel500Hz[YAW]*100));
+
+            // cliPrintF("\r\n accel_ROLL[1] %d ", (int)(sensors[1].accel500Hz[ROLL]*100));
+            // cliPrintF(" accel_PITCH[1] %d ", (int)(sensors[1].accel500Hz[PITCH]*100));
+            // cliPrintF(" accel_YAW[1] %d \r\n", (int)(sensors[1].accel500Hz[YAW]*100));
+            
+            // cliPrintF("\r\n accel500Hz[XAXIS] %d ", (int)(sensors[0].accel500Hz[XAXIS]*100));
+            // cliPrintF(" accel500Hz[YAXIS] %d ", (int)(sensors[0].accel500Hz[YAXIS]*100));
+            // cliPrintF(" accel500Hz[ZAXIS] %d \r\n", (int)(sensors[0].accel500Hz[ZAXIS]*100));
 
 						// (1/65.5) * pi/180   (65.5 LSB = 1 DPS)
 						//（经过矩阵运算后的当前陀螺仪数据-陀螺仪静止状态下积分5000次的平均值-温度补偿偏差）* 最小分辨率 
 						//最小分辨率就是 (1/65.5) * pi/180  
 						//1DPS的陀螺仪数值是65.5, 65.5分之1 乘以 PI 然后除以180 就是最小分辨率
 						//gyroData500Hz数组是在Systick中断里面被更新的，更新的值是经过矩阵运算后的值，更新频率是500hz
-            sensors.gyro500Hz[ROLL ] =  ((float)gyroData500Hz[ROLL ] - gyroRTBias[ROLL ] - gyroTCBias[ROLL ]) * GYRO_SCALE_FACTOR;
-            sensors.gyro500Hz[PITCH] =  ((float)gyroData500Hz[PITCH] - gyroRTBias[PITCH] - gyroTCBias[PITCH]) * GYRO_SCALE_FACTOR;
-            sensors.gyro500Hz[YAW  ] = -((float)gyroData500Hz[YAW  ] - gyroRTBias[YAW  ] - gyroTCBias[YAW  ]) * GYRO_SCALE_FACTOR;
 
+            sensors[0].gyro500Hz[ROLL ] =  ((float)gyroData500Hz[0][ROLL ] - gyroRTBias[0][ROLL ] - gyroTCBias[0][ROLL ]) * GYRO_SCALE_FACTOR;
+            sensors[0].gyro500Hz[PITCH] =  ((float)gyroData500Hz[0][PITCH] - gyroRTBias[0][PITCH] - gyroTCBias[0][PITCH]) * GYRO_SCALE_FACTOR;
+            sensors[0].gyro500Hz[YAW  ] = -((float)gyroData500Hz[0][YAW  ] - gyroRTBias[0][YAW  ] - gyroTCBias[0][YAW  ]) * GYRO_SCALE_FACTOR;
+
+            sensors[1].gyro500Hz[ROLL ] =  ((float)gyroData500Hz[1][ROLL ] - gyroRTBias[1][ROLL ] - gyroTCBias[1][ROLL ]) * GYRO_SCALE_FACTOR;
+            sensors[1].gyro500Hz[PITCH] =  ((float)gyroData500Hz[1][PITCH] - gyroRTBias[1][PITCH] - gyroTCBias[1][PITCH]) * GYRO_SCALE_FACTOR;
+            sensors[1].gyro500Hz[YAW  ] = -((float)gyroData500Hz[1][YAW  ] - gyroRTBias[1][YAW  ] - gyroTCBias[1][YAW  ]) * GYRO_SCALE_FACTOR;
+
+            // cliPrintF("\r\n ROLL[0] %d ", (int)(sensors[0].gyro500Hz[ROLL]*100));
+            // cliPrintF(" PITCH[0] %d ", (int)(sensors[0].gyro500Hz[PITCH]*100));
+            // cliPrintF(" YAW[0] %d ", (int)(sensors[0].gyro500Hz[YAW]*100));
+
+            // cliPrintF("\r\n ROLL[1] %d ", (int)(sensors[1].gyro500Hz[ROLL]*100));
+            // cliPrintF(" PITCH[1] %d ", (int)(sensors[1].gyro500Hz[PITCH]*100));
+            // cliPrintF(" YAW[1] %d \r\n", (int)(sensors[1].gyro500Hz[YAW]*100));
+
+            // cliPrintF("\r\n gyro500Hz-ROLL %d ", (int)(sensors.gyro500Hz[ROLL]*100));
+            // cliPrintF(" gyro500Hz-PITCH %d ", (int)(sensors.gyro500Hz[PITCH]*100));
+            // cliPrintF(" gyro500Hz-YAW %d \r\n", (int)(sensors.gyro500Hz[YAW]*100));
 
 						//当前方位估计运算，其中 accAngleSmooth 是通过加速度数据经过atan2f函数计算得来的欧拉角，并且进行了一阶滞后滤波
 						//（此滤波算法也属于低通滤波的一种），优点： 对周期性干扰具有良好的抑制作用 适用于波动频率较高的场合,
@@ -161,29 +198,55 @@ int main(void)
 						//getOrientation函数内部使用了accAngleSmooth欧拉角与陀螺仪数据进行了互补滤波融合算法得到稳定的欧拉角，并且
 						//存放到sensors.evvgcCFAttitude500Hz里面，sensors.accel500Hz和sensors.gyro500Hz是经过上面算法处理后的加速度数据
 						//和陀螺仪数据，dt500Hz是时间增量，也就是执行if (frame_500Hz){} 里面的代码间隔
-            getOrientation(accAngleSmooth, sensors.evvgcCFAttitude500Hz, sensors.accel500Hz, sensors.gyro500Hz, dt500Hz);
+            getOrientation(accAngleSmooth[0], sensors[0].evvgcCFAttitude500Hz, sensors[0].accel500Hz, sensors[0].gyro500Hz, dt500Hz);
+
+            getOrientation(accAngleSmooth[1], sensors[1].evvgcCFAttitude500Hz, sensors[1].accel500Hz, sensors[1].gyro500Hz, dt500Hz);
+
+            // cliPrintF("\r\n evvgcCF-ROLL[0] %d ", (int)(sensors[0].evvgcCFAttitude500Hz[ROLL]*100));
+            // cliPrintF(" evvgcCF-PITCH[0] %d ", (int)(sensors[0].evvgcCFAttitude500Hz[PITCH]*100));
+            // cliPrintF(" evvgcCF-YAW[0] %d \r\n", (int)(sensors[0].evvgcCFAttitude500Hz[YAW]*100));
+
+            // cliPrintF("\r\n evvgcCF-ROLL[1] %d ", (int)(sensors[1].evvgcCFAttitude500Hz[ROLL]*100));
+            // cliPrintF(" evvgcCF-PITCH[1] %d ", (int)(sensors[1].evvgcCFAttitude500Hz[PITCH]*100));
+            // cliPrintF(" evvgcCF-YAW[1] %d \r\n", (int)(sensors[1].evvgcCFAttitude500Hz[YAW]*100));
 
 						//对加速度数据进行 一阶低通滤波 ，其中sensors.accel500Hz是待进行滤波的值，firstOrderFilters是滤波器参数
 						// Low Pass:
 						// GX1 = 1 / (1 + A)
 						// GX2 = 1 / (1 + A)
 						// GX3 = (1 - A) / (1 + A)
-            sensors.accel500Hz[ROLL ] = firstOrderFilter(sensors.accel500Hz[ROLL ], &firstOrderFilters[ACCEL_X_500HZ_LOWPASS ]);
-            sensors.accel500Hz[PITCH] = firstOrderFilter(sensors.accel500Hz[PITCH], &firstOrderFilters[ACCEL_Y_500HZ_LOWPASS]);
-            sensors.accel500Hz[YAW  ] = firstOrderFilter(sensors.accel500Hz[YAW  ], &firstOrderFilters[ACCEL_Z_500HZ_LOWPASS  ]);
+            sensors[0].accel500Hz[ROLL ] = firstOrderFilter(sensors[0].accel500Hz[ROLL ], &firstOrderFilters[0][ACCEL_X_500HZ_LOWPASS ]);
+            sensors[0].accel500Hz[PITCH] = firstOrderFilter(sensors[0].accel500Hz[PITCH], &firstOrderFilters[0][ACCEL_Y_500HZ_LOWPASS]);
+            sensors[0].accel500Hz[YAW  ] = firstOrderFilter(sensors[0].accel500Hz[YAW  ], &firstOrderFilters[0][ACCEL_Z_500HZ_LOWPASS  ]);
 
+            sensors[1].accel500Hz[ROLL ] = firstOrderFilter(sensors[1].accel500Hz[ROLL ], &firstOrderFilters[1][ACCEL_X_500HZ_LOWPASS ]);
+            sensors[1].accel500Hz[PITCH] = firstOrderFilter(sensors[1].accel500Hz[PITCH], &firstOrderFilters[1][ACCEL_Y_500HZ_LOWPASS]);
+            sensors[1].accel500Hz[YAW  ] = firstOrderFilter(sensors[1].accel500Hz[YAW  ], &firstOrderFilters[1][ACCEL_Z_500HZ_LOWPASS  ]);
+
+            // cliPrintF("\r\n accel500Hz_ROLL[0] %d ", (int)(sensors[0].accel500Hz[ROLL]*100));
+            // cliPrintF(" accel500Hz_PITCH[0] %d ", (int)(sensors[0].accel500Hz[PITCH]*100));
+            // cliPrintF(" accel500Hz_YAW[0] %d ", (int)(sensors[0].accel500Hz[YAW]*100));
+
+            // cliPrintF("\r\n accel500Hz_ROLL[1] %d ", (int)(sensors[1].accel500Hz[ROLL]*100));
+            // cliPrintF(" accel500Hz_PITCH[1] %d ", (int)(sensors[1].accel500Hz[PITCH]*100));
+            // cliPrintF(" accel500Hz_YAW[1] %d \r\n", (int)(sensors[1].accel500Hz[YAW]*100));
+            
 						//航姿参考系统更新，入口参数是三轴陀螺仪数据，三轴加速度数据，三轴磁力计数据,以及指示是否更新磁力计数据的magDataUpdate参数，
 						//magDataUpdate=false表示不更新磁力计数据，magDataUpdate=true表示更新磁力计数据，最后一个参数是时间增量Dt，也就是此函数本
 						//次执行与上次执行的时间间隔。
+            MargAHRSupdate1(sensors[0].gyro500Hz[ROLL],   sensors[0].gyro500Hz[PITCH],  sensors[0].gyro500Hz[YAW],
+                           sensors[0].accel500Hz[XAXIS], sensors[0].accel500Hz[YAXIS], sensors[0].accel500Hz[ZAXIS],
+                           sensors[0].mag10Hz[XAXIS],    sensors[0].mag10Hz[YAXIS],    sensors[0].mag10Hz[ZAXIS],
+                           magDataUpdate , dt500Hz);
 
-            MargAHRSupdate(sensors.gyro500Hz[ROLL],   sensors.gyro500Hz[PITCH],  sensors.gyro500Hz[YAW],
-                           sensors.accel500Hz[XAXIS], sensors.accel500Hz[YAXIS], sensors.accel500Hz[ZAXIS],
-                           sensors.mag10Hz[XAXIS],    sensors.mag10Hz[YAXIS],    sensors.mag10Hz[ZAXIS],
+            MargAHRSupdate2(sensors[1].gyro500Hz[ROLL],   sensors[1].gyro500Hz[PITCH],  sensors[1].gyro500Hz[YAW],
+                           sensors[1].accel500Hz[XAXIS], sensors[1].accel500Hz[YAXIS], sensors[1].accel500Hz[ZAXIS],
+                           sensors[1].mag10Hz[XAXIS],    sensors[1].mag10Hz[YAXIS],    sensors[1].mag10Hz[ZAXIS],
                            magDataUpdate , dt500Hz);
 
             magDataUpdate = false;//默认不更新磁力计数据
 
-            computeMotorCommands(dt500Hz);//计算电机控制量，入口参数时间增量Dt
+            // computeMotorCommands(dt500Hz);//计算电机控制量，入口参数时间增量Dt
 
             executionTime500Hz = micros() - currentTime;//本次运算执行时间长度保存到executionTime500Hz
 

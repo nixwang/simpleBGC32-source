@@ -1,7 +1,7 @@
 Dependencies for Project 'STM32-DEMO', Target 'USART1-DEMO': (DO NOT MODIFY !)
 F (..\CMSIS\startup\startup_stm32f10x_hd.s)(0x4D783CDE)(--cpu Cortex-M3 -g --apcs=interwork --pd "__MICROLIB SETA 1"-IC:\Users\WHUTWZH\Desktop\simpleBGC32-source\source\USER\RTE\_USART1-DEMO-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include--pd "__UVISION_VERSION SETA 522" --pd "_RTE_ SETA 1" --pd "STM32F10X_HD SETA 1"--list ..\listing\startup_stm32f10x_hd.lst --xref -o ..\output\startup_stm32f10x_hd.o --depend ..\output\startup_stm32f10x_hd.d)
-F (.\main.c)(0x5DADBDC5)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I ..\CMSIS -I ..\USER -I ..\FWlib\inc -I ..\FWlib\src -I ..\SRC -I ..\SRC\vcp -I ..\Libraries\STM32_USB-FS-Device_Driver\inc -I ..\SRC\drv -I ..\SRC\sensors -I ..\SRC\cli -I ..\SRC\calibration -I ..\SRC\vcp-IC:\Users\WHUTWZH\Desktop\simpleBGC32-source\source\USER\RTE\_USART1-DEMO-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o ..\output\main.o --omf_browse ..\output\main.crf --depend ..\output\main.d)
-I (..\SRC\board.h)(0x57DE28E0)
+F (.\main.c)(0x5DB03FF7)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I ..\CMSIS -I ..\USER -I ..\FWlib\inc -I ..\FWlib\src -I ..\SRC -I ..\SRC\vcp -I ..\Libraries\STM32_USB-FS-Device_Driver\inc -I ..\SRC\drv -I ..\SRC\sensors -I ..\SRC\cli -I ..\SRC\calibration -I ..\SRC\vcp-IC:\Users\WHUTWZH\Desktop\simpleBGC32-source\source\USER\RTE\_USART1-DEMO-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o ..\output\main.o --omf_browse ..\output\main.crf --depend ..\output\main.d)
+I (..\SRC\board.h)(0x5DAF1637)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x57F606B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F606B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
@@ -53,10 +53,10 @@ I (..\Libraries\STM32_USB-FS-Device_Driver\inc\usb_int.h)(0x52A2FB86)
 I (..\SRC\vcp\usb_desc.h)(0x52A2FB86)
 I (..\SRC\vcp\usb_pwr.h)(0x52A2FB86)
 I (..\SRC\pid.h)(0x57DE287C)
-I (..\SRC\bgc32.h)(0x5DAA69D7)
+I (..\SRC\bgc32.h)(0x5DAFA513)
 I (..\SRC\drv\drv_cli.h)(0x52A2FB86)
 I (..\SRC\drv\drv_gpio.h)(0x5DA5D8DE)
-I (..\SRC\drv\drv_i2c.h)(0x52A2FB86)
+I (..\SRC\drv\drv_i2c.h)(0x5DAF161F)
 I (..\SRC\drv\drv_irq.h)(0x5DA84AE5)
 I (..\SRC\drv\drv_pwmMotors.h)(0x57DE02CE)
 I (..\SRC\drv\drv_rc.h)(0x57DE0690)
@@ -65,16 +65,16 @@ I (..\SRC\drv\drv_timingFunctions.h)(0x52A2FB86)
 I (..\SRC\drv\drv_usart.h)(0x52A2FB86)
 I (..\SRC\drv\ringbuffer.h)(0x52A2FB86)
 I (..\SRC\sensors\hmc5883.h)(0x57DE07EC)
-I (..\SRC\sensors\mpu6050.h)(0x57DF53A9)
+I (..\SRC\sensors\mpu6050.h)(0x5DAF1A58)
 I (..\SRC\cli\cli.h)(0x52A2FB86)
 I (..\SRC\computeMotorCommands.h)(0x52A2FB86)
 I (..\SRC\config.h)(0x52A2FB86)
-I (..\SRC\evvgcCF.h)(0x52A2FB86)
+I (..\SRC\evvgcCF.h)(0x5DAFA874)
 I (..\SRC\fastTrig.h)(0x52A2FB86)
-I (..\SRC\firstOrderFilter.h)(0x57DE0CE5)
+I (..\SRC\firstOrderFilter.h)(0x5DB035C6)
 I (..\SRC\calibration\magCalibration.h)(0x52A2FB86)
-I (..\SRC\MargAHRS.h)(0x52A2FB86)
-I (..\SRC\calibration\mpu6050Calibration.h)(0x52A2FB86)
+I (..\SRC\MargAHRS.h)(0x5DB03E7E)
+I (..\SRC\calibration\mpu6050Calibration.h)(0x5DAFA85F)
 I (..\SRC\pointingCommands.h)(0x57DE2439)
 I (..\SRC\utilities.h)(0x57DE05D6)
 F (.\stm32f10x_it.c)(0x57DFE320)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I ..\CMSIS -I ..\USER -I ..\FWlib\inc -I ..\FWlib\src -I ..\SRC -I ..\SRC\vcp -I ..\Libraries\STM32_USB-FS-Device_Driver\inc -I ..\SRC\drv -I ..\SRC\sensors -I ..\SRC\cli -I ..\SRC\calibration -I ..\SRC\vcp-IC:\Users\WHUTWZH\Desktop\simpleBGC32-source\source\USER\RTE\_USART1-DEMO-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o ..\output\stm32f10x_it.o --omf_browse ..\output\stm32f10x_it.crf --depend ..\output\stm32f10x_it.d)
@@ -841,7 +841,7 @@ I (..\FWlib\inc\stm32f10x_usart.h)(0x4D783BB4)
 I (..\FWlib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\FWlib\inc\misc.h)(0x4D783BB4)
 F (..\SRC\pid.c)(0x5DAEA5D8)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I ..\CMSIS -I ..\USER -I ..\FWlib\inc -I ..\FWlib\src -I ..\SRC -I ..\SRC\vcp -I ..\Libraries\STM32_USB-FS-Device_Driver\inc -I ..\SRC\drv -I ..\SRC\sensors -I ..\SRC\cli -I ..\SRC\calibration -I ..\SRC\vcp-IC:\Users\WHUTWZH\Desktop\simpleBGC32-source\source\USER\RTE\_USART1-DEMO-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o ..\output\pid.o --omf_browse ..\output\pid.crf --depend ..\output\pid.d)
-I (..\SRC\board.h)(0x57DE28E0)
+I (..\SRC\board.h)(0x5DAF1637)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x57F606B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F606B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
@@ -893,10 +893,10 @@ I (..\Libraries\STM32_USB-FS-Device_Driver\inc\usb_int.h)(0x52A2FB86)
 I (..\SRC\vcp\usb_desc.h)(0x52A2FB86)
 I (..\SRC\vcp\usb_pwr.h)(0x52A2FB86)
 I (..\SRC\pid.h)(0x57DE287C)
-I (..\SRC\bgc32.h)(0x5DAA69D7)
+I (..\SRC\bgc32.h)(0x5DAFA513)
 I (..\SRC\drv\drv_cli.h)(0x52A2FB86)
 I (..\SRC\drv\drv_gpio.h)(0x5DA5D8DE)
-I (..\SRC\drv\drv_i2c.h)(0x52A2FB86)
+I (..\SRC\drv\drv_i2c.h)(0x5DAF161F)
 I (..\SRC\drv\drv_irq.h)(0x5DA84AE5)
 I (..\SRC\drv\drv_pwmMotors.h)(0x57DE02CE)
 I (..\SRC\drv\drv_rc.h)(0x57DE0690)
@@ -905,20 +905,20 @@ I (..\SRC\drv\drv_timingFunctions.h)(0x52A2FB86)
 I (..\SRC\drv\drv_usart.h)(0x52A2FB86)
 I (..\SRC\drv\ringbuffer.h)(0x52A2FB86)
 I (..\SRC\sensors\hmc5883.h)(0x57DE07EC)
-I (..\SRC\sensors\mpu6050.h)(0x57DF53A9)
+I (..\SRC\sensors\mpu6050.h)(0x5DAF1A58)
 I (..\SRC\cli\cli.h)(0x52A2FB86)
 I (..\SRC\computeMotorCommands.h)(0x52A2FB86)
 I (..\SRC\config.h)(0x52A2FB86)
-I (..\SRC\evvgcCF.h)(0x52A2FB86)
+I (..\SRC\evvgcCF.h)(0x5DAFA874)
 I (..\SRC\fastTrig.h)(0x52A2FB86)
-I (..\SRC\firstOrderFilter.h)(0x57DE0CE5)
+I (..\SRC\firstOrderFilter.h)(0x5DB035C6)
 I (..\SRC\calibration\magCalibration.h)(0x52A2FB86)
-I (..\SRC\MargAHRS.h)(0x52A2FB86)
-I (..\SRC\calibration\mpu6050Calibration.h)(0x52A2FB86)
+I (..\SRC\MargAHRS.h)(0x5DB03E7E)
+I (..\SRC\calibration\mpu6050Calibration.h)(0x5DAFA85F)
 I (..\SRC\pointingCommands.h)(0x57DE2439)
 I (..\SRC\utilities.h)(0x57DE05D6)
-F (..\SRC\computeMotorCommands.c)(0x5DAEA5BE)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I ..\CMSIS -I ..\USER -I ..\FWlib\inc -I ..\FWlib\src -I ..\SRC -I ..\SRC\vcp -I ..\Libraries\STM32_USB-FS-Device_Driver\inc -I ..\SRC\drv -I ..\SRC\sensors -I ..\SRC\cli -I ..\SRC\calibration -I ..\SRC\vcp-IC:\Users\WHUTWZH\Desktop\simpleBGC32-source\source\USER\RTE\_USART1-DEMO-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o ..\output\computemotorcommands.o --omf_browse ..\output\computemotorcommands.crf --depend ..\output\computemotorcommands.d)
-I (..\SRC\board.h)(0x57DE28E0)
+F (..\SRC\computeMotorCommands.c)(0x5DAF1F9E)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I ..\CMSIS -I ..\USER -I ..\FWlib\inc -I ..\FWlib\src -I ..\SRC -I ..\SRC\vcp -I ..\Libraries\STM32_USB-FS-Device_Driver\inc -I ..\SRC\drv -I ..\SRC\sensors -I ..\SRC\cli -I ..\SRC\calibration -I ..\SRC\vcp-IC:\Users\WHUTWZH\Desktop\simpleBGC32-source\source\USER\RTE\_USART1-DEMO-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o ..\output\computemotorcommands.o --omf_browse ..\output\computemotorcommands.crf --depend ..\output\computemotorcommands.d)
+I (..\SRC\board.h)(0x5DAF1637)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x57F606B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F606B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
@@ -970,10 +970,10 @@ I (..\Libraries\STM32_USB-FS-Device_Driver\inc\usb_int.h)(0x52A2FB86)
 I (..\SRC\vcp\usb_desc.h)(0x52A2FB86)
 I (..\SRC\vcp\usb_pwr.h)(0x52A2FB86)
 I (..\SRC\pid.h)(0x57DE287C)
-I (..\SRC\bgc32.h)(0x5DAA69D7)
+I (..\SRC\bgc32.h)(0x5DAFA513)
 I (..\SRC\drv\drv_cli.h)(0x52A2FB86)
 I (..\SRC\drv\drv_gpio.h)(0x5DA5D8DE)
-I (..\SRC\drv\drv_i2c.h)(0x52A2FB86)
+I (..\SRC\drv\drv_i2c.h)(0x5DAF161F)
 I (..\SRC\drv\drv_irq.h)(0x5DA84AE5)
 I (..\SRC\drv\drv_pwmMotors.h)(0x57DE02CE)
 I (..\SRC\drv\drv_rc.h)(0x57DE0690)
@@ -982,20 +982,20 @@ I (..\SRC\drv\drv_timingFunctions.h)(0x52A2FB86)
 I (..\SRC\drv\drv_usart.h)(0x52A2FB86)
 I (..\SRC\drv\ringbuffer.h)(0x52A2FB86)
 I (..\SRC\sensors\hmc5883.h)(0x57DE07EC)
-I (..\SRC\sensors\mpu6050.h)(0x57DF53A9)
+I (..\SRC\sensors\mpu6050.h)(0x5DAF1A58)
 I (..\SRC\cli\cli.h)(0x52A2FB86)
 I (..\SRC\computeMotorCommands.h)(0x52A2FB86)
 I (..\SRC\config.h)(0x52A2FB86)
-I (..\SRC\evvgcCF.h)(0x52A2FB86)
+I (..\SRC\evvgcCF.h)(0x5DAFA874)
 I (..\SRC\fastTrig.h)(0x52A2FB86)
-I (..\SRC\firstOrderFilter.h)(0x57DE0CE5)
+I (..\SRC\firstOrderFilter.h)(0x5DB035C6)
 I (..\SRC\calibration\magCalibration.h)(0x52A2FB86)
-I (..\SRC\MargAHRS.h)(0x52A2FB86)
-I (..\SRC\calibration\mpu6050Calibration.h)(0x52A2FB86)
+I (..\SRC\MargAHRS.h)(0x5DB03E7E)
+I (..\SRC\calibration\mpu6050Calibration.h)(0x5DAFA85F)
 I (..\SRC\pointingCommands.h)(0x57DE2439)
 I (..\SRC\utilities.h)(0x57DE05D6)
-F (..\SRC\config.c)(0x5DAEA48C)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I ..\CMSIS -I ..\USER -I ..\FWlib\inc -I ..\FWlib\src -I ..\SRC -I ..\SRC\vcp -I ..\Libraries\STM32_USB-FS-Device_Driver\inc -I ..\SRC\drv -I ..\SRC\sensors -I ..\SRC\cli -I ..\SRC\calibration -I ..\SRC\vcp-IC:\Users\WHUTWZH\Desktop\simpleBGC32-source\source\USER\RTE\_USART1-DEMO-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o ..\output\config.o --omf_browse ..\output\config.crf --depend ..\output\config.d)
-I (..\SRC\board.h)(0x57DE28E0)
+F (..\SRC\config.c)(0x5DB03DAA)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I ..\CMSIS -I ..\USER -I ..\FWlib\inc -I ..\FWlib\src -I ..\SRC -I ..\SRC\vcp -I ..\Libraries\STM32_USB-FS-Device_Driver\inc -I ..\SRC\drv -I ..\SRC\sensors -I ..\SRC\cli -I ..\SRC\calibration -I ..\SRC\vcp-IC:\Users\WHUTWZH\Desktop\simpleBGC32-source\source\USER\RTE\_USART1-DEMO-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o ..\output\config.o --omf_browse ..\output\config.crf --depend ..\output\config.d)
+I (..\SRC\board.h)(0x5DAF1637)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x57F606B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F606B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
@@ -1047,10 +1047,10 @@ I (..\Libraries\STM32_USB-FS-Device_Driver\inc\usb_int.h)(0x52A2FB86)
 I (..\SRC\vcp\usb_desc.h)(0x52A2FB86)
 I (..\SRC\vcp\usb_pwr.h)(0x52A2FB86)
 I (..\SRC\pid.h)(0x57DE287C)
-I (..\SRC\bgc32.h)(0x5DAA69D7)
+I (..\SRC\bgc32.h)(0x5DAFA513)
 I (..\SRC\drv\drv_cli.h)(0x52A2FB86)
 I (..\SRC\drv\drv_gpio.h)(0x5DA5D8DE)
-I (..\SRC\drv\drv_i2c.h)(0x52A2FB86)
+I (..\SRC\drv\drv_i2c.h)(0x5DAF161F)
 I (..\SRC\drv\drv_irq.h)(0x5DA84AE5)
 I (..\SRC\drv\drv_pwmMotors.h)(0x57DE02CE)
 I (..\SRC\drv\drv_rc.h)(0x57DE0690)
@@ -1059,20 +1059,20 @@ I (..\SRC\drv\drv_timingFunctions.h)(0x52A2FB86)
 I (..\SRC\drv\drv_usart.h)(0x52A2FB86)
 I (..\SRC\drv\ringbuffer.h)(0x52A2FB86)
 I (..\SRC\sensors\hmc5883.h)(0x57DE07EC)
-I (..\SRC\sensors\mpu6050.h)(0x57DF53A9)
+I (..\SRC\sensors\mpu6050.h)(0x5DAF1A58)
 I (..\SRC\cli\cli.h)(0x52A2FB86)
 I (..\SRC\computeMotorCommands.h)(0x52A2FB86)
 I (..\SRC\config.h)(0x52A2FB86)
-I (..\SRC\evvgcCF.h)(0x52A2FB86)
+I (..\SRC\evvgcCF.h)(0x5DAFA874)
 I (..\SRC\fastTrig.h)(0x52A2FB86)
-I (..\SRC\firstOrderFilter.h)(0x57DE0CE5)
+I (..\SRC\firstOrderFilter.h)(0x5DB035C6)
 I (..\SRC\calibration\magCalibration.h)(0x52A2FB86)
-I (..\SRC\MargAHRS.h)(0x52A2FB86)
-I (..\SRC\calibration\mpu6050Calibration.h)(0x52A2FB86)
+I (..\SRC\MargAHRS.h)(0x5DB03E7E)
+I (..\SRC\calibration\mpu6050Calibration.h)(0x5DAFA85F)
 I (..\SRC\pointingCommands.h)(0x57DE2439)
 I (..\SRC\utilities.h)(0x57DE05D6)
-F (..\SRC\evvgcCF.c)(0x57DF872E)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I ..\CMSIS -I ..\USER -I ..\FWlib\inc -I ..\FWlib\src -I ..\SRC -I ..\SRC\vcp -I ..\Libraries\STM32_USB-FS-Device_Driver\inc -I ..\SRC\drv -I ..\SRC\sensors -I ..\SRC\cli -I ..\SRC\calibration -I ..\SRC\vcp-IC:\Users\WHUTWZH\Desktop\simpleBGC32-source\source\USER\RTE\_USART1-DEMO-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o ..\output\evvgccf.o --omf_browse ..\output\evvgccf.crf --depend ..\output\evvgccf.d)
-I (..\SRC\board.h)(0x57DE28E0)
+F (..\SRC\evvgcCF.c)(0x5DB0131C)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I ..\CMSIS -I ..\USER -I ..\FWlib\inc -I ..\FWlib\src -I ..\SRC -I ..\SRC\vcp -I ..\Libraries\STM32_USB-FS-Device_Driver\inc -I ..\SRC\drv -I ..\SRC\sensors -I ..\SRC\cli -I ..\SRC\calibration -I ..\SRC\vcp-IC:\Users\WHUTWZH\Desktop\simpleBGC32-source\source\USER\RTE\_USART1-DEMO-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o ..\output\evvgccf.o --omf_browse ..\output\evvgccf.crf --depend ..\output\evvgccf.d)
+I (..\SRC\board.h)(0x5DAF1637)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x57F606B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F606B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
@@ -1124,10 +1124,10 @@ I (..\Libraries\STM32_USB-FS-Device_Driver\inc\usb_int.h)(0x52A2FB86)
 I (..\SRC\vcp\usb_desc.h)(0x52A2FB86)
 I (..\SRC\vcp\usb_pwr.h)(0x52A2FB86)
 I (..\SRC\pid.h)(0x57DE287C)
-I (..\SRC\bgc32.h)(0x5DAA69D7)
+I (..\SRC\bgc32.h)(0x5DAFA513)
 I (..\SRC\drv\drv_cli.h)(0x52A2FB86)
 I (..\SRC\drv\drv_gpio.h)(0x5DA5D8DE)
-I (..\SRC\drv\drv_i2c.h)(0x52A2FB86)
+I (..\SRC\drv\drv_i2c.h)(0x5DAF161F)
 I (..\SRC\drv\drv_irq.h)(0x5DA84AE5)
 I (..\SRC\drv\drv_pwmMotors.h)(0x57DE02CE)
 I (..\SRC\drv\drv_rc.h)(0x57DE0690)
@@ -1136,20 +1136,20 @@ I (..\SRC\drv\drv_timingFunctions.h)(0x52A2FB86)
 I (..\SRC\drv\drv_usart.h)(0x52A2FB86)
 I (..\SRC\drv\ringbuffer.h)(0x52A2FB86)
 I (..\SRC\sensors\hmc5883.h)(0x57DE07EC)
-I (..\SRC\sensors\mpu6050.h)(0x57DF53A9)
+I (..\SRC\sensors\mpu6050.h)(0x5DAF1A58)
 I (..\SRC\cli\cli.h)(0x52A2FB86)
 I (..\SRC\computeMotorCommands.h)(0x52A2FB86)
 I (..\SRC\config.h)(0x52A2FB86)
-I (..\SRC\evvgcCF.h)(0x52A2FB86)
+I (..\SRC\evvgcCF.h)(0x5DAFA874)
 I (..\SRC\fastTrig.h)(0x52A2FB86)
-I (..\SRC\firstOrderFilter.h)(0x57DE0CE5)
+I (..\SRC\firstOrderFilter.h)(0x5DB035C6)
 I (..\SRC\calibration\magCalibration.h)(0x52A2FB86)
-I (..\SRC\MargAHRS.h)(0x52A2FB86)
-I (..\SRC\calibration\mpu6050Calibration.h)(0x52A2FB86)
+I (..\SRC\MargAHRS.h)(0x5DB03E7E)
+I (..\SRC\calibration\mpu6050Calibration.h)(0x5DAFA85F)
 I (..\SRC\pointingCommands.h)(0x57DE2439)
 I (..\SRC\utilities.h)(0x57DE05D6)
 F (..\SRC\fastTrig.c)(0x57DE28E0)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I ..\CMSIS -I ..\USER -I ..\FWlib\inc -I ..\FWlib\src -I ..\SRC -I ..\SRC\vcp -I ..\Libraries\STM32_USB-FS-Device_Driver\inc -I ..\SRC\drv -I ..\SRC\sensors -I ..\SRC\cli -I ..\SRC\calibration -I ..\SRC\vcp-IC:\Users\WHUTWZH\Desktop\simpleBGC32-source\source\USER\RTE\_USART1-DEMO-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o ..\output\fasttrig.o --omf_browse ..\output\fasttrig.crf --depend ..\output\fasttrig.d)
-I (..\SRC\board.h)(0x57DE28E0)
+I (..\SRC\board.h)(0x5DAF1637)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x57F606B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F606B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
@@ -1201,10 +1201,10 @@ I (..\Libraries\STM32_USB-FS-Device_Driver\inc\usb_int.h)(0x52A2FB86)
 I (..\SRC\vcp\usb_desc.h)(0x52A2FB86)
 I (..\SRC\vcp\usb_pwr.h)(0x52A2FB86)
 I (..\SRC\pid.h)(0x57DE287C)
-I (..\SRC\bgc32.h)(0x5DAA69D7)
+I (..\SRC\bgc32.h)(0x5DAFA513)
 I (..\SRC\drv\drv_cli.h)(0x52A2FB86)
 I (..\SRC\drv\drv_gpio.h)(0x5DA5D8DE)
-I (..\SRC\drv\drv_i2c.h)(0x52A2FB86)
+I (..\SRC\drv\drv_i2c.h)(0x5DAF161F)
 I (..\SRC\drv\drv_irq.h)(0x5DA84AE5)
 I (..\SRC\drv\drv_pwmMotors.h)(0x57DE02CE)
 I (..\SRC\drv\drv_rc.h)(0x57DE0690)
@@ -1213,20 +1213,20 @@ I (..\SRC\drv\drv_timingFunctions.h)(0x52A2FB86)
 I (..\SRC\drv\drv_usart.h)(0x52A2FB86)
 I (..\SRC\drv\ringbuffer.h)(0x52A2FB86)
 I (..\SRC\sensors\hmc5883.h)(0x57DE07EC)
-I (..\SRC\sensors\mpu6050.h)(0x57DF53A9)
+I (..\SRC\sensors\mpu6050.h)(0x5DAF1A58)
 I (..\SRC\cli\cli.h)(0x52A2FB86)
 I (..\SRC\computeMotorCommands.h)(0x52A2FB86)
 I (..\SRC\config.h)(0x52A2FB86)
-I (..\SRC\evvgcCF.h)(0x52A2FB86)
+I (..\SRC\evvgcCF.h)(0x5DAFA874)
 I (..\SRC\fastTrig.h)(0x52A2FB86)
-I (..\SRC\firstOrderFilter.h)(0x57DE0CE5)
+I (..\SRC\firstOrderFilter.h)(0x5DB035C6)
 I (..\SRC\calibration\magCalibration.h)(0x52A2FB86)
-I (..\SRC\MargAHRS.h)(0x52A2FB86)
-I (..\SRC\calibration\mpu6050Calibration.h)(0x52A2FB86)
+I (..\SRC\MargAHRS.h)(0x5DB03E7E)
+I (..\SRC\calibration\mpu6050Calibration.h)(0x5DAFA85F)
 I (..\SRC\pointingCommands.h)(0x57DE2439)
 I (..\SRC\utilities.h)(0x57DE05D6)
-F (..\SRC\firstOrderFilter.c)(0x57DE0CE5)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I ..\CMSIS -I ..\USER -I ..\FWlib\inc -I ..\FWlib\src -I ..\SRC -I ..\SRC\vcp -I ..\Libraries\STM32_USB-FS-Device_Driver\inc -I ..\SRC\drv -I ..\SRC\sensors -I ..\SRC\cli -I ..\SRC\calibration -I ..\SRC\vcp-IC:\Users\WHUTWZH\Desktop\simpleBGC32-source\source\USER\RTE\_USART1-DEMO-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o ..\output\firstorderfilter.o --omf_browse ..\output\firstorderfilter.crf --depend ..\output\firstorderfilter.d)
-I (..\SRC\board.h)(0x57DE28E0)
+F (..\SRC\firstOrderFilter.c)(0x5DB0356F)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I ..\CMSIS -I ..\USER -I ..\FWlib\inc -I ..\FWlib\src -I ..\SRC -I ..\SRC\vcp -I ..\Libraries\STM32_USB-FS-Device_Driver\inc -I ..\SRC\drv -I ..\SRC\sensors -I ..\SRC\cli -I ..\SRC\calibration -I ..\SRC\vcp-IC:\Users\WHUTWZH\Desktop\simpleBGC32-source\source\USER\RTE\_USART1-DEMO-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o ..\output\firstorderfilter.o --omf_browse ..\output\firstorderfilter.crf --depend ..\output\firstorderfilter.d)
+I (..\SRC\board.h)(0x5DAF1637)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x57F606B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F606B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
@@ -1278,10 +1278,10 @@ I (..\Libraries\STM32_USB-FS-Device_Driver\inc\usb_int.h)(0x52A2FB86)
 I (..\SRC\vcp\usb_desc.h)(0x52A2FB86)
 I (..\SRC\vcp\usb_pwr.h)(0x52A2FB86)
 I (..\SRC\pid.h)(0x57DE287C)
-I (..\SRC\bgc32.h)(0x5DAA69D7)
+I (..\SRC\bgc32.h)(0x5DAFA513)
 I (..\SRC\drv\drv_cli.h)(0x52A2FB86)
 I (..\SRC\drv\drv_gpio.h)(0x5DA5D8DE)
-I (..\SRC\drv\drv_i2c.h)(0x52A2FB86)
+I (..\SRC\drv\drv_i2c.h)(0x5DAF161F)
 I (..\SRC\drv\drv_irq.h)(0x5DA84AE5)
 I (..\SRC\drv\drv_pwmMotors.h)(0x57DE02CE)
 I (..\SRC\drv\drv_rc.h)(0x57DE0690)
@@ -1290,20 +1290,20 @@ I (..\SRC\drv\drv_timingFunctions.h)(0x52A2FB86)
 I (..\SRC\drv\drv_usart.h)(0x52A2FB86)
 I (..\SRC\drv\ringbuffer.h)(0x52A2FB86)
 I (..\SRC\sensors\hmc5883.h)(0x57DE07EC)
-I (..\SRC\sensors\mpu6050.h)(0x57DF53A9)
+I (..\SRC\sensors\mpu6050.h)(0x5DAF1A58)
 I (..\SRC\cli\cli.h)(0x52A2FB86)
 I (..\SRC\computeMotorCommands.h)(0x52A2FB86)
 I (..\SRC\config.h)(0x52A2FB86)
-I (..\SRC\evvgcCF.h)(0x52A2FB86)
+I (..\SRC\evvgcCF.h)(0x5DAFA874)
 I (..\SRC\fastTrig.h)(0x52A2FB86)
-I (..\SRC\firstOrderFilter.h)(0x57DE0CE5)
+I (..\SRC\firstOrderFilter.h)(0x5DB035C6)
 I (..\SRC\calibration\magCalibration.h)(0x52A2FB86)
-I (..\SRC\MargAHRS.h)(0x52A2FB86)
-I (..\SRC\calibration\mpu6050Calibration.h)(0x52A2FB86)
+I (..\SRC\MargAHRS.h)(0x5DB03E7E)
+I (..\SRC\calibration\mpu6050Calibration.h)(0x5DAFA85F)
 I (..\SRC\pointingCommands.h)(0x57DE2439)
 I (..\SRC\utilities.h)(0x57DE05D6)
-F (..\SRC\MargAHRS.c)(0x5DAEAE88)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I ..\CMSIS -I ..\USER -I ..\FWlib\inc -I ..\FWlib\src -I ..\SRC -I ..\SRC\vcp -I ..\Libraries\STM32_USB-FS-Device_Driver\inc -I ..\SRC\drv -I ..\SRC\sensors -I ..\SRC\cli -I ..\SRC\calibration -I ..\SRC\vcp-IC:\Users\WHUTWZH\Desktop\simpleBGC32-source\source\USER\RTE\_USART1-DEMO-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o ..\output\margahrs.o --omf_browse ..\output\margahrs.crf --depend ..\output\margahrs.d)
-I (..\SRC\board.h)(0x57DE28E0)
+F (..\SRC\MargAHRS.c)(0x5DB04044)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I ..\CMSIS -I ..\USER -I ..\FWlib\inc -I ..\FWlib\src -I ..\SRC -I ..\SRC\vcp -I ..\Libraries\STM32_USB-FS-Device_Driver\inc -I ..\SRC\drv -I ..\SRC\sensors -I ..\SRC\cli -I ..\SRC\calibration -I ..\SRC\vcp-IC:\Users\WHUTWZH\Desktop\simpleBGC32-source\source\USER\RTE\_USART1-DEMO-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o ..\output\margahrs.o --omf_browse ..\output\margahrs.crf --depend ..\output\margahrs.d)
+I (..\SRC\board.h)(0x5DAF1637)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x57F606B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F606B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
@@ -1355,10 +1355,10 @@ I (..\Libraries\STM32_USB-FS-Device_Driver\inc\usb_int.h)(0x52A2FB86)
 I (..\SRC\vcp\usb_desc.h)(0x52A2FB86)
 I (..\SRC\vcp\usb_pwr.h)(0x52A2FB86)
 I (..\SRC\pid.h)(0x57DE287C)
-I (..\SRC\bgc32.h)(0x5DAA69D7)
+I (..\SRC\bgc32.h)(0x5DAFA513)
 I (..\SRC\drv\drv_cli.h)(0x52A2FB86)
 I (..\SRC\drv\drv_gpio.h)(0x5DA5D8DE)
-I (..\SRC\drv\drv_i2c.h)(0x52A2FB86)
+I (..\SRC\drv\drv_i2c.h)(0x5DAF161F)
 I (..\SRC\drv\drv_irq.h)(0x5DA84AE5)
 I (..\SRC\drv\drv_pwmMotors.h)(0x57DE02CE)
 I (..\SRC\drv\drv_rc.h)(0x57DE0690)
@@ -1367,20 +1367,20 @@ I (..\SRC\drv\drv_timingFunctions.h)(0x52A2FB86)
 I (..\SRC\drv\drv_usart.h)(0x52A2FB86)
 I (..\SRC\drv\ringbuffer.h)(0x52A2FB86)
 I (..\SRC\sensors\hmc5883.h)(0x57DE07EC)
-I (..\SRC\sensors\mpu6050.h)(0x57DF53A9)
+I (..\SRC\sensors\mpu6050.h)(0x5DAF1A58)
 I (..\SRC\cli\cli.h)(0x52A2FB86)
 I (..\SRC\computeMotorCommands.h)(0x52A2FB86)
 I (..\SRC\config.h)(0x52A2FB86)
-I (..\SRC\evvgcCF.h)(0x52A2FB86)
+I (..\SRC\evvgcCF.h)(0x5DAFA874)
 I (..\SRC\fastTrig.h)(0x52A2FB86)
-I (..\SRC\firstOrderFilter.h)(0x57DE0CE5)
+I (..\SRC\firstOrderFilter.h)(0x5DB035C6)
 I (..\SRC\calibration\magCalibration.h)(0x52A2FB86)
-I (..\SRC\MargAHRS.h)(0x52A2FB86)
-I (..\SRC\calibration\mpu6050Calibration.h)(0x52A2FB86)
+I (..\SRC\MargAHRS.h)(0x5DB03E7E)
+I (..\SRC\calibration\mpu6050Calibration.h)(0x5DAFA85F)
 I (..\SRC\pointingCommands.h)(0x57DE2439)
 I (..\SRC\utilities.h)(0x57DE05D6)
-F (..\SRC\pointingCommands.c)(0x57DFE034)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I ..\CMSIS -I ..\USER -I ..\FWlib\inc -I ..\FWlib\src -I ..\SRC -I ..\SRC\vcp -I ..\Libraries\STM32_USB-FS-Device_Driver\inc -I ..\SRC\drv -I ..\SRC\sensors -I ..\SRC\cli -I ..\SRC\calibration -I ..\SRC\vcp-IC:\Users\WHUTWZH\Desktop\simpleBGC32-source\source\USER\RTE\_USART1-DEMO-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o ..\output\pointingcommands.o --omf_browse ..\output\pointingcommands.crf --depend ..\output\pointingcommands.d)
-I (..\SRC\board.h)(0x57DE28E0)
+F (..\SRC\pointingCommands.c)(0x5DB0365C)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I ..\CMSIS -I ..\USER -I ..\FWlib\inc -I ..\FWlib\src -I ..\SRC -I ..\SRC\vcp -I ..\Libraries\STM32_USB-FS-Device_Driver\inc -I ..\SRC\drv -I ..\SRC\sensors -I ..\SRC\cli -I ..\SRC\calibration -I ..\SRC\vcp-IC:\Users\WHUTWZH\Desktop\simpleBGC32-source\source\USER\RTE\_USART1-DEMO-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o ..\output\pointingcommands.o --omf_browse ..\output\pointingcommands.crf --depend ..\output\pointingcommands.d)
+I (..\SRC\board.h)(0x5DAF1637)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x57F606B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F606B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
@@ -1432,10 +1432,10 @@ I (..\Libraries\STM32_USB-FS-Device_Driver\inc\usb_int.h)(0x52A2FB86)
 I (..\SRC\vcp\usb_desc.h)(0x52A2FB86)
 I (..\SRC\vcp\usb_pwr.h)(0x52A2FB86)
 I (..\SRC\pid.h)(0x57DE287C)
-I (..\SRC\bgc32.h)(0x5DAA69D7)
+I (..\SRC\bgc32.h)(0x5DAFA513)
 I (..\SRC\drv\drv_cli.h)(0x52A2FB86)
 I (..\SRC\drv\drv_gpio.h)(0x5DA5D8DE)
-I (..\SRC\drv\drv_i2c.h)(0x52A2FB86)
+I (..\SRC\drv\drv_i2c.h)(0x5DAF161F)
 I (..\SRC\drv\drv_irq.h)(0x5DA84AE5)
 I (..\SRC\drv\drv_pwmMotors.h)(0x57DE02CE)
 I (..\SRC\drv\drv_rc.h)(0x57DE0690)
@@ -1444,16 +1444,16 @@ I (..\SRC\drv\drv_timingFunctions.h)(0x52A2FB86)
 I (..\SRC\drv\drv_usart.h)(0x52A2FB86)
 I (..\SRC\drv\ringbuffer.h)(0x52A2FB86)
 I (..\SRC\sensors\hmc5883.h)(0x57DE07EC)
-I (..\SRC\sensors\mpu6050.h)(0x57DF53A9)
+I (..\SRC\sensors\mpu6050.h)(0x5DAF1A58)
 I (..\SRC\cli\cli.h)(0x52A2FB86)
 I (..\SRC\computeMotorCommands.h)(0x52A2FB86)
 I (..\SRC\config.h)(0x52A2FB86)
-I (..\SRC\evvgcCF.h)(0x52A2FB86)
+I (..\SRC\evvgcCF.h)(0x5DAFA874)
 I (..\SRC\fastTrig.h)(0x52A2FB86)
-I (..\SRC\firstOrderFilter.h)(0x57DE0CE5)
+I (..\SRC\firstOrderFilter.h)(0x5DB035C6)
 I (..\SRC\calibration\magCalibration.h)(0x52A2FB86)
-I (..\SRC\MargAHRS.h)(0x52A2FB86)
-I (..\SRC\calibration\mpu6050Calibration.h)(0x52A2FB86)
+I (..\SRC\MargAHRS.h)(0x5DB03E7E)
+I (..\SRC\calibration\mpu6050Calibration.h)(0x5DAFA85F)
 I (..\SRC\pointingCommands.h)(0x57DE2439)
 I (..\SRC\utilities.h)(0x57DE05D6)
 F (..\SRC\stm32_it.c)(0x52A2FB86)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I ..\CMSIS -I ..\USER -I ..\FWlib\inc -I ..\FWlib\src -I ..\SRC -I ..\SRC\vcp -I ..\Libraries\STM32_USB-FS-Device_Driver\inc -I ..\SRC\drv -I ..\SRC\sensors -I ..\SRC\cli -I ..\SRC\calibration -I ..\SRC\vcp-IC:\Users\WHUTWZH\Desktop\simpleBGC32-source\source\USER\RTE\_USART1-DEMO-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o ..\output\stm32_it.o --omf_browse ..\output\stm32_it.crf --depend ..\output\stm32_it.d)
@@ -1501,7 +1501,7 @@ I (..\Libraries\STM32_USB-FS-Device_Driver\inc\usb_int.h)(0x52A2FB86)
 I (..\SRC\vcp\usb_istr.h)(0x52A2FB86)
 I (..\SRC\drv\drv_cli.h)(0x52A2FB86)
 F (..\SRC\utilities.c)(0x57DE0ED3)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I ..\CMSIS -I ..\USER -I ..\FWlib\inc -I ..\FWlib\src -I ..\SRC -I ..\SRC\vcp -I ..\Libraries\STM32_USB-FS-Device_Driver\inc -I ..\SRC\drv -I ..\SRC\sensors -I ..\SRC\cli -I ..\SRC\calibration -I ..\SRC\vcp-IC:\Users\WHUTWZH\Desktop\simpleBGC32-source\source\USER\RTE\_USART1-DEMO-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o ..\output\utilities.o --omf_browse ..\output\utilities.crf --depend ..\output\utilities.d)
-I (..\SRC\board.h)(0x57DE28E0)
+I (..\SRC\board.h)(0x5DAF1637)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x57F606B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F606B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
@@ -1553,10 +1553,10 @@ I (..\Libraries\STM32_USB-FS-Device_Driver\inc\usb_int.h)(0x52A2FB86)
 I (..\SRC\vcp\usb_desc.h)(0x52A2FB86)
 I (..\SRC\vcp\usb_pwr.h)(0x52A2FB86)
 I (..\SRC\pid.h)(0x57DE287C)
-I (..\SRC\bgc32.h)(0x5DAA69D7)
+I (..\SRC\bgc32.h)(0x5DAFA513)
 I (..\SRC\drv\drv_cli.h)(0x52A2FB86)
 I (..\SRC\drv\drv_gpio.h)(0x5DA5D8DE)
-I (..\SRC\drv\drv_i2c.h)(0x52A2FB86)
+I (..\SRC\drv\drv_i2c.h)(0x5DAF161F)
 I (..\SRC\drv\drv_irq.h)(0x5DA84AE5)
 I (..\SRC\drv\drv_pwmMotors.h)(0x57DE02CE)
 I (..\SRC\drv\drv_rc.h)(0x57DE0690)
@@ -1565,20 +1565,20 @@ I (..\SRC\drv\drv_timingFunctions.h)(0x52A2FB86)
 I (..\SRC\drv\drv_usart.h)(0x52A2FB86)
 I (..\SRC\drv\ringbuffer.h)(0x52A2FB86)
 I (..\SRC\sensors\hmc5883.h)(0x57DE07EC)
-I (..\SRC\sensors\mpu6050.h)(0x57DF53A9)
+I (..\SRC\sensors\mpu6050.h)(0x5DAF1A58)
 I (..\SRC\cli\cli.h)(0x52A2FB86)
 I (..\SRC\computeMotorCommands.h)(0x52A2FB86)
 I (..\SRC\config.h)(0x52A2FB86)
-I (..\SRC\evvgcCF.h)(0x52A2FB86)
+I (..\SRC\evvgcCF.h)(0x5DAFA874)
 I (..\SRC\fastTrig.h)(0x52A2FB86)
-I (..\SRC\firstOrderFilter.h)(0x57DE0CE5)
+I (..\SRC\firstOrderFilter.h)(0x5DB035C6)
 I (..\SRC\calibration\magCalibration.h)(0x52A2FB86)
-I (..\SRC\MargAHRS.h)(0x52A2FB86)
-I (..\SRC\calibration\mpu6050Calibration.h)(0x52A2FB86)
+I (..\SRC\MargAHRS.h)(0x5DB03E7E)
+I (..\SRC\calibration\mpu6050Calibration.h)(0x5DAFA85F)
 I (..\SRC\pointingCommands.h)(0x57DE2439)
 I (..\SRC\utilities.h)(0x57DE05D6)
 F (..\SRC\drv\drv_cli.c)(0x5DA6DDA5)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I ..\CMSIS -I ..\USER -I ..\FWlib\inc -I ..\FWlib\src -I ..\SRC -I ..\SRC\vcp -I ..\Libraries\STM32_USB-FS-Device_Driver\inc -I ..\SRC\drv -I ..\SRC\sensors -I ..\SRC\cli -I ..\SRC\calibration -I ..\SRC\vcp-IC:\Users\WHUTWZH\Desktop\simpleBGC32-source\source\USER\RTE\_USART1-DEMO-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o ..\output\drv_cli.o --omf_browse ..\output\drv_cli.crf --depend ..\output\drv_cli.d)
-I (..\SRC\board.h)(0x57DE28E0)
+I (..\SRC\board.h)(0x5DAF1637)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x57F606B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F606B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
@@ -1630,10 +1630,10 @@ I (..\Libraries\STM32_USB-FS-Device_Driver\inc\usb_int.h)(0x52A2FB86)
 I (..\SRC\vcp\usb_desc.h)(0x52A2FB86)
 I (..\SRC\vcp\usb_pwr.h)(0x52A2FB86)
 I (..\SRC\pid.h)(0x57DE287C)
-I (..\SRC\bgc32.h)(0x5DAA69D7)
+I (..\SRC\bgc32.h)(0x5DAFA513)
 I (..\SRC\drv\drv_cli.h)(0x52A2FB86)
 I (..\SRC\drv\drv_gpio.h)(0x5DA5D8DE)
-I (..\SRC\drv\drv_i2c.h)(0x52A2FB86)
+I (..\SRC\drv\drv_i2c.h)(0x5DAF161F)
 I (..\SRC\drv\drv_irq.h)(0x5DA84AE5)
 I (..\SRC\drv\drv_pwmMotors.h)(0x57DE02CE)
 I (..\SRC\drv\drv_rc.h)(0x57DE0690)
@@ -1642,20 +1642,20 @@ I (..\SRC\drv\drv_timingFunctions.h)(0x52A2FB86)
 I (..\SRC\drv\drv_usart.h)(0x52A2FB86)
 I (..\SRC\drv\ringbuffer.h)(0x52A2FB86)
 I (..\SRC\sensors\hmc5883.h)(0x57DE07EC)
-I (..\SRC\sensors\mpu6050.h)(0x57DF53A9)
+I (..\SRC\sensors\mpu6050.h)(0x5DAF1A58)
 I (..\SRC\cli\cli.h)(0x52A2FB86)
 I (..\SRC\computeMotorCommands.h)(0x52A2FB86)
 I (..\SRC\config.h)(0x52A2FB86)
-I (..\SRC\evvgcCF.h)(0x52A2FB86)
+I (..\SRC\evvgcCF.h)(0x5DAFA874)
 I (..\SRC\fastTrig.h)(0x52A2FB86)
-I (..\SRC\firstOrderFilter.h)(0x57DE0CE5)
+I (..\SRC\firstOrderFilter.h)(0x5DB035C6)
 I (..\SRC\calibration\magCalibration.h)(0x52A2FB86)
-I (..\SRC\MargAHRS.h)(0x52A2FB86)
-I (..\SRC\calibration\mpu6050Calibration.h)(0x52A2FB86)
+I (..\SRC\MargAHRS.h)(0x5DB03E7E)
+I (..\SRC\calibration\mpu6050Calibration.h)(0x5DAFA85F)
 I (..\SRC\pointingCommands.h)(0x57DE2439)
 I (..\SRC\utilities.h)(0x57DE05D6)
 F (..\SRC\drv\drv_gpio.c)(0x52A2FB86)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I ..\CMSIS -I ..\USER -I ..\FWlib\inc -I ..\FWlib\src -I ..\SRC -I ..\SRC\vcp -I ..\Libraries\STM32_USB-FS-Device_Driver\inc -I ..\SRC\drv -I ..\SRC\sensors -I ..\SRC\cli -I ..\SRC\calibration -I ..\SRC\vcp-IC:\Users\WHUTWZH\Desktop\simpleBGC32-source\source\USER\RTE\_USART1-DEMO-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o ..\output\drv_gpio.o --omf_browse ..\output\drv_gpio.crf --depend ..\output\drv_gpio.d)
-I (..\SRC\board.h)(0x57DE28E0)
+I (..\SRC\board.h)(0x5DAF1637)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x57F606B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F606B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
@@ -1707,10 +1707,10 @@ I (..\Libraries\STM32_USB-FS-Device_Driver\inc\usb_int.h)(0x52A2FB86)
 I (..\SRC\vcp\usb_desc.h)(0x52A2FB86)
 I (..\SRC\vcp\usb_pwr.h)(0x52A2FB86)
 I (..\SRC\pid.h)(0x57DE287C)
-I (..\SRC\bgc32.h)(0x5DAA69D7)
+I (..\SRC\bgc32.h)(0x5DAFA513)
 I (..\SRC\drv\drv_cli.h)(0x52A2FB86)
 I (..\SRC\drv\drv_gpio.h)(0x5DA5D8DE)
-I (..\SRC\drv\drv_i2c.h)(0x52A2FB86)
+I (..\SRC\drv\drv_i2c.h)(0x5DAF161F)
 I (..\SRC\drv\drv_irq.h)(0x5DA84AE5)
 I (..\SRC\drv\drv_pwmMotors.h)(0x57DE02CE)
 I (..\SRC\drv\drv_rc.h)(0x57DE0690)
@@ -1719,20 +1719,20 @@ I (..\SRC\drv\drv_timingFunctions.h)(0x52A2FB86)
 I (..\SRC\drv\drv_usart.h)(0x52A2FB86)
 I (..\SRC\drv\ringbuffer.h)(0x52A2FB86)
 I (..\SRC\sensors\hmc5883.h)(0x57DE07EC)
-I (..\SRC\sensors\mpu6050.h)(0x57DF53A9)
+I (..\SRC\sensors\mpu6050.h)(0x5DAF1A58)
 I (..\SRC\cli\cli.h)(0x52A2FB86)
 I (..\SRC\computeMotorCommands.h)(0x52A2FB86)
 I (..\SRC\config.h)(0x52A2FB86)
-I (..\SRC\evvgcCF.h)(0x52A2FB86)
+I (..\SRC\evvgcCF.h)(0x5DAFA874)
 I (..\SRC\fastTrig.h)(0x52A2FB86)
-I (..\SRC\firstOrderFilter.h)(0x57DE0CE5)
+I (..\SRC\firstOrderFilter.h)(0x5DB035C6)
 I (..\SRC\calibration\magCalibration.h)(0x52A2FB86)
-I (..\SRC\MargAHRS.h)(0x52A2FB86)
-I (..\SRC\calibration\mpu6050Calibration.h)(0x52A2FB86)
+I (..\SRC\MargAHRS.h)(0x5DB03E7E)
+I (..\SRC\calibration\mpu6050Calibration.h)(0x5DAFA85F)
 I (..\SRC\pointingCommands.h)(0x57DE2439)
 I (..\SRC\utilities.h)(0x57DE05D6)
-F (..\SRC\drv\drv_i2c.c)(0x5DAEBF5F)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I ..\CMSIS -I ..\USER -I ..\FWlib\inc -I ..\FWlib\src -I ..\SRC -I ..\SRC\vcp -I ..\Libraries\STM32_USB-FS-Device_Driver\inc -I ..\SRC\drv -I ..\SRC\sensors -I ..\SRC\cli -I ..\SRC\calibration -I ..\SRC\vcp-IC:\Users\WHUTWZH\Desktop\simpleBGC32-source\source\USER\RTE\_USART1-DEMO-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o ..\output\drv_i2c.o --omf_browse ..\output\drv_i2c.crf --depend ..\output\drv_i2c.d)
-I (..\SRC\board.h)(0x57DE28E0)
+F (..\SRC\drv\drv_i2c.c)(0x5DB02C17)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I ..\CMSIS -I ..\USER -I ..\FWlib\inc -I ..\FWlib\src -I ..\SRC -I ..\SRC\vcp -I ..\Libraries\STM32_USB-FS-Device_Driver\inc -I ..\SRC\drv -I ..\SRC\sensors -I ..\SRC\cli -I ..\SRC\calibration -I ..\SRC\vcp-IC:\Users\WHUTWZH\Desktop\simpleBGC32-source\source\USER\RTE\_USART1-DEMO-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o ..\output\drv_i2c.o --omf_browse ..\output\drv_i2c.crf --depend ..\output\drv_i2c.d)
+I (..\SRC\board.h)(0x5DAF1637)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x57F606B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F606B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
@@ -1784,10 +1784,10 @@ I (..\Libraries\STM32_USB-FS-Device_Driver\inc\usb_int.h)(0x52A2FB86)
 I (..\SRC\vcp\usb_desc.h)(0x52A2FB86)
 I (..\SRC\vcp\usb_pwr.h)(0x52A2FB86)
 I (..\SRC\pid.h)(0x57DE287C)
-I (..\SRC\bgc32.h)(0x5DAA69D7)
+I (..\SRC\bgc32.h)(0x5DAFA513)
 I (..\SRC\drv\drv_cli.h)(0x52A2FB86)
 I (..\SRC\drv\drv_gpio.h)(0x5DA5D8DE)
-I (..\SRC\drv\drv_i2c.h)(0x52A2FB86)
+I (..\SRC\drv\drv_i2c.h)(0x5DAF161F)
 I (..\SRC\drv\drv_irq.h)(0x5DA84AE5)
 I (..\SRC\drv\drv_pwmMotors.h)(0x57DE02CE)
 I (..\SRC\drv\drv_rc.h)(0x57DE0690)
@@ -1796,21 +1796,21 @@ I (..\SRC\drv\drv_timingFunctions.h)(0x52A2FB86)
 I (..\SRC\drv\drv_usart.h)(0x52A2FB86)
 I (..\SRC\drv\ringbuffer.h)(0x52A2FB86)
 I (..\SRC\sensors\hmc5883.h)(0x57DE07EC)
-I (..\SRC\sensors\mpu6050.h)(0x57DF53A9)
+I (..\SRC\sensors\mpu6050.h)(0x5DAF1A58)
 I (..\SRC\cli\cli.h)(0x52A2FB86)
 I (..\SRC\computeMotorCommands.h)(0x52A2FB86)
 I (..\SRC\config.h)(0x52A2FB86)
-I (..\SRC\evvgcCF.h)(0x52A2FB86)
+I (..\SRC\evvgcCF.h)(0x5DAFA874)
 I (..\SRC\fastTrig.h)(0x52A2FB86)
-I (..\SRC\firstOrderFilter.h)(0x57DE0CE5)
+I (..\SRC\firstOrderFilter.h)(0x5DB035C6)
 I (..\SRC\calibration\magCalibration.h)(0x52A2FB86)
-I (..\SRC\MargAHRS.h)(0x52A2FB86)
-I (..\SRC\calibration\mpu6050Calibration.h)(0x52A2FB86)
+I (..\SRC\MargAHRS.h)(0x5DB03E7E)
+I (..\SRC\calibration\mpu6050Calibration.h)(0x5DAFA85F)
 I (..\SRC\pointingCommands.h)(0x57DE2439)
 I (..\SRC\utilities.h)(0x57DE05D6)
 F (..\SRC\drv\drv_irq.c)(0x52A2FB86)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I ..\CMSIS -I ..\USER -I ..\FWlib\inc -I ..\FWlib\src -I ..\SRC -I ..\SRC\vcp -I ..\Libraries\STM32_USB-FS-Device_Driver\inc -I ..\SRC\drv -I ..\SRC\sensors -I ..\SRC\cli -I ..\SRC\calibration -I ..\SRC\vcp-IC:\Users\WHUTWZH\Desktop\simpleBGC32-source\source\USER\RTE\_USART1-DEMO-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o ..\output\drv_irq.o --omf_browse ..\output\drv_irq.crf --depend ..\output\drv_irq.d)
 F (..\SRC\drv\drv_pwmMotors.c)(0x5DAEAE7D)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I ..\CMSIS -I ..\USER -I ..\FWlib\inc -I ..\FWlib\src -I ..\SRC -I ..\SRC\vcp -I ..\Libraries\STM32_USB-FS-Device_Driver\inc -I ..\SRC\drv -I ..\SRC\sensors -I ..\SRC\cli -I ..\SRC\calibration -I ..\SRC\vcp-IC:\Users\WHUTWZH\Desktop\simpleBGC32-source\source\USER\RTE\_USART1-DEMO-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o ..\output\drv_pwmmotors.o --omf_browse ..\output\drv_pwmmotors.crf --depend ..\output\drv_pwmmotors.d)
-I (..\SRC\board.h)(0x57DE28E0)
+I (..\SRC\board.h)(0x5DAF1637)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x57F606B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F606B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
@@ -1862,10 +1862,10 @@ I (..\Libraries\STM32_USB-FS-Device_Driver\inc\usb_int.h)(0x52A2FB86)
 I (..\SRC\vcp\usb_desc.h)(0x52A2FB86)
 I (..\SRC\vcp\usb_pwr.h)(0x52A2FB86)
 I (..\SRC\pid.h)(0x57DE287C)
-I (..\SRC\bgc32.h)(0x5DAA69D7)
+I (..\SRC\bgc32.h)(0x5DAFA513)
 I (..\SRC\drv\drv_cli.h)(0x52A2FB86)
 I (..\SRC\drv\drv_gpio.h)(0x5DA5D8DE)
-I (..\SRC\drv\drv_i2c.h)(0x52A2FB86)
+I (..\SRC\drv\drv_i2c.h)(0x5DAF161F)
 I (..\SRC\drv\drv_irq.h)(0x5DA84AE5)
 I (..\SRC\drv\drv_pwmMotors.h)(0x57DE02CE)
 I (..\SRC\drv\drv_rc.h)(0x57DE0690)
@@ -1874,20 +1874,20 @@ I (..\SRC\drv\drv_timingFunctions.h)(0x52A2FB86)
 I (..\SRC\drv\drv_usart.h)(0x52A2FB86)
 I (..\SRC\drv\ringbuffer.h)(0x52A2FB86)
 I (..\SRC\sensors\hmc5883.h)(0x57DE07EC)
-I (..\SRC\sensors\mpu6050.h)(0x57DF53A9)
+I (..\SRC\sensors\mpu6050.h)(0x5DAF1A58)
 I (..\SRC\cli\cli.h)(0x52A2FB86)
 I (..\SRC\computeMotorCommands.h)(0x52A2FB86)
 I (..\SRC\config.h)(0x52A2FB86)
-I (..\SRC\evvgcCF.h)(0x52A2FB86)
+I (..\SRC\evvgcCF.h)(0x5DAFA874)
 I (..\SRC\fastTrig.h)(0x52A2FB86)
-I (..\SRC\firstOrderFilter.h)(0x57DE0CE5)
+I (..\SRC\firstOrderFilter.h)(0x5DB035C6)
 I (..\SRC\calibration\magCalibration.h)(0x52A2FB86)
-I (..\SRC\MargAHRS.h)(0x52A2FB86)
-I (..\SRC\calibration\mpu6050Calibration.h)(0x52A2FB86)
+I (..\SRC\MargAHRS.h)(0x5DB03E7E)
+I (..\SRC\calibration\mpu6050Calibration.h)(0x5DAFA85F)
 I (..\SRC\pointingCommands.h)(0x57DE2439)
 I (..\SRC\utilities.h)(0x57DE05D6)
 F (..\SRC\drv\drv_rc.c)(0x57DFE034)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I ..\CMSIS -I ..\USER -I ..\FWlib\inc -I ..\FWlib\src -I ..\SRC -I ..\SRC\vcp -I ..\Libraries\STM32_USB-FS-Device_Driver\inc -I ..\SRC\drv -I ..\SRC\sensors -I ..\SRC\cli -I ..\SRC\calibration -I ..\SRC\vcp-IC:\Users\WHUTWZH\Desktop\simpleBGC32-source\source\USER\RTE\_USART1-DEMO-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o ..\output\drv_rc.o --omf_browse ..\output\drv_rc.crf --depend ..\output\drv_rc.d)
-I (..\SRC\board.h)(0x57DE28E0)
+I (..\SRC\board.h)(0x5DAF1637)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x57F606B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F606B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
@@ -1939,10 +1939,10 @@ I (..\Libraries\STM32_USB-FS-Device_Driver\inc\usb_int.h)(0x52A2FB86)
 I (..\SRC\vcp\usb_desc.h)(0x52A2FB86)
 I (..\SRC\vcp\usb_pwr.h)(0x52A2FB86)
 I (..\SRC\pid.h)(0x57DE287C)
-I (..\SRC\bgc32.h)(0x5DAA69D7)
+I (..\SRC\bgc32.h)(0x5DAFA513)
 I (..\SRC\drv\drv_cli.h)(0x52A2FB86)
 I (..\SRC\drv\drv_gpio.h)(0x5DA5D8DE)
-I (..\SRC\drv\drv_i2c.h)(0x52A2FB86)
+I (..\SRC\drv\drv_i2c.h)(0x5DAF161F)
 I (..\SRC\drv\drv_irq.h)(0x5DA84AE5)
 I (..\SRC\drv\drv_pwmMotors.h)(0x57DE02CE)
 I (..\SRC\drv\drv_rc.h)(0x57DE0690)
@@ -1951,20 +1951,20 @@ I (..\SRC\drv\drv_timingFunctions.h)(0x52A2FB86)
 I (..\SRC\drv\drv_usart.h)(0x52A2FB86)
 I (..\SRC\drv\ringbuffer.h)(0x52A2FB86)
 I (..\SRC\sensors\hmc5883.h)(0x57DE07EC)
-I (..\SRC\sensors\mpu6050.h)(0x57DF53A9)
+I (..\SRC\sensors\mpu6050.h)(0x5DAF1A58)
 I (..\SRC\cli\cli.h)(0x52A2FB86)
 I (..\SRC\computeMotorCommands.h)(0x52A2FB86)
 I (..\SRC\config.h)(0x52A2FB86)
-I (..\SRC\evvgcCF.h)(0x52A2FB86)
+I (..\SRC\evvgcCF.h)(0x5DAFA874)
 I (..\SRC\fastTrig.h)(0x52A2FB86)
-I (..\SRC\firstOrderFilter.h)(0x57DE0CE5)
+I (..\SRC\firstOrderFilter.h)(0x5DB035C6)
 I (..\SRC\calibration\magCalibration.h)(0x52A2FB86)
-I (..\SRC\MargAHRS.h)(0x52A2FB86)
-I (..\SRC\calibration\mpu6050Calibration.h)(0x52A2FB86)
+I (..\SRC\MargAHRS.h)(0x5DB03E7E)
+I (..\SRC\calibration\mpu6050Calibration.h)(0x5DAFA85F)
 I (..\SRC\pointingCommands.h)(0x57DE2439)
 I (..\SRC\utilities.h)(0x57DE05D6)
-F (..\SRC\drv\drv_system.c)(0x5DAEBF8E)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I ..\CMSIS -I ..\USER -I ..\FWlib\inc -I ..\FWlib\src -I ..\SRC -I ..\SRC\vcp -I ..\Libraries\STM32_USB-FS-Device_Driver\inc -I ..\SRC\drv -I ..\SRC\sensors -I ..\SRC\cli -I ..\SRC\calibration -I ..\SRC\vcp-IC:\Users\WHUTWZH\Desktop\simpleBGC32-source\source\USER\RTE\_USART1-DEMO-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o ..\output\drv_system.o --omf_browse ..\output\drv_system.crf --depend ..\output\drv_system.d)
-I (..\SRC\board.h)(0x57DE28E0)
+F (..\SRC\drv\drv_system.c)(0x5DB02C27)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I ..\CMSIS -I ..\USER -I ..\FWlib\inc -I ..\FWlib\src -I ..\SRC -I ..\SRC\vcp -I ..\Libraries\STM32_USB-FS-Device_Driver\inc -I ..\SRC\drv -I ..\SRC\sensors -I ..\SRC\cli -I ..\SRC\calibration -I ..\SRC\vcp-IC:\Users\WHUTWZH\Desktop\simpleBGC32-source\source\USER\RTE\_USART1-DEMO-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o ..\output\drv_system.o --omf_browse ..\output\drv_system.crf --depend ..\output\drv_system.d)
+I (..\SRC\board.h)(0x5DAF1637)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x57F606B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F606B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
@@ -2016,10 +2016,10 @@ I (..\Libraries\STM32_USB-FS-Device_Driver\inc\usb_int.h)(0x52A2FB86)
 I (..\SRC\vcp\usb_desc.h)(0x52A2FB86)
 I (..\SRC\vcp\usb_pwr.h)(0x52A2FB86)
 I (..\SRC\pid.h)(0x57DE287C)
-I (..\SRC\bgc32.h)(0x5DAA69D7)
+I (..\SRC\bgc32.h)(0x5DAFA513)
 I (..\SRC\drv\drv_cli.h)(0x52A2FB86)
 I (..\SRC\drv\drv_gpio.h)(0x5DA5D8DE)
-I (..\SRC\drv\drv_i2c.h)(0x52A2FB86)
+I (..\SRC\drv\drv_i2c.h)(0x5DAF161F)
 I (..\SRC\drv\drv_irq.h)(0x5DA84AE5)
 I (..\SRC\drv\drv_pwmMotors.h)(0x57DE02CE)
 I (..\SRC\drv\drv_rc.h)(0x57DE0690)
@@ -2028,20 +2028,20 @@ I (..\SRC\drv\drv_timingFunctions.h)(0x52A2FB86)
 I (..\SRC\drv\drv_usart.h)(0x52A2FB86)
 I (..\SRC\drv\ringbuffer.h)(0x52A2FB86)
 I (..\SRC\sensors\hmc5883.h)(0x57DE07EC)
-I (..\SRC\sensors\mpu6050.h)(0x57DF53A9)
+I (..\SRC\sensors\mpu6050.h)(0x5DAF1A58)
 I (..\SRC\cli\cli.h)(0x52A2FB86)
 I (..\SRC\computeMotorCommands.h)(0x52A2FB86)
 I (..\SRC\config.h)(0x52A2FB86)
-I (..\SRC\evvgcCF.h)(0x52A2FB86)
+I (..\SRC\evvgcCF.h)(0x5DAFA874)
 I (..\SRC\fastTrig.h)(0x52A2FB86)
-I (..\SRC\firstOrderFilter.h)(0x57DE0CE5)
+I (..\SRC\firstOrderFilter.h)(0x5DB035C6)
 I (..\SRC\calibration\magCalibration.h)(0x52A2FB86)
-I (..\SRC\MargAHRS.h)(0x52A2FB86)
-I (..\SRC\calibration\mpu6050Calibration.h)(0x52A2FB86)
+I (..\SRC\MargAHRS.h)(0x5DB03E7E)
+I (..\SRC\calibration\mpu6050Calibration.h)(0x5DAFA85F)
 I (..\SRC\pointingCommands.h)(0x57DE2439)
 I (..\SRC\utilities.h)(0x57DE05D6)
 F (..\SRC\drv\drv_timingFunctions.c)(0x57DE0823)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I ..\CMSIS -I ..\USER -I ..\FWlib\inc -I ..\FWlib\src -I ..\SRC -I ..\SRC\vcp -I ..\Libraries\STM32_USB-FS-Device_Driver\inc -I ..\SRC\drv -I ..\SRC\sensors -I ..\SRC\cli -I ..\SRC\calibration -I ..\SRC\vcp-IC:\Users\WHUTWZH\Desktop\simpleBGC32-source\source\USER\RTE\_USART1-DEMO-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o ..\output\drv_timingfunctions.o --omf_browse ..\output\drv_timingfunctions.crf --depend ..\output\drv_timingfunctions.d)
-I (..\SRC\board.h)(0x57DE28E0)
+I (..\SRC\board.h)(0x5DAF1637)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x57F606B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F606B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
@@ -2093,10 +2093,10 @@ I (..\Libraries\STM32_USB-FS-Device_Driver\inc\usb_int.h)(0x52A2FB86)
 I (..\SRC\vcp\usb_desc.h)(0x52A2FB86)
 I (..\SRC\vcp\usb_pwr.h)(0x52A2FB86)
 I (..\SRC\pid.h)(0x57DE287C)
-I (..\SRC\bgc32.h)(0x5DAA69D7)
+I (..\SRC\bgc32.h)(0x5DAFA513)
 I (..\SRC\drv\drv_cli.h)(0x52A2FB86)
 I (..\SRC\drv\drv_gpio.h)(0x5DA5D8DE)
-I (..\SRC\drv\drv_i2c.h)(0x52A2FB86)
+I (..\SRC\drv\drv_i2c.h)(0x5DAF161F)
 I (..\SRC\drv\drv_irq.h)(0x5DA84AE5)
 I (..\SRC\drv\drv_pwmMotors.h)(0x57DE02CE)
 I (..\SRC\drv\drv_rc.h)(0x57DE0690)
@@ -2105,20 +2105,20 @@ I (..\SRC\drv\drv_timingFunctions.h)(0x52A2FB86)
 I (..\SRC\drv\drv_usart.h)(0x52A2FB86)
 I (..\SRC\drv\ringbuffer.h)(0x52A2FB86)
 I (..\SRC\sensors\hmc5883.h)(0x57DE07EC)
-I (..\SRC\sensors\mpu6050.h)(0x57DF53A9)
+I (..\SRC\sensors\mpu6050.h)(0x5DAF1A58)
 I (..\SRC\cli\cli.h)(0x52A2FB86)
 I (..\SRC\computeMotorCommands.h)(0x52A2FB86)
 I (..\SRC\config.h)(0x52A2FB86)
-I (..\SRC\evvgcCF.h)(0x52A2FB86)
+I (..\SRC\evvgcCF.h)(0x5DAFA874)
 I (..\SRC\fastTrig.h)(0x52A2FB86)
-I (..\SRC\firstOrderFilter.h)(0x57DE0CE5)
+I (..\SRC\firstOrderFilter.h)(0x5DB035C6)
 I (..\SRC\calibration\magCalibration.h)(0x52A2FB86)
-I (..\SRC\MargAHRS.h)(0x52A2FB86)
-I (..\SRC\calibration\mpu6050Calibration.h)(0x52A2FB86)
+I (..\SRC\MargAHRS.h)(0x5DB03E7E)
+I (..\SRC\calibration\mpu6050Calibration.h)(0x5DAFA85F)
 I (..\SRC\pointingCommands.h)(0x57DE2439)
 I (..\SRC\utilities.h)(0x57DE05D6)
 F (..\SRC\drv\drv_usart.c)(0x57DE07EC)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I ..\CMSIS -I ..\USER -I ..\FWlib\inc -I ..\FWlib\src -I ..\SRC -I ..\SRC\vcp -I ..\Libraries\STM32_USB-FS-Device_Driver\inc -I ..\SRC\drv -I ..\SRC\sensors -I ..\SRC\cli -I ..\SRC\calibration -I ..\SRC\vcp-IC:\Users\WHUTWZH\Desktop\simpleBGC32-source\source\USER\RTE\_USART1-DEMO-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o ..\output\drv_usart.o --omf_browse ..\output\drv_usart.crf --depend ..\output\drv_usart.d)
-I (..\SRC\board.h)(0x57DE28E0)
+I (..\SRC\board.h)(0x5DAF1637)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x57F606B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F606B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
@@ -2170,10 +2170,10 @@ I (..\Libraries\STM32_USB-FS-Device_Driver\inc\usb_int.h)(0x52A2FB86)
 I (..\SRC\vcp\usb_desc.h)(0x52A2FB86)
 I (..\SRC\vcp\usb_pwr.h)(0x52A2FB86)
 I (..\SRC\pid.h)(0x57DE287C)
-I (..\SRC\bgc32.h)(0x5DAA69D7)
+I (..\SRC\bgc32.h)(0x5DAFA513)
 I (..\SRC\drv\drv_cli.h)(0x52A2FB86)
 I (..\SRC\drv\drv_gpio.h)(0x5DA5D8DE)
-I (..\SRC\drv\drv_i2c.h)(0x52A2FB86)
+I (..\SRC\drv\drv_i2c.h)(0x5DAF161F)
 I (..\SRC\drv\drv_irq.h)(0x5DA84AE5)
 I (..\SRC\drv\drv_pwmMotors.h)(0x57DE02CE)
 I (..\SRC\drv\drv_rc.h)(0x57DE0690)
@@ -2182,20 +2182,20 @@ I (..\SRC\drv\drv_timingFunctions.h)(0x52A2FB86)
 I (..\SRC\drv\drv_usart.h)(0x52A2FB86)
 I (..\SRC\drv\ringbuffer.h)(0x52A2FB86)
 I (..\SRC\sensors\hmc5883.h)(0x57DE07EC)
-I (..\SRC\sensors\mpu6050.h)(0x57DF53A9)
+I (..\SRC\sensors\mpu6050.h)(0x5DAF1A58)
 I (..\SRC\cli\cli.h)(0x52A2FB86)
 I (..\SRC\computeMotorCommands.h)(0x52A2FB86)
 I (..\SRC\config.h)(0x52A2FB86)
-I (..\SRC\evvgcCF.h)(0x52A2FB86)
+I (..\SRC\evvgcCF.h)(0x5DAFA874)
 I (..\SRC\fastTrig.h)(0x52A2FB86)
-I (..\SRC\firstOrderFilter.h)(0x57DE0CE5)
+I (..\SRC\firstOrderFilter.h)(0x5DB035C6)
 I (..\SRC\calibration\magCalibration.h)(0x52A2FB86)
-I (..\SRC\MargAHRS.h)(0x52A2FB86)
-I (..\SRC\calibration\mpu6050Calibration.h)(0x52A2FB86)
+I (..\SRC\MargAHRS.h)(0x5DB03E7E)
+I (..\SRC\calibration\mpu6050Calibration.h)(0x5DAFA85F)
 I (..\SRC\pointingCommands.h)(0x57DE2439)
 I (..\SRC\utilities.h)(0x57DE05D6)
 F (..\SRC\drv\ringbuffer.c)(0x57DE07EC)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I ..\CMSIS -I ..\USER -I ..\FWlib\inc -I ..\FWlib\src -I ..\SRC -I ..\SRC\vcp -I ..\Libraries\STM32_USB-FS-Device_Driver\inc -I ..\SRC\drv -I ..\SRC\sensors -I ..\SRC\cli -I ..\SRC\calibration -I ..\SRC\vcp-IC:\Users\WHUTWZH\Desktop\simpleBGC32-source\source\USER\RTE\_USART1-DEMO-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o ..\output\ringbuffer.o --omf_browse ..\output\ringbuffer.crf --depend ..\output\ringbuffer.d)
-I (..\SRC\board.h)(0x57DE28E0)
+I (..\SRC\board.h)(0x5DAF1637)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x57F606B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F606B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
@@ -2247,10 +2247,10 @@ I (..\Libraries\STM32_USB-FS-Device_Driver\inc\usb_int.h)(0x52A2FB86)
 I (..\SRC\vcp\usb_desc.h)(0x52A2FB86)
 I (..\SRC\vcp\usb_pwr.h)(0x52A2FB86)
 I (..\SRC\pid.h)(0x57DE287C)
-I (..\SRC\bgc32.h)(0x5DAA69D7)
+I (..\SRC\bgc32.h)(0x5DAFA513)
 I (..\SRC\drv\drv_cli.h)(0x52A2FB86)
 I (..\SRC\drv\drv_gpio.h)(0x5DA5D8DE)
-I (..\SRC\drv\drv_i2c.h)(0x52A2FB86)
+I (..\SRC\drv\drv_i2c.h)(0x5DAF161F)
 I (..\SRC\drv\drv_irq.h)(0x5DA84AE5)
 I (..\SRC\drv\drv_pwmMotors.h)(0x57DE02CE)
 I (..\SRC\drv\drv_rc.h)(0x57DE0690)
@@ -2259,20 +2259,20 @@ I (..\SRC\drv\drv_timingFunctions.h)(0x52A2FB86)
 I (..\SRC\drv\drv_usart.h)(0x52A2FB86)
 I (..\SRC\drv\ringbuffer.h)(0x52A2FB86)
 I (..\SRC\sensors\hmc5883.h)(0x57DE07EC)
-I (..\SRC\sensors\mpu6050.h)(0x57DF53A9)
+I (..\SRC\sensors\mpu6050.h)(0x5DAF1A58)
 I (..\SRC\cli\cli.h)(0x52A2FB86)
 I (..\SRC\computeMotorCommands.h)(0x52A2FB86)
 I (..\SRC\config.h)(0x52A2FB86)
-I (..\SRC\evvgcCF.h)(0x52A2FB86)
+I (..\SRC\evvgcCF.h)(0x5DAFA874)
 I (..\SRC\fastTrig.h)(0x52A2FB86)
-I (..\SRC\firstOrderFilter.h)(0x57DE0CE5)
+I (..\SRC\firstOrderFilter.h)(0x5DB035C6)
 I (..\SRC\calibration\magCalibration.h)(0x52A2FB86)
-I (..\SRC\MargAHRS.h)(0x52A2FB86)
-I (..\SRC\calibration\mpu6050Calibration.h)(0x52A2FB86)
+I (..\SRC\MargAHRS.h)(0x5DB03E7E)
+I (..\SRC\calibration\mpu6050Calibration.h)(0x5DAFA85F)
 I (..\SRC\pointingCommands.h)(0x57DE2439)
 I (..\SRC\utilities.h)(0x57DE05D6)
 F (..\SRC\sensors\hmc5883.c)(0x57DE0B47)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I ..\CMSIS -I ..\USER -I ..\FWlib\inc -I ..\FWlib\src -I ..\SRC -I ..\SRC\vcp -I ..\Libraries\STM32_USB-FS-Device_Driver\inc -I ..\SRC\drv -I ..\SRC\sensors -I ..\SRC\cli -I ..\SRC\calibration -I ..\SRC\vcp-IC:\Users\WHUTWZH\Desktop\simpleBGC32-source\source\USER\RTE\_USART1-DEMO-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o ..\output\hmc5883.o --omf_browse ..\output\hmc5883.crf --depend ..\output\hmc5883.d)
-I (..\SRC\board.h)(0x57DE28E0)
+I (..\SRC\board.h)(0x5DAF1637)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x57F606B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F606B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
@@ -2324,10 +2324,10 @@ I (..\Libraries\STM32_USB-FS-Device_Driver\inc\usb_int.h)(0x52A2FB86)
 I (..\SRC\vcp\usb_desc.h)(0x52A2FB86)
 I (..\SRC\vcp\usb_pwr.h)(0x52A2FB86)
 I (..\SRC\pid.h)(0x57DE287C)
-I (..\SRC\bgc32.h)(0x5DAA69D7)
+I (..\SRC\bgc32.h)(0x5DAFA513)
 I (..\SRC\drv\drv_cli.h)(0x52A2FB86)
 I (..\SRC\drv\drv_gpio.h)(0x5DA5D8DE)
-I (..\SRC\drv\drv_i2c.h)(0x52A2FB86)
+I (..\SRC\drv\drv_i2c.h)(0x5DAF161F)
 I (..\SRC\drv\drv_irq.h)(0x5DA84AE5)
 I (..\SRC\drv\drv_pwmMotors.h)(0x57DE02CE)
 I (..\SRC\drv\drv_rc.h)(0x57DE0690)
@@ -2336,20 +2336,20 @@ I (..\SRC\drv\drv_timingFunctions.h)(0x52A2FB86)
 I (..\SRC\drv\drv_usart.h)(0x52A2FB86)
 I (..\SRC\drv\ringbuffer.h)(0x52A2FB86)
 I (..\SRC\sensors\hmc5883.h)(0x57DE07EC)
-I (..\SRC\sensors\mpu6050.h)(0x57DF53A9)
+I (..\SRC\sensors\mpu6050.h)(0x5DAF1A58)
 I (..\SRC\cli\cli.h)(0x52A2FB86)
 I (..\SRC\computeMotorCommands.h)(0x52A2FB86)
 I (..\SRC\config.h)(0x52A2FB86)
-I (..\SRC\evvgcCF.h)(0x52A2FB86)
+I (..\SRC\evvgcCF.h)(0x5DAFA874)
 I (..\SRC\fastTrig.h)(0x52A2FB86)
-I (..\SRC\firstOrderFilter.h)(0x57DE0CE5)
+I (..\SRC\firstOrderFilter.h)(0x5DB035C6)
 I (..\SRC\calibration\magCalibration.h)(0x52A2FB86)
-I (..\SRC\MargAHRS.h)(0x52A2FB86)
-I (..\SRC\calibration\mpu6050Calibration.h)(0x52A2FB86)
+I (..\SRC\MargAHRS.h)(0x5DB03E7E)
+I (..\SRC\calibration\mpu6050Calibration.h)(0x5DAFA85F)
 I (..\SRC\pointingCommands.h)(0x57DE2439)
 I (..\SRC\utilities.h)(0x57DE05D6)
-F (..\SRC\sensors\mpu6050.c)(0x5DAEBC1A)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I ..\CMSIS -I ..\USER -I ..\FWlib\inc -I ..\FWlib\src -I ..\SRC -I ..\SRC\vcp -I ..\Libraries\STM32_USB-FS-Device_Driver\inc -I ..\SRC\drv -I ..\SRC\sensors -I ..\SRC\cli -I ..\SRC\calibration -I ..\SRC\vcp-IC:\Users\WHUTWZH\Desktop\simpleBGC32-source\source\USER\RTE\_USART1-DEMO-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o ..\output\mpu6050.o --omf_browse ..\output\mpu6050.crf --depend ..\output\mpu6050.d)
-I (..\SRC\board.h)(0x57DE28E0)
+F (..\SRC\sensors\mpu6050.c)(0x5DB01A66)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I ..\CMSIS -I ..\USER -I ..\FWlib\inc -I ..\FWlib\src -I ..\SRC -I ..\SRC\vcp -I ..\Libraries\STM32_USB-FS-Device_Driver\inc -I ..\SRC\drv -I ..\SRC\sensors -I ..\SRC\cli -I ..\SRC\calibration -I ..\SRC\vcp-IC:\Users\WHUTWZH\Desktop\simpleBGC32-source\source\USER\RTE\_USART1-DEMO-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o ..\output\mpu6050.o --omf_browse ..\output\mpu6050.crf --depend ..\output\mpu6050.d)
+I (..\SRC\board.h)(0x5DAF1637)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x57F606B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F606B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
@@ -2401,10 +2401,10 @@ I (..\Libraries\STM32_USB-FS-Device_Driver\inc\usb_int.h)(0x52A2FB86)
 I (..\SRC\vcp\usb_desc.h)(0x52A2FB86)
 I (..\SRC\vcp\usb_pwr.h)(0x52A2FB86)
 I (..\SRC\pid.h)(0x57DE287C)
-I (..\SRC\bgc32.h)(0x5DAA69D7)
+I (..\SRC\bgc32.h)(0x5DAFA513)
 I (..\SRC\drv\drv_cli.h)(0x52A2FB86)
 I (..\SRC\drv\drv_gpio.h)(0x5DA5D8DE)
-I (..\SRC\drv\drv_i2c.h)(0x52A2FB86)
+I (..\SRC\drv\drv_i2c.h)(0x5DAF161F)
 I (..\SRC\drv\drv_irq.h)(0x5DA84AE5)
 I (..\SRC\drv\drv_pwmMotors.h)(0x57DE02CE)
 I (..\SRC\drv\drv_rc.h)(0x57DE0690)
@@ -2413,20 +2413,20 @@ I (..\SRC\drv\drv_timingFunctions.h)(0x52A2FB86)
 I (..\SRC\drv\drv_usart.h)(0x52A2FB86)
 I (..\SRC\drv\ringbuffer.h)(0x52A2FB86)
 I (..\SRC\sensors\hmc5883.h)(0x57DE07EC)
-I (..\SRC\sensors\mpu6050.h)(0x57DF53A9)
+I (..\SRC\sensors\mpu6050.h)(0x5DAF1A58)
 I (..\SRC\cli\cli.h)(0x52A2FB86)
 I (..\SRC\computeMotorCommands.h)(0x52A2FB86)
 I (..\SRC\config.h)(0x52A2FB86)
-I (..\SRC\evvgcCF.h)(0x52A2FB86)
+I (..\SRC\evvgcCF.h)(0x5DAFA874)
 I (..\SRC\fastTrig.h)(0x52A2FB86)
-I (..\SRC\firstOrderFilter.h)(0x57DE0CE5)
+I (..\SRC\firstOrderFilter.h)(0x5DB035C6)
 I (..\SRC\calibration\magCalibration.h)(0x52A2FB86)
-I (..\SRC\MargAHRS.h)(0x52A2FB86)
-I (..\SRC\calibration\mpu6050Calibration.h)(0x52A2FB86)
+I (..\SRC\MargAHRS.h)(0x5DB03E7E)
+I (..\SRC\calibration\mpu6050Calibration.h)(0x5DAFA85F)
 I (..\SRC\pointingCommands.h)(0x57DE2439)
 I (..\SRC\utilities.h)(0x57DE05D6)
-F (..\SRC\cli\cli.c)(0x5DA9A227)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I ..\CMSIS -I ..\USER -I ..\FWlib\inc -I ..\FWlib\src -I ..\SRC -I ..\SRC\vcp -I ..\Libraries\STM32_USB-FS-Device_Driver\inc -I ..\SRC\drv -I ..\SRC\sensors -I ..\SRC\cli -I ..\SRC\calibration -I ..\SRC\vcp-IC:\Users\WHUTWZH\Desktop\simpleBGC32-source\source\USER\RTE\_USART1-DEMO-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o ..\output\cli.o --omf_browse ..\output\cli.crf --depend ..\output\cli.d)
-I (..\SRC\board.h)(0x57DE28E0)
+F (..\SRC\cli\cli.c)(0x5DAF1F9C)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I ..\CMSIS -I ..\USER -I ..\FWlib\inc -I ..\FWlib\src -I ..\SRC -I ..\SRC\vcp -I ..\Libraries\STM32_USB-FS-Device_Driver\inc -I ..\SRC\drv -I ..\SRC\sensors -I ..\SRC\cli -I ..\SRC\calibration -I ..\SRC\vcp-IC:\Users\WHUTWZH\Desktop\simpleBGC32-source\source\USER\RTE\_USART1-DEMO-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o ..\output\cli.o --omf_browse ..\output\cli.crf --depend ..\output\cli.d)
+I (..\SRC\board.h)(0x5DAF1637)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x57F606B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F606B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
@@ -2478,10 +2478,10 @@ I (..\Libraries\STM32_USB-FS-Device_Driver\inc\usb_int.h)(0x52A2FB86)
 I (..\SRC\vcp\usb_desc.h)(0x52A2FB86)
 I (..\SRC\vcp\usb_pwr.h)(0x52A2FB86)
 I (..\SRC\pid.h)(0x57DE287C)
-I (..\SRC\bgc32.h)(0x5DAA69D7)
+I (..\SRC\bgc32.h)(0x5DAFA513)
 I (..\SRC\drv\drv_cli.h)(0x52A2FB86)
 I (..\SRC\drv\drv_gpio.h)(0x5DA5D8DE)
-I (..\SRC\drv\drv_i2c.h)(0x52A2FB86)
+I (..\SRC\drv\drv_i2c.h)(0x5DAF161F)
 I (..\SRC\drv\drv_irq.h)(0x5DA84AE5)
 I (..\SRC\drv\drv_pwmMotors.h)(0x57DE02CE)
 I (..\SRC\drv\drv_rc.h)(0x57DE0690)
@@ -2490,20 +2490,20 @@ I (..\SRC\drv\drv_timingFunctions.h)(0x52A2FB86)
 I (..\SRC\drv\drv_usart.h)(0x52A2FB86)
 I (..\SRC\drv\ringbuffer.h)(0x52A2FB86)
 I (..\SRC\sensors\hmc5883.h)(0x57DE07EC)
-I (..\SRC\sensors\mpu6050.h)(0x57DF53A9)
+I (..\SRC\sensors\mpu6050.h)(0x5DAF1A58)
 I (..\SRC\cli\cli.h)(0x52A2FB86)
 I (..\SRC\computeMotorCommands.h)(0x52A2FB86)
 I (..\SRC\config.h)(0x52A2FB86)
-I (..\SRC\evvgcCF.h)(0x52A2FB86)
+I (..\SRC\evvgcCF.h)(0x5DAFA874)
 I (..\SRC\fastTrig.h)(0x52A2FB86)
-I (..\SRC\firstOrderFilter.h)(0x57DE0CE5)
+I (..\SRC\firstOrderFilter.h)(0x5DB035C6)
 I (..\SRC\calibration\magCalibration.h)(0x52A2FB86)
-I (..\SRC\MargAHRS.h)(0x52A2FB86)
-I (..\SRC\calibration\mpu6050Calibration.h)(0x52A2FB86)
+I (..\SRC\MargAHRS.h)(0x5DB03E7E)
+I (..\SRC\calibration\mpu6050Calibration.h)(0x5DAFA85F)
 I (..\SRC\pointingCommands.h)(0x57DE2439)
 I (..\SRC\utilities.h)(0x57DE05D6)
-F (..\SRC\cli\cliSensor.c)(0x5DA7071B)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I ..\CMSIS -I ..\USER -I ..\FWlib\inc -I ..\FWlib\src -I ..\SRC -I ..\SRC\vcp -I ..\Libraries\STM32_USB-FS-Device_Driver\inc -I ..\SRC\drv -I ..\SRC\sensors -I ..\SRC\cli -I ..\SRC\calibration -I ..\SRC\vcp-IC:\Users\WHUTWZH\Desktop\simpleBGC32-source\source\USER\RTE\_USART1-DEMO-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o ..\output\clisensor.o --omf_browse ..\output\clisensor.crf --depend ..\output\clisensor.d)
-I (..\SRC\board.h)(0x57DE28E0)
+F (..\SRC\cli\cliSensor.c)(0x5DAFA89C)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I ..\CMSIS -I ..\USER -I ..\FWlib\inc -I ..\FWlib\src -I ..\SRC -I ..\SRC\vcp -I ..\Libraries\STM32_USB-FS-Device_Driver\inc -I ..\SRC\drv -I ..\SRC\sensors -I ..\SRC\cli -I ..\SRC\calibration -I ..\SRC\vcp-IC:\Users\WHUTWZH\Desktop\simpleBGC32-source\source\USER\RTE\_USART1-DEMO-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o ..\output\clisensor.o --omf_browse ..\output\clisensor.crf --depend ..\output\clisensor.d)
+I (..\SRC\board.h)(0x5DAF1637)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x57F606B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F606B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
@@ -2555,10 +2555,10 @@ I (..\Libraries\STM32_USB-FS-Device_Driver\inc\usb_int.h)(0x52A2FB86)
 I (..\SRC\vcp\usb_desc.h)(0x52A2FB86)
 I (..\SRC\vcp\usb_pwr.h)(0x52A2FB86)
 I (..\SRC\pid.h)(0x57DE287C)
-I (..\SRC\bgc32.h)(0x5DAA69D7)
+I (..\SRC\bgc32.h)(0x5DAFA513)
 I (..\SRC\drv\drv_cli.h)(0x52A2FB86)
 I (..\SRC\drv\drv_gpio.h)(0x5DA5D8DE)
-I (..\SRC\drv\drv_i2c.h)(0x52A2FB86)
+I (..\SRC\drv\drv_i2c.h)(0x5DAF161F)
 I (..\SRC\drv\drv_irq.h)(0x5DA84AE5)
 I (..\SRC\drv\drv_pwmMotors.h)(0x57DE02CE)
 I (..\SRC\drv\drv_rc.h)(0x57DE0690)
@@ -2567,20 +2567,20 @@ I (..\SRC\drv\drv_timingFunctions.h)(0x52A2FB86)
 I (..\SRC\drv\drv_usart.h)(0x52A2FB86)
 I (..\SRC\drv\ringbuffer.h)(0x52A2FB86)
 I (..\SRC\sensors\hmc5883.h)(0x57DE07EC)
-I (..\SRC\sensors\mpu6050.h)(0x57DF53A9)
+I (..\SRC\sensors\mpu6050.h)(0x5DAF1A58)
 I (..\SRC\cli\cli.h)(0x52A2FB86)
 I (..\SRC\computeMotorCommands.h)(0x52A2FB86)
 I (..\SRC\config.h)(0x52A2FB86)
-I (..\SRC\evvgcCF.h)(0x52A2FB86)
+I (..\SRC\evvgcCF.h)(0x5DAFA874)
 I (..\SRC\fastTrig.h)(0x52A2FB86)
-I (..\SRC\firstOrderFilter.h)(0x57DE0CE5)
+I (..\SRC\firstOrderFilter.h)(0x5DB035C6)
 I (..\SRC\calibration\magCalibration.h)(0x52A2FB86)
-I (..\SRC\MargAHRS.h)(0x52A2FB86)
-I (..\SRC\calibration\mpu6050Calibration.h)(0x52A2FB86)
+I (..\SRC\MargAHRS.h)(0x5DB03E7E)
+I (..\SRC\calibration\mpu6050Calibration.h)(0x5DAFA85F)
 I (..\SRC\pointingCommands.h)(0x57DE2439)
 I (..\SRC\utilities.h)(0x57DE05D6)
 F (..\SRC\calibration\magCalibration.c)(0x52A2FB86)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I ..\CMSIS -I ..\USER -I ..\FWlib\inc -I ..\FWlib\src -I ..\SRC -I ..\SRC\vcp -I ..\Libraries\STM32_USB-FS-Device_Driver\inc -I ..\SRC\drv -I ..\SRC\sensors -I ..\SRC\cli -I ..\SRC\calibration -I ..\SRC\vcp-IC:\Users\WHUTWZH\Desktop\simpleBGC32-source\source\USER\RTE\_USART1-DEMO-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o ..\output\magcalibration.o --omf_browse ..\output\magcalibration.crf --depend ..\output\magcalibration.d)
-I (..\SRC\board.h)(0x57DE28E0)
+I (..\SRC\board.h)(0x5DAF1637)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x57F606B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F606B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
@@ -2632,10 +2632,10 @@ I (..\Libraries\STM32_USB-FS-Device_Driver\inc\usb_int.h)(0x52A2FB86)
 I (..\SRC\vcp\usb_desc.h)(0x52A2FB86)
 I (..\SRC\vcp\usb_pwr.h)(0x52A2FB86)
 I (..\SRC\pid.h)(0x57DE287C)
-I (..\SRC\bgc32.h)(0x5DAA69D7)
+I (..\SRC\bgc32.h)(0x5DAFA513)
 I (..\SRC\drv\drv_cli.h)(0x52A2FB86)
 I (..\SRC\drv\drv_gpio.h)(0x5DA5D8DE)
-I (..\SRC\drv\drv_i2c.h)(0x52A2FB86)
+I (..\SRC\drv\drv_i2c.h)(0x5DAF161F)
 I (..\SRC\drv\drv_irq.h)(0x5DA84AE5)
 I (..\SRC\drv\drv_pwmMotors.h)(0x57DE02CE)
 I (..\SRC\drv\drv_rc.h)(0x57DE0690)
@@ -2644,20 +2644,20 @@ I (..\SRC\drv\drv_timingFunctions.h)(0x52A2FB86)
 I (..\SRC\drv\drv_usart.h)(0x52A2FB86)
 I (..\SRC\drv\ringbuffer.h)(0x52A2FB86)
 I (..\SRC\sensors\hmc5883.h)(0x57DE07EC)
-I (..\SRC\sensors\mpu6050.h)(0x57DF53A9)
+I (..\SRC\sensors\mpu6050.h)(0x5DAF1A58)
 I (..\SRC\cli\cli.h)(0x52A2FB86)
 I (..\SRC\computeMotorCommands.h)(0x52A2FB86)
 I (..\SRC\config.h)(0x52A2FB86)
-I (..\SRC\evvgcCF.h)(0x52A2FB86)
+I (..\SRC\evvgcCF.h)(0x5DAFA874)
 I (..\SRC\fastTrig.h)(0x52A2FB86)
-I (..\SRC\firstOrderFilter.h)(0x57DE0CE5)
+I (..\SRC\firstOrderFilter.h)(0x5DB035C6)
 I (..\SRC\calibration\magCalibration.h)(0x52A2FB86)
-I (..\SRC\MargAHRS.h)(0x52A2FB86)
-I (..\SRC\calibration\mpu6050Calibration.h)(0x52A2FB86)
+I (..\SRC\MargAHRS.h)(0x5DB03E7E)
+I (..\SRC\calibration\mpu6050Calibration.h)(0x5DAFA85F)
 I (..\SRC\pointingCommands.h)(0x57DE2439)
 I (..\SRC\utilities.h)(0x57DE05D6)
-F (..\SRC\calibration\mpu6050Calibration.c)(0x52A2FB86)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I ..\CMSIS -I ..\USER -I ..\FWlib\inc -I ..\FWlib\src -I ..\SRC -I ..\SRC\vcp -I ..\Libraries\STM32_USB-FS-Device_Driver\inc -I ..\SRC\drv -I ..\SRC\sensors -I ..\SRC\cli -I ..\SRC\calibration -I ..\SRC\vcp-IC:\Users\WHUTWZH\Desktop\simpleBGC32-source\source\USER\RTE\_USART1-DEMO-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o ..\output\mpu6050calibration.o --omf_browse ..\output\mpu6050calibration.crf --depend ..\output\mpu6050calibration.d)
-I (..\SRC\board.h)(0x57DE28E0)
+F (..\SRC\calibration\mpu6050Calibration.c)(0x5DAFA639)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I ..\CMSIS -I ..\USER -I ..\FWlib\inc -I ..\FWlib\src -I ..\SRC -I ..\SRC\vcp -I ..\Libraries\STM32_USB-FS-Device_Driver\inc -I ..\SRC\drv -I ..\SRC\sensors -I ..\SRC\cli -I ..\SRC\calibration -I ..\SRC\vcp-IC:\Users\WHUTWZH\Desktop\simpleBGC32-source\source\USER\RTE\_USART1-DEMO-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o ..\output\mpu6050calibration.o --omf_browse ..\output\mpu6050calibration.crf --depend ..\output\mpu6050calibration.d)
+I (..\SRC\board.h)(0x5DAF1637)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x57F606B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F606B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
@@ -2709,10 +2709,10 @@ I (..\Libraries\STM32_USB-FS-Device_Driver\inc\usb_int.h)(0x52A2FB86)
 I (..\SRC\vcp\usb_desc.h)(0x52A2FB86)
 I (..\SRC\vcp\usb_pwr.h)(0x52A2FB86)
 I (..\SRC\pid.h)(0x57DE287C)
-I (..\SRC\bgc32.h)(0x5DAA69D7)
+I (..\SRC\bgc32.h)(0x5DAFA513)
 I (..\SRC\drv\drv_cli.h)(0x52A2FB86)
 I (..\SRC\drv\drv_gpio.h)(0x5DA5D8DE)
-I (..\SRC\drv\drv_i2c.h)(0x52A2FB86)
+I (..\SRC\drv\drv_i2c.h)(0x5DAF161F)
 I (..\SRC\drv\drv_irq.h)(0x5DA84AE5)
 I (..\SRC\drv\drv_pwmMotors.h)(0x57DE02CE)
 I (..\SRC\drv\drv_rc.h)(0x57DE0690)
@@ -2721,16 +2721,16 @@ I (..\SRC\drv\drv_timingFunctions.h)(0x52A2FB86)
 I (..\SRC\drv\drv_usart.h)(0x52A2FB86)
 I (..\SRC\drv\ringbuffer.h)(0x52A2FB86)
 I (..\SRC\sensors\hmc5883.h)(0x57DE07EC)
-I (..\SRC\sensors\mpu6050.h)(0x57DF53A9)
+I (..\SRC\sensors\mpu6050.h)(0x5DAF1A58)
 I (..\SRC\cli\cli.h)(0x52A2FB86)
 I (..\SRC\computeMotorCommands.h)(0x52A2FB86)
 I (..\SRC\config.h)(0x52A2FB86)
-I (..\SRC\evvgcCF.h)(0x52A2FB86)
+I (..\SRC\evvgcCF.h)(0x5DAFA874)
 I (..\SRC\fastTrig.h)(0x52A2FB86)
-I (..\SRC\firstOrderFilter.h)(0x57DE0CE5)
+I (..\SRC\firstOrderFilter.h)(0x5DB035C6)
 I (..\SRC\calibration\magCalibration.h)(0x52A2FB86)
-I (..\SRC\MargAHRS.h)(0x52A2FB86)
-I (..\SRC\calibration\mpu6050Calibration.h)(0x52A2FB86)
+I (..\SRC\MargAHRS.h)(0x5DB03E7E)
+I (..\SRC\calibration\mpu6050Calibration.h)(0x5DAFA85F)
 I (..\SRC\pointingCommands.h)(0x57DE2439)
 I (..\SRC\utilities.h)(0x57DE05D6)
 F (..\SRC\vcp\hw_config.c)(0x5DADB0E5)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I ..\CMSIS -I ..\USER -I ..\FWlib\inc -I ..\FWlib\src -I ..\SRC -I ..\SRC\vcp -I ..\Libraries\STM32_USB-FS-Device_Driver\inc -I ..\SRC\drv -I ..\SRC\sensors -I ..\SRC\cli -I ..\SRC\calibration -I ..\SRC\vcp-IC:\Users\WHUTWZH\Desktop\simpleBGC32-source\source\USER\RTE\_USART1-DEMO-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o ..\output\hw_config.o --omf_browse ..\output\hw_config.crf --depend ..\output\hw_config.d)
@@ -2764,7 +2764,7 @@ I (..\FWlib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\FWlib\inc\stm32f10x_usart.h)(0x4D783BB4)
 I (..\FWlib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\FWlib\inc\misc.h)(0x4D783BB4)
-I (..\SRC\board.h)(0x57DE28E0)
+I (..\SRC\board.h)(0x5DAF1637)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x57F606B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F606B8)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x57F606B6)
@@ -2787,10 +2787,10 @@ I (..\Libraries\STM32_USB-FS-Device_Driver\inc\usb_int.h)(0x52A2FB86)
 I (..\SRC\vcp\usb_desc.h)(0x52A2FB86)
 I (..\SRC\vcp\usb_pwr.h)(0x52A2FB86)
 I (..\SRC\pid.h)(0x57DE287C)
-I (..\SRC\bgc32.h)(0x5DAA69D7)
+I (..\SRC\bgc32.h)(0x5DAFA513)
 I (..\SRC\drv\drv_cli.h)(0x52A2FB86)
 I (..\SRC\drv\drv_gpio.h)(0x5DA5D8DE)
-I (..\SRC\drv\drv_i2c.h)(0x52A2FB86)
+I (..\SRC\drv\drv_i2c.h)(0x5DAF161F)
 I (..\SRC\drv\drv_irq.h)(0x5DA84AE5)
 I (..\SRC\drv\drv_pwmMotors.h)(0x57DE02CE)
 I (..\SRC\drv\drv_rc.h)(0x57DE0690)
@@ -2799,16 +2799,16 @@ I (..\SRC\drv\drv_timingFunctions.h)(0x52A2FB86)
 I (..\SRC\drv\drv_usart.h)(0x52A2FB86)
 I (..\SRC\drv\ringbuffer.h)(0x52A2FB86)
 I (..\SRC\sensors\hmc5883.h)(0x57DE07EC)
-I (..\SRC\sensors\mpu6050.h)(0x57DF53A9)
+I (..\SRC\sensors\mpu6050.h)(0x5DAF1A58)
 I (..\SRC\cli\cli.h)(0x52A2FB86)
 I (..\SRC\computeMotorCommands.h)(0x52A2FB86)
 I (..\SRC\config.h)(0x52A2FB86)
-I (..\SRC\evvgcCF.h)(0x52A2FB86)
+I (..\SRC\evvgcCF.h)(0x5DAFA874)
 I (..\SRC\fastTrig.h)(0x52A2FB86)
-I (..\SRC\firstOrderFilter.h)(0x57DE0CE5)
+I (..\SRC\firstOrderFilter.h)(0x5DB035C6)
 I (..\SRC\calibration\magCalibration.h)(0x52A2FB86)
-I (..\SRC\MargAHRS.h)(0x52A2FB86)
-I (..\SRC\calibration\mpu6050Calibration.h)(0x52A2FB86)
+I (..\SRC\MargAHRS.h)(0x5DB03E7E)
+I (..\SRC\calibration\mpu6050Calibration.h)(0x5DAFA85F)
 I (..\SRC\pointingCommands.h)(0x57DE2439)
 I (..\SRC\utilities.h)(0x57DE05D6)
 I (..\SRC\vcp\usb_prop.h)(0x52A2FB86)

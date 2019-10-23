@@ -40,7 +40,7 @@
 // MPU6050 Calibration
 ///////////////////////////////////////////////////////////////////////////////
 
-void mpu6050Calibration(void)
+void mpu6050Calibration1(void)
 {
     uint16_t sampleRate      = 1000;
     uint16_t numberOfSamples = 2000;
@@ -67,17 +67,17 @@ void mpu6050Calibration(void)
 
     for (index = 0; index < numberOfSamples; index++)
     {
-        readMPU6050();
+        readMPU60501();
 
-        rawAccel[ZAXIS].value = rawAccel[ZAXIS].value - 8192;
+        rawAccel[0][ZAXIS].value = rawAccel[0][ZAXIS].value - 8192;
 
-        accelBias1[XAXIS]    += rawAccel[XAXIS].value;
-        accelBias1[YAXIS]    += rawAccel[YAXIS].value;
-        accelBias1[ZAXIS]    += rawAccel[ZAXIS].value;
-        gyroBias1[ROLL ]     += rawGyro[ROLL ].value;
-        gyroBias1[PITCH]     += rawGyro[PITCH].value;
-        gyroBias1[YAW  ]     += rawGyro[YAW  ].value;
-        mpu6050Temperature1  += (float)(rawMPU6050Temperature.value) / 340.0f + 35.0f;
+        accelBias1[XAXIS]    += rawAccel[0][XAXIS].value;
+        accelBias1[YAXIS]    += rawAccel[0][YAXIS].value;
+        accelBias1[ZAXIS]    += rawAccel[0][ZAXIS].value;
+        gyroBias1[ROLL ]     += rawGyro[0][ROLL ].value;
+        gyroBias1[PITCH]     += rawGyro[0][PITCH].value;
+        gyroBias1[YAW  ]     += rawGyro[0][YAW  ].value;
+        mpu6050Temperature1  += (float)(rawMPU6050Temperature[0].value) / 340.0f + 35.0f;
 
         delayMicroseconds(sampleRate);
     }
@@ -110,17 +110,17 @@ void mpu6050Calibration(void)
 
     for (index = 0; index < numberOfSamples; index++)
     {
-        readMPU6050();
+        readMPU60501();
 
-        rawAccel[ZAXIS].value = rawAccel[ZAXIS].value - 8192;
+        rawAccel[0][ZAXIS].value = rawAccel[0][ZAXIS].value - 8192;
 
-        accelBias2[XAXIS]    += rawAccel[XAXIS].value;
-        accelBias2[YAXIS]    += rawAccel[YAXIS].value;
-        accelBias2[ZAXIS]    += rawAccel[ZAXIS].value;
-        gyroBias2[ROLL ]     += rawGyro[ROLL ].value;
-        gyroBias2[PITCH]     += rawGyro[PITCH].value;
-        gyroBias2[YAW  ]     += rawGyro[YAW  ].value;
-        mpu6050Temperature2  += (float)(rawMPU6050Temperature.value) / 340.0f + 35.0f;
+        accelBias2[XAXIS]    += rawAccel[0][XAXIS].value;
+        accelBias2[YAXIS]    += rawAccel[0][YAXIS].value;
+        accelBias2[ZAXIS]    += rawAccel[0][ZAXIS].value;
+        gyroBias2[ROLL ]     += rawGyro[0][ROLL ].value;
+        gyroBias2[PITCH]     += rawGyro[0][PITCH].value;
+        gyroBias2[YAW  ]     += rawGyro[0][YAW  ].value;
+        mpu6050Temperature2  += (float)(rawMPU6050Temperature[0].value) / 340.0f + 35.0f;
 
         delayMicroseconds(sampleRate);
     }
@@ -139,21 +139,145 @@ void mpu6050Calibration(void)
 
     ///////////////////////////////////
 
-    eepromConfig.accelTCBiasSlope[XAXIS]     = (accelBias2[XAXIS] - accelBias1[XAXIS]) / (mpu6050Temperature2 - mpu6050Temperature1);
-    eepromConfig.accelTCBiasSlope[YAXIS]     = (accelBias2[YAXIS] - accelBias1[YAXIS]) / (mpu6050Temperature2 - mpu6050Temperature1);
-    eepromConfig.accelTCBiasSlope[ZAXIS]     = (accelBias2[ZAXIS] - accelBias1[ZAXIS]) / (mpu6050Temperature2 - mpu6050Temperature1);
+    eepromConfig.accelTCBiasSlope[0][XAXIS]     = (accelBias2[XAXIS] - accelBias1[XAXIS]) / (mpu6050Temperature2 - mpu6050Temperature1);
+    eepromConfig.accelTCBiasSlope[0][YAXIS]     = (accelBias2[YAXIS] - accelBias1[YAXIS]) / (mpu6050Temperature2 - mpu6050Temperature1);
+    eepromConfig.accelTCBiasSlope[0][ZAXIS]     = (accelBias2[ZAXIS] - accelBias1[ZAXIS]) / (mpu6050Temperature2 - mpu6050Temperature1);
 
-    eepromConfig.accelTCBiasIntercept[XAXIS] = accelBias2[XAXIS] - eepromConfig.accelTCBiasSlope[XAXIS] * mpu6050Temperature2;
-    eepromConfig.accelTCBiasIntercept[YAXIS] = accelBias2[YAXIS] - eepromConfig.accelTCBiasSlope[YAXIS] * mpu6050Temperature2;
-    eepromConfig.accelTCBiasIntercept[ZAXIS] = accelBias2[ZAXIS] - eepromConfig.accelTCBiasSlope[ZAXIS] * mpu6050Temperature2;
+    eepromConfig.accelTCBiasIntercept[0][XAXIS] = accelBias2[XAXIS] - eepromConfig.accelTCBiasSlope[0][XAXIS] * mpu6050Temperature2;
+    eepromConfig.accelTCBiasIntercept[0][YAXIS] = accelBias2[YAXIS] - eepromConfig.accelTCBiasSlope[0][YAXIS] * mpu6050Temperature2;
+    eepromConfig.accelTCBiasIntercept[0][ZAXIS] = accelBias2[ZAXIS] - eepromConfig.accelTCBiasSlope[0][ZAXIS] * mpu6050Temperature2;
 
-    eepromConfig.gyroTCBiasSlope[ROLL ]      = (gyroBias2[ROLL ] - gyroBias1[ROLL ]) / (mpu6050Temperature2 - mpu6050Temperature1);
-    eepromConfig.gyroTCBiasSlope[PITCH]      = (gyroBias2[PITCH] - gyroBias1[PITCH]) / (mpu6050Temperature2 - mpu6050Temperature1);
-    eepromConfig.gyroTCBiasSlope[YAW  ]      = (gyroBias2[YAW  ] - gyroBias1[YAW  ]) / (mpu6050Temperature2 - mpu6050Temperature1);
+    eepromConfig.gyroTCBiasSlope[0][ROLL ]      = (gyroBias2[ROLL ] - gyroBias1[ROLL ]) / (mpu6050Temperature2 - mpu6050Temperature1);
+    eepromConfig.gyroTCBiasSlope[0][PITCH]      = (gyroBias2[PITCH] - gyroBias1[PITCH]) / (mpu6050Temperature2 - mpu6050Temperature1);
+    eepromConfig.gyroTCBiasSlope[0][YAW  ]      = (gyroBias2[YAW  ] - gyroBias1[YAW  ]) / (mpu6050Temperature2 - mpu6050Temperature1);
 
-    eepromConfig.gyroTCBiasIntercept[ROLL ]  = gyroBias2[ROLL ] - eepromConfig.gyroTCBiasSlope[ROLL ] * mpu6050Temperature2;
-    eepromConfig.gyroTCBiasIntercept[PITCH]  = gyroBias2[PITCH] - eepromConfig.gyroTCBiasSlope[PITCH] * mpu6050Temperature2;
-    eepromConfig.gyroTCBiasIntercept[YAW  ]  = gyroBias2[YAW  ] - eepromConfig.gyroTCBiasSlope[YAW  ] * mpu6050Temperature2;
+    eepromConfig.gyroTCBiasIntercept[0][ROLL ]  = gyroBias2[ROLL ] - eepromConfig.gyroTCBiasSlope[0][ROLL ] * mpu6050Temperature2;
+    eepromConfig.gyroTCBiasIntercept[0][PITCH]  = gyroBias2[PITCH] - eepromConfig.gyroTCBiasSlope[0][PITCH] * mpu6050Temperature2;
+    eepromConfig.gyroTCBiasIntercept[0][YAW  ]  = gyroBias2[YAW  ] - eepromConfig.gyroTCBiasSlope[0][YAW  ] * mpu6050Temperature2;
+
+    ///////////////////////////////////
+
+    cliPrintF("\nMPU6050 Calibration Complete.\n\n");
+
+    mpu6050Calibrating = false;
+}
+
+
+
+void mpu6050Calibration2(void)
+{
+    uint16_t sampleRate      = 1000;
+    uint16_t numberOfSamples = 2000;
+
+    float accelBias1[3]       = { 0.0f, 0.0f, 0.0f };
+    float gyroBias1[3]        = { 0.0f, 0.0f, 0.0f };
+    float mpu6050Temperature1 = 0.0f;
+
+    float accelBias2[3]       = { 0.0f, 0.0f, 0.0f };
+    float gyroBias2[3]        = { 0.0f, 0.0f, 0.0f };
+    float mpu6050Temperature2 = 0.0f;
+
+    uint16_t index;
+
+    mpu6050Calibrating = true;
+
+    cliPrintF("\nMPU6050 Calibration:\n");
+
+    ///////////////////////////////////
+    // Get samples at temperature1
+    ///////////////////////////////////
+
+    cliPrintF("\nBegin 1st MPU6050 Measurements...\n");
+
+    for (index = 0; index < numberOfSamples; index++)
+    {
+        readMPU60502();
+
+        rawAccel[1][ZAXIS].value = rawAccel[1][ZAXIS].value - 8192;
+
+        accelBias1[XAXIS]    += rawAccel[1][XAXIS].value;
+        accelBias1[YAXIS]    += rawAccel[1][YAXIS].value;
+        accelBias1[ZAXIS]    += rawAccel[1][ZAXIS].value;
+        gyroBias1[ROLL ]     += rawGyro[1][ROLL ].value;
+        gyroBias1[PITCH]     += rawGyro[1][PITCH].value;
+        gyroBias1[YAW  ]     += rawGyro[1][YAW  ].value;
+        mpu6050Temperature1  += (float)(rawMPU6050Temperature[1].value) / 340.0f + 35.0f;
+
+        delayMicroseconds(sampleRate);
+    }
+
+    accelBias1[XAXIS]   /= (float) numberOfSamples;
+    accelBias1[YAXIS]   /= (float) numberOfSamples;
+    accelBias1[ZAXIS]   /= (float) numberOfSamples;
+    gyroBias1[ROLL ]    /= (float) numberOfSamples;
+    gyroBias1[PITCH]    /= (float) numberOfSamples;
+    gyroBias1[YAW  ]    /= (float) numberOfSamples;
+    mpu6050Temperature1 /= (float) numberOfSamples;
+
+    cliPrintF("\nGyro Temperature Reading: %6.2f", mpu6050Temperature1);
+
+    cliPrintF("\n\nEnd 1st MPU6050 Measurements\n");
+
+    ///////////////////////////////////
+    // Time delay for temperature
+    // Stabilization
+    ///////////////////////////////////
+
+    cliPrintF("\nWaiting for 10 minutes for MPU6050 temp to rise...\n");
+    delay(600000);    // Number of mSec in 10 minutes
+
+    ///////////////////////////////////
+    // Get samples at temperature2
+    ///////////////////////////////////
+
+    cliPrintF("\nBegin 2nd MPU6050 Measurements...\n");
+
+    for (index = 0; index < numberOfSamples; index++)
+    {
+        readMPU60502();
+
+        rawAccel[1][ZAXIS].value = rawAccel[1][ZAXIS].value - 8192;
+
+        accelBias2[XAXIS]    += rawAccel[1][XAXIS].value;
+        accelBias2[YAXIS]    += rawAccel[1][YAXIS].value;
+        accelBias2[ZAXIS]    += rawAccel[1][ZAXIS].value;
+        gyroBias2[ROLL ]     += rawGyro[1][ROLL ].value;
+        gyroBias2[PITCH]     += rawGyro[1][PITCH].value;
+        gyroBias2[YAW  ]     += rawGyro[1][YAW  ].value;
+        mpu6050Temperature2  += (float)(rawMPU6050Temperature[1].value) / 340.0f + 35.0f;
+
+        delayMicroseconds(sampleRate);
+    }
+
+    accelBias2[XAXIS]   /= (float) numberOfSamples;
+    accelBias2[YAXIS]   /= (float) numberOfSamples;
+    accelBias2[ZAXIS]   /= (float) numberOfSamples;
+    gyroBias2[ROLL ]    /= (float) numberOfSamples;
+    gyroBias2[PITCH]    /= (float) numberOfSamples;
+    gyroBias2[YAW  ]    /= (float) numberOfSamples;
+    mpu6050Temperature2 /= (float) numberOfSamples;
+
+    cliPrintF("\nGyro Temperature Reading: %6.2f", mpu6050Temperature2);
+
+    cliPrintF("\n\nEnd 2st MPU6050 Measurements\n");
+
+    ///////////////////////////////////
+
+    eepromConfig.accelTCBiasSlope[1][XAXIS]     = (accelBias2[XAXIS] - accelBias1[XAXIS]) / (mpu6050Temperature2 - mpu6050Temperature1);
+    eepromConfig.accelTCBiasSlope[1][YAXIS]     = (accelBias2[YAXIS] - accelBias1[YAXIS]) / (mpu6050Temperature2 - mpu6050Temperature1);
+    eepromConfig.accelTCBiasSlope[1][ZAXIS]     = (accelBias2[ZAXIS] - accelBias1[ZAXIS]) / (mpu6050Temperature2 - mpu6050Temperature1);
+
+    eepromConfig.accelTCBiasIntercept[1][XAXIS] = accelBias2[XAXIS] - eepromConfig.accelTCBiasSlope[1][XAXIS] * mpu6050Temperature2;
+    eepromConfig.accelTCBiasIntercept[1][YAXIS] = accelBias2[YAXIS] - eepromConfig.accelTCBiasSlope[1][YAXIS] * mpu6050Temperature2;
+    eepromConfig.accelTCBiasIntercept[1][ZAXIS] = accelBias2[ZAXIS] - eepromConfig.accelTCBiasSlope[1][ZAXIS] * mpu6050Temperature2;
+
+    eepromConfig.gyroTCBiasSlope[1][ROLL ]      = (gyroBias2[ROLL ] - gyroBias1[ROLL ]) / (mpu6050Temperature2 - mpu6050Temperature1);
+    eepromConfig.gyroTCBiasSlope[1][PITCH]      = (gyroBias2[PITCH] - gyroBias1[PITCH]) / (mpu6050Temperature2 - mpu6050Temperature1);
+    eepromConfig.gyroTCBiasSlope[1][YAW  ]      = (gyroBias2[YAW  ] - gyroBias1[YAW  ]) / (mpu6050Temperature2 - mpu6050Temperature1);
+
+    eepromConfig.gyroTCBiasIntercept[1][ROLL ]  = gyroBias2[ROLL ] - eepromConfig.gyroTCBiasSlope[1][ROLL ] * mpu6050Temperature2;
+    eepromConfig.gyroTCBiasIntercept[1][PITCH]  = gyroBias2[PITCH] - eepromConfig.gyroTCBiasSlope[1][PITCH] * mpu6050Temperature2;
+    eepromConfig.gyroTCBiasIntercept[1][YAW  ]  = gyroBias2[YAW  ] - eepromConfig.gyroTCBiasSlope[1][YAW  ] * mpu6050Temperature2;
 
     ///////////////////////////////////
 

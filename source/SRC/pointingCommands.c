@@ -114,7 +114,7 @@ void processPointingCommands(void)
 																																													 ////角度补偿，补偿系数在这里取0.02足够好
 
 				//低通滤波
-        pointingCmd[ROLL] = firstOrderFilter(pointingCmd[ROLL], &firstOrderFilters[ROLL_RATE_POINTING_50HZ_LOWPASS]);
+        pointingCmd[ROLL] = firstOrderFilter(pointingCmd[ROLL], &firstOrderFilters[0][ROLL_RATE_POINTING_50HZ_LOWPASS]);
     }
     else
     { //不使用角度补偿
@@ -123,7 +123,7 @@ void processPointingCommands(void)
         else
             pointingCmd[ROLL] = rxCommand[ROLL] * eepromConfig.gimbalRollLeftLimit;
 //低通滤波
-        pointingCmd[ROLL] = firstOrderFilter(pointingCmd[ROLL], &firstOrderFilters[ROLL_ATT_POINTING_50HZ_LOWPASS]);
+        pointingCmd[ROLL] = firstOrderFilter(pointingCmd[ROLL], &firstOrderFilters[0][ROLL_ATT_POINTING_50HZ_LOWPASS]);
     }
 
 		//限制角度范围
@@ -139,7 +139,7 @@ void processPointingCommands(void)
         if ((rxCommand[PITCH] < 0.0f) && (pointingCmd[PITCH] >= -eepromConfig.gimbalPitchDownLimit))
             pointingCmd[PITCH] += rxCommand[PITCH] * eepromConfig.gimbalPitchRate * 0.02f;  // Constant DT of 0.02 good enough here
 
-        pointingCmd[PITCH] = firstOrderFilter(pointingCmd[PITCH], &firstOrderFilters[PITCH_RATE_POINTING_50HZ_LOWPASS]);
+        pointingCmd[PITCH] = firstOrderFilter(pointingCmd[PITCH], &firstOrderFilters[0][PITCH_RATE_POINTING_50HZ_LOWPASS]);
     }
     else
     {
@@ -149,7 +149,7 @@ void processPointingCommands(void)
         if (rxCommand[PITCH] < 0.0f)
             pointingCmd[PITCH] = rxCommand[PITCH] * eepromConfig.gimbalPitchDownLimit;
 
-        pointingCmd[PITCH] = firstOrderFilter(pointingCmd[PITCH], &firstOrderFilters[PITCH_ATT_POINTING_50HZ_LOWPASS]);
+        pointingCmd[PITCH] = firstOrderFilter(pointingCmd[PITCH], &firstOrderFilters[0][PITCH_ATT_POINTING_50HZ_LOWPASS]);
     }
 
     pointingCmd[PITCH] = constrain(pointingCmd[PITCH], -eepromConfig.gimbalPitchDownLimit, eepromConfig.gimbalPitchUpLimit);
@@ -164,7 +164,7 @@ void processPointingCommands(void)
         if ((rxCommand[YAW] < 0.0f) && (pointingCmd[YAW] >= -eepromConfig.gimbalYawLeftLimit))
             pointingCmd[YAW] += rxCommand[YAW] * eepromConfig.gimbalYawRate * 0.02f;  // Constant DT of 0.02 good enough here
 
-        pointingCmd[YAW] = firstOrderFilter(pointingCmd[YAW], &firstOrderFilters[YAW_RATE_POINTING_50HZ_LOWPASS]);
+        pointingCmd[YAW] = firstOrderFilter(pointingCmd[YAW], &firstOrderFilters[0][YAW_RATE_POINTING_50HZ_LOWPASS]);
     }
     else
     {
@@ -174,7 +174,7 @@ void processPointingCommands(void)
         if (rxCommand[YAW] < 0.0f)
             pointingCmd[YAW] = rxCommand[YAW] * eepromConfig.gimbalYawLeftLimit;
 
-        pointingCmd[YAW] = firstOrderFilter(pointingCmd[YAW], &firstOrderFilters[YAW_ATT_POINTING_50HZ_LOWPASS]);
+        pointingCmd[YAW] = firstOrderFilter(pointingCmd[YAW], &firstOrderFilters[0][YAW_ATT_POINTING_50HZ_LOWPASS]);
     }
 
     pointingCmd[YAW] = constrain(pointingCmd[YAW], -eepromConfig.gimbalYawLeftLimit, eepromConfig.gimbalYawRightLimit);

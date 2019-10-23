@@ -38,7 +38,8 @@
 #include "stm32f10x.h"
 ///////////////////////////////////////////////////////////////////////////////
 
-#define MPU6050_ADDRESS             0x68
+#define MPU6050_ADDRESS2             0x68 // camera IMU
+#define MPU6050_ADDRESS1             0x69 // Main Board IMU
 
 #define MPU6050_CONFIG              0x1A
 
@@ -58,19 +59,19 @@ extern float   accelOneG;
 
 extern float   accelTCBias[3];
 
-extern int16_t accelData500Hz[3];
+extern int16_t accelData500Hz[2][3];
 
-extern int16andUint8_t rawAccel[3];
+extern int16andUint8_t rawAccel[2][3];
 
 ///////////////////////////////////////
 
-extern float gyroRTBias[3];
+extern float gyroRTBias[2][3];
 
-extern float gyroTCBias[3];
+extern float gyroTCBias[2][3];
 
-extern int16_t gyroData500Hz[3];
+extern int16_t gyroData500Hz[2][3];
 
-extern int16andUint8_t rawGyro[3];
+extern int16andUint8_t rawGyro[2][3];
 
 ///////////////////////////////////////
 
@@ -78,31 +79,38 @@ extern uint8_t mpu6050Calibrating;
 
 extern float   mpu6050Temperature;
 
-extern int16andUint8_t rawMPU6050Temperature;
+extern int16andUint8_t rawMPU6050Temperature[2];
 
 ///////////////////////////////////////////////////////////////////////////////
 // MPU6050 Initialization
 ///////////////////////////////////////////////////////////////////////////////
 
-void initMPU6050(void);
+void initMPU6050_i2c2(void);
+void initMPU6050_i2c1(void);
 
 ///////////////////////////////////////////////////////////////////////////////
 // Read MPU6050
 ///////////////////////////////////////////////////////////////////////////////
 
-void readMPU6050(void);
+void readMPU60501(void);
+
+void readMPU60502(void);
 
 ///////////////////////////////////////////////////////////////////////////////
 // Compute MPU6050 Runtime Data
 ///////////////////////////////////////////////////////////////////////////////
 
-void computeMPU6050RTData(void);
+void computeMPU6050RTData1(void);
+
+void computeMPU6050RTData2(void);
 
 ///////////////////////////////////////////////////////////////////////////////
 // Compute MPU6050 Temperature Compensation Bias
 ///////////////////////////////////////////////////////////////////////////////
 
-void computeMPU6050TCBias(void);
+void computeMPU6050TCBias1(void);
+
+void computeMPU6050TCBias2(void);
 
 ///////////////////////////////////////////////////////////////////////////////
 // Orient IMU
