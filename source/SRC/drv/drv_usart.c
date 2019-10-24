@@ -61,7 +61,7 @@ void Usart4Init(void)
 
     USART_ClockStructInit(&USART_ClockInitStructure);
     USART_ClockInit(UART4, &USART_ClockInitStructure);
-    //USART_InitStructure.USART_BaudRate = 9600;
+//    USART_InitStructure.USART_BaudRate = 9600;
     USART_InitStructure.USART_BaudRate = 115200;
     USART_InitStructure.USART_WordLength = USART_WordLength_8b;
     USART_InitStructure.USART_StopBits = USART_StopBits_1;

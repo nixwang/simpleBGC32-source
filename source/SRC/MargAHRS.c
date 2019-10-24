@@ -373,9 +373,17 @@ void MargAHRSupdate1(float gx, float gy, float gz,
         sensors[0].margAttitude500Hz[PITCH] = -asinf(2.0f * (q1q3[0] - q0q2[0]));
         sensors[0].margAttitude500Hz[YAW  ] = atan2f(2.0f * (q1q2[0] + q0q3[0]), q0q0[0] + q1q1[0] - q2q2[0] - q3q3[0]);
 
-       cliPrintF("\r\n ROLL[0] %d ", (int)(sensors[0].margAttitude500Hz[ROLL]*100));
-       cliPrintF(" PITCH[0] %d ", (int)(sensors[0].margAttitude500Hz[PITCH]*100));
-       cliPrintF(" YAW[0] %d ", (int)(sensors[0].margAttitude500Hz[YAW]*100));
+        // sensors[0].margAttitude500Hz[ROLL ] = 8.5;
+        // sensors[0].margAttitude500Hz[PITCH ] = 8.5;
+        // sensors[0].margAttitude500Hz[YAW ] = 8.5;
+        
+        printFLOAT(sensors[0].margAttitude500Hz[ROLL ], 0);
+        printFLOAT(sensors[0].margAttitude500Hz[PITCH], 1);
+        printFLOAT(sensors[0].margAttitude500Hz[YAW  ], 2);
+
+        cliPrintF("\r\n ROLL[0] %d ", (int)(sensors[0].margAttitude500Hz[ROLL]*100));
+        cliPrintF(" PITCH[0] %d ", (int)(sensors[0].margAttitude500Hz[PITCH]*100));
+        cliPrintF(" YAW[0] %d ", (int)(sensors[0].margAttitude500Hz[YAW]*100));
 
     }
 }
@@ -550,13 +558,17 @@ void MargAHRSupdate2(float gx, float gy, float gz,
         sensors[1].margAttitude500Hz[PITCH] = -asinf(2.0f * (q1q3[1] - q0q2[1]));
         sensors[1].margAttitude500Hz[YAW  ] = atan2f(2.0f * (q1q2[1] + q0q3[1]), q0q0[1] + q1q1[1] - q2q2[1] - q3q3[1]);
 
+        // sensors[1].margAttitude500Hz[ROLL ] = 8.5;
+        // sensors[1].margAttitude500Hz[PITCH ] = 8.5;
+        // sensors[1].margAttitude500Hz[YAW ] = 8.5;
+        printFLOAT(sensors[1].margAttitude500Hz[ROLL ], 3);
+        printFLOAT(sensors[1].margAttitude500Hz[PITCH], 4);
+        printFLOAT(sensors[1].margAttitude500Hz[YAW  ], 5);
+        SendToScope();
+        
        cliPrintF("\r\n ROLL[1] %d ", (int)(sensors[1].margAttitude500Hz[ROLL]*100));
        cliPrintF(" PITCH[1] %d ", (int)(sensors[1].margAttitude500Hz[PITCH]*100));
        cliPrintF(" YAW[1] %d \r\n", (int)(sensors[1].margAttitude500Hz[YAW]*100));
 
     }
 }
-
-//====================================================================================================
-// END OF CODE
-//====================================================================================================

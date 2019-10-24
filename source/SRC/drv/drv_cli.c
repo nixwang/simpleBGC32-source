@@ -55,7 +55,40 @@ void printUSART(const char *fmt, ...)
     USART_PutString((unsigned char *)buf);
     va_end(vlist);
 }
+uint8_t uSendBuf[24];
+///////////////////////////////////////////////////////////////////////////////
+void printFLOAT(const float data, int pos)
+{
+  
+    charAndfloat u1;
+    u1.d = data;
+  
+    for(int i = 0; i < 4; ++i){
+        uSendBuf[i+pos*4] = u1.s[i];
+    }
+}
 
+int Channel_Buf_Num = 24;   // 4*6
+void SendToScope()
+{
+	u8 i;
+	u8 sum=0;
+	
+	USART_PutChar(251);
+	USART_PutChar(109);
+	USART_PutChar(37);
+	sum+=(251);      
+	sum+=(109);
+	sum+=(37);
+	
+	for(i=0;i<Channel_Buf_Num;i++)
+	{
+		USART_PutChar(uSendBuf[i]);
+		sum+=uSendBuf[i];          
+	}    
+	
+ 	USART_PutChar(sum);      
+}
 ///////////////////////////////////////////////////////////////////////////////
 
 void printDirect(const char *fmt, ...)
@@ -142,7 +175,8 @@ void cliInit(void)
     Set_System();
     Usart4Init();
 
-    printUSART("USART4 ready\n");
+    // printUSART("USART4 ready \r\n");
+    
 
     Set_USBClock();
     USB_Interrupts_Config();
